@@ -955,7 +955,953 @@
   </div>
 
   <script>
-    // (JS code omitted here in Python snippet to keep it short, but in real file it's included)
+    // ====== DATA CONTAINERS (worden gevuld via JSON) ======
+    let ingredients = [];
+    let recipes = [];
+    let recipeIngredients = [];
+
+    // ====== STATE ======
+    const pantry = new Map();
+    const shoppingList = new Map();
+
+    let lastGroups = { all: [], almost: [], missing: [] };
+    let currentPersons = 2;
+    let detailCurrentRecipe = null;
+    let detailCurrentMissingInfo = null;
+
+    // DOM refs
+    const ingredientSelectEl = document.getElementById("ingredientSelect");
+    const ingredientAmountEl = document.getElementById("ingredientAmount");
+    const ingredientUnitEl = document.getElementById("ingredientUnit");
+    const pantryChipsEl = document.getElementById("pantryChips");
+    const personsEl = document.getElementById("persons");
+    const ingredientSearchEl = document.getElementById("ingredientSearch");
+    const toggleFavoriteBtnEl = document.getElementById("toggleFavoriteBtn");
+
+    const filterCategoryEl = document.getElementById("filterCategory");
+    const filterMaxMissingEl = document.getElementById("filterMaxMissing");
+    const filterMaxKcalEl = document.getElementById("filterMaxKcal");
+    const filterMaxTimeEl = document.getElementById("filterMaxTime");
+    const sortByEl = document.getElementById("sortBy");
+    const recipeSearchEl = document.getElementById("recipeSearch");
+    const resetFiltersBtnEl = document.getElementById("resetFiltersBtn");
+
+    const recipesAllEl = document.getElementById("recipesAll");
+    const recipesAlmostEl = document.getElementById("recipesAlmost");
+    const recipesMissingEl = document.getElementById("recipesMissing");
+
+    const emptyAllEl = document.getElementById("emptyAll");
+    const emptyAlmostEl = document.getElementById("emptyAlmost");
+    const emptyMissingEl = document.getElementById("emptyMissing");
+
+    const countAllEl = document.getElementById("countAll");
+    const countAlmostEl = document.getElementById("countAlmost");
+    const countMissingEl = document.getElementById("countMissing");
+
+    const shoppingListEl = document.getElementById("shoppingList");
+    const shoppingEmptyEl = document.getElementById("shoppingEmpty");
+    const shoppingSummaryEl = document.getElementById("shoppingSummary");
+
+    const recipesScreenEl = document.getElementById("recipesScreen");
+    const shoppingScreenEl = document.getElementById("shoppingScreen");
+    const detailScreenEl = document.getElementById("detailScreen");
+    const tabButtons = document.querySelectorAll(".tab-btn");
+
+    const detailTitleEl = document.getElementById("detailTitle");
+    const detailPersonsTagEl = document.getElementById("detailPersonsTag");
+    const detailDescriptionEl = document.getElementById("detailDescription");
+    const detailMacrosEl = document.getElementById("detailMacros");
+    const detailIngredientsListEl = document.getElementById("detailIngredientsList");
+    const detailStepsEl = document.getElementById("detailSteps");
+    const detailFooterInfoEl = document.getElementById("detailFooterInfo");
+    const detailAddMissingBtnEl = document.getElementById("detailAddMissingBtn");
+    const detailBackBtnEl = document.getElementById("detailBackBtn");
+    const themeToggleEl = document.getElementById("themeToggle");
+
+    // ====== THEMA ======
+    function applySavedTheme() {
+      const saved = localStorage.getItem("theme") || "dark";
+      const isLight = saved === "light";
+      document.documentElement.classList.toggle("light", isLight);
+      themeToggleEl.textContent = isLight ? "🌙" : "☀️";
+    }
+
+    themeToggleEl.addEventListener("click", () => {
+      const isLight = document.documentElement.classList.toggle("light");
+      localStorage.setItem("theme", isLight ? "light" : "dark");
+      themeToggleEl.textContent = isLight ? "🌙" : "☀️";
+    });
+
+    applySavedTheme();
+
+    // ====== SCHERMEN ======
+    function switchScreen(screenId) {
+      recipesScreenEl.classList.toggle("active", screenId === "recipesScreen");
+      shoppingScreenEl.classList.toggle("active", screenId === "shoppingScreen");
+      detailScreenEl.classList.toggle("active", screenId === "detailScreen");
+
+      tabButtons.forEach((btn) => {
+        if (screenId === "shoppingScreen") {
+          btn.classList.toggle("active", btn.dataset.screen === "shoppingScreen");
+        } else {
+          btn.classList.toggle("active", btn.dataset.screen === "recipesScreen");
+        }
+      });
+    }
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener("click", () => switchScreen(btn.dataset.screen));
+    });
+
+    document.getElementById("backToRecipes").addEventListener("click", () => {
+      switchScreen("recipesScreen");
+    });
+
+    document.getElementById("goToShoppingFromTop").addEventListener("click", () => {
+      switchScreen("shoppingScreen");
+    });
+
+    detailBackBtnEl.addEventListener("click", () => switchScreen("recipesScreen"));
+
+    // ====== JSON LADEN & INIT ======
+    async function loadDataAndInit() {
+      try {
+        const [ingRes, recRes, recIngRes] = await Promise.all([
+          fetch("ingredients.json"),
+          fetch("recipes.json"),
+          fetch("recipeIngredients.json")
+        ]);
+
+        if (!ingRes.ok || !recRes.ok || !recIngRes.ok) {
+          throw new Error("Kon JSON-bestanden niet laden");
+        }
+
+        ingredients = await ingRes.json();
+        recipes = await recRes.json();
+        recipeIngredients = await recIngRes.json();
+
+        // Favorites laden vóór we select renderen
+        loadFavorites();
+        initIngredientSelect();
+
+        loadPantryFromStorage();
+        loadPersonsFromStorage();
+        loadFiltersFromStorage();
+        loadShoppingListFromStorage();
+
+        renderPantryChips();
+        renderShoppingList();
+        renderRecipeGroups({ all: [], almost: [], missing: [] }, currentPersons);
+      } catch (err) {
+        console.error(err);
+        alert("Er ging iets mis bij het laden van de data (JSON). Controleer of de bestanden in dezelfde map staan.");
+      }
+    }
+
+    // ====== FAVORIETEN (INGREDIËNTEN) ======
+    function getFilteredSortedIngredients() {
+      const search = ingredientSearchEl.value.trim().toLowerCase();
+      return ingredients
+        .filter(ing =>
+          !search ||
+          ing.name.toLowerCase().includes(search)
+        )
+        .sort((a, b) => {
+          const favA = !!ingFavorite(a.id);
+          const favB = !!ingFavorite(b.id);
+          if (favA && !favB) return -1;
+          if (!favA && favB) return 1;
+          return a.name.localeCompare(b.name, "nl");
+        });
+    }
+
+    function ingFavorite(id) {
+      const favIds = JSON.parse(localStorage.getItem("favorites") || "[]");
+      return favIds.includes(id);
+    }
+
+    function setIngFavorite(id, isFav) {
+      let favIds = JSON.parse(localStorage.getItem("favorites") || "[]");
+      if (isFav && !favIds.includes(id)) favIds.push(id);
+      if (!isFav) favIds = favIds.filter(x => x !== id);
+      localStorage.setItem("favorites", JSON.stringify(favIds));
+    }
+
+    function loadFavorites() {
+      const favIds = JSON.parse(localStorage.getItem("favorites") || "[]");
+      // niets speciaals nodig; we lezen ze via ingFavorite()
+      return favIds;
+    }
+
+    function renderIngredientSelect(preserveSelected = true) {
+      const previousId = preserveSelected ? parseInt(ingredientSelectEl.value, 10) || null : null;
+      const list = getFilteredSortedIngredients();
+
+      ingredientSelectEl.innerHTML = "";
+      if (list.length === 0) {
+        const opt = document.createElement("option");
+        opt.value = "";
+        opt.textContent = "Geen ingrediënten gevonden";
+        ingredientSelectEl.appendChild(opt);
+        ingredientSelectEl.disabled = true;
+        toggleFavoriteBtnEl.disabled = true;
+        toggleFavoriteBtnEl.textContent = "☆ Favoriet";
+        return;
+      }
+
+      ingredientSelectEl.disabled = false;
+
+      list.forEach(ing => {
+        const opt = document.createElement("option");
+        opt.value = ing.id;
+        opt.textContent = (ingFavorite(ing.id) ? "★ " : "") + ing.name;
+        ingredientSelectEl.appendChild(opt);
+      });
+
+      if (previousId) {
+        const found = list.find(ing => ing.id === previousId);
+        if (found) ingredientSelectEl.value = previousId;
+      }
+
+      if (!ingredientSelectEl.value) {
+        ingredientSelectEl.value = list[0].id;
+      }
+
+      updateFavoriteButtonState();
+    }
+
+    function updateFavoriteButtonState() {
+      const ingId = parseInt(ingredientSelectEl.value, 10);
+      const ing = ingredients.find(i => i.id === ingId);
+      if (!ing) {
+        toggleFavoriteBtnEl.disabled = true;
+        toggleFavoriteBtnEl.textContent = "☆ Favoriet";
+        return;
+      }
+      toggleFavoriteBtnEl.disabled = false;
+      toggleFavoriteBtnEl.textContent = ingFavorite(ingId) ? "★ Favoriet" : "☆ Favoriet";
+    }
+
+    function initIngredientSelect() {
+      renderIngredientSelect(false);
+    }
+
+    ingredientSearchEl.addEventListener("input", () => {
+      renderIngredientSelect(false);
+    });
+
+    ingredientSelectEl.addEventListener("change", updateFavoriteButtonState);
+
+    toggleFavoriteBtnEl.addEventListener("click", () => {
+      const ingId = parseInt(ingredientSelectEl.value, 10);
+      if (!ingId) return;
+      const favNow = ingFavorite(ingId);
+      setIngFavorite(ingId, !favNow);
+      renderIngredientSelect(true);
+    });
+
+    // ====== LOCALSTORAGE: VOORRAAD, PERSONEN, FILTERS, LIJST ======
+    function loadPantryFromStorage() {
+      const saved = localStorage.getItem("pantry");
+      if (!saved) return;
+      try {
+        const arr = JSON.parse(saved);
+        arr.forEach(([id, obj]) => pantry.set(Number(id), obj));
+      } catch {}
+    }
+
+    function savePantryToStorage() {
+      localStorage.setItem("pantry", JSON.stringify(Array.from(pantry.entries())));
+    }
+
+    function loadPersonsFromStorage() {
+      const saved = localStorage.getItem("persons");
+      if (!saved) return;
+      personsEl.value = saved;
+      currentPersons = Math.max(1, parseInt(saved, 10) || 1);
+    }
+
+    function savePersonsToStorage() {
+      localStorage.setItem("persons", personsEl.value);
+    }
+
+    function loadFiltersFromStorage() {
+      const saved = localStorage.getItem("filters");
+      if (!saved) return;
+      try {
+        const f = JSON.parse(saved);
+        if (f.category) filterCategoryEl.value = f.category;
+        if (f.maxMissing) filterMaxMissingEl.value = f.maxMissing;
+        if (f.maxKcal) filterMaxKcalEl.value = f.maxKcal;
+        if (f.maxTime) filterMaxTimeEl.value = f.maxTime;
+        if (f.sortBy) sortByEl.value = f.sortBy;
+        if (f.search) recipeSearchEl.value = f.search;
+      } catch {}
+    }
+
+    function saveFiltersToStorage() {
+      const state = {
+        category: filterCategoryEl.value,
+        maxMissing: filterMaxMissingEl.value,
+        maxKcal: filterMaxKcalEl.value,
+        maxTime: filterMaxTimeEl.value,
+        sortBy: sortByEl.value,
+        search: recipeSearchEl.value
+      };
+      localStorage.setItem("filters", JSON.stringify(state));
+    }
+
+    function loadShoppingListFromStorage() {
+      const saved = localStorage.getItem("shoppingList");
+      if (!saved) return;
+      try {
+        const arr = JSON.parse(saved);
+        arr.forEach(item => {
+          shoppingList.set(Number(item.id), {
+            name: item.name,
+            quantity: item.quantity,
+            unit: item.unit,
+            checked: item.checked,
+            recipes: new Set(item.recipes || [])
+          });
+        });
+      } catch {}
+    }
+
+    function saveShoppingListToStorage() {
+      const plain = Array.from(shoppingList.entries()).map(([id, data]) => ({
+        id,
+        name: data.name,
+        quantity: data.quantity,
+        unit: data.unit,
+        checked: data.checked,
+        recipes: Array.from(data.recipes)
+      }));
+      localStorage.setItem("shoppingList", JSON.stringify(plain));
+    }
+
+    // ====== VOORRAAD CHIPS ======
+    function renderPantryChips() {
+      pantryChipsEl.innerHTML = "";
+      if (pantry.size === 0) return;
+
+      pantry.forEach((value, ingredientId) => {
+        const ing = ingredients.find((i) => i.id === ingredientId);
+        if (!ing) return;
+
+        const chip = document.createElement("div");
+        chip.className = "chip";
+        const label = document.createElement("span");
+        label.innerHTML = `<strong>${ing.name}</strong> &nbsp; ${value.quantity} ${value.unit}`;
+
+        const removeBtn = document.createElement("button");
+        removeBtn.textContent = "×";
+        removeBtn.title = "Verwijder";
+        removeBtn.addEventListener("click", () => {
+          pantry.delete(ingredientId);
+          savePantryToStorage();
+          renderPantryChips();
+        });
+
+        chip.appendChild(label);
+        chip.appendChild(removeBtn);
+        pantryChipsEl.appendChild(chip);
+      });
+    }
+
+    // ====== RECEPT LOGICA ======
+    function getRecipeIngredients(recipeId) {
+      return recipeIngredients.filter((ri) => ri.recipe_id === recipeId);
+    }
+
+    function calculateMissingForRecipe(recipe, persons) {
+      const scale = persons / (recipe.baseServings || 1);
+      const missing = [];
+      const details = [];
+
+      const rIngredients = getRecipeIngredients(recipe.id);
+
+      rIngredients.forEach((ri) => {
+        const needed = ri.amount * scale;
+        const pantryItem = pantry.get(ri.ingredient_id);
+        const have = pantryItem ? pantryItem.quantity : 0;
+        const diff = needed - have;
+
+        const ing = ingredients.find((i) => i.id === ri.ingredient_id);
+        const ingName = ing ? ing.name : `Ingrediënt #${ri.ingredient_id}`;
+
+        if (diff > 0.0001) {
+          missing.push({
+            ingredient_id: ri.ingredient_id,
+            name: ingName,
+            missing: diff,
+            unit: ri.unit
+          });
+        }
+
+        details.push({
+          ingredient_id: ri.ingredient_id,
+          name: ingName,
+          needed,
+          have,
+          unit: ri.unit
+        });
+      });
+
+      return { missing, details };
+    }
+
+    function classifyRecipe(missingList, totalIngredients) {
+      if (missingList.length === 0) return "all";
+      const ratio = missingList.length / totalIngredients;
+      if (ratio <= 0.4) return "almost";
+      return "missing";
+    }
+
+    function recipeMatchesSearch(recipe, term) {
+      if (!term) return true;
+      const t = term.toLowerCase();
+      if (recipe.title.toLowerCase().includes(t)) return true;
+      if (recipe.description && recipe.description.toLowerCase().includes(t)) return true;
+      if (recipe.category && recipe.category.toLowerCase().includes(t)) return true;
+
+      // zoek in ingrediënten
+      const rIng = getRecipeIngredients(recipe.id);
+      for (const ri of rIng) {
+        const ing = ingredients.find(i => i.id === ri.ingredient_id);
+        if (ing && ing.name.toLowerCase().includes(t)) return true;
+      }
+
+      // zoek in tijd (bijv "30" → 30 min)
+      if (String(recipe.time || "").includes(t)) return true;
+
+      return false;
+    }
+
+    // ====== BOODSCHAPPENLIJST ======
+    function addMissingToShoppingList(recipe, missingList) {
+      missingList.forEach((mi) => {
+        const existing = shoppingList.get(mi.ingredient_id);
+        if (existing) {
+          existing.quantity += mi.missing;
+          existing.recipes.add(recipe.title);
+        } else {
+          shoppingList.set(mi.ingredient_id, {
+            name: mi.name,
+            unit: mi.unit,
+            quantity: mi.missing,
+            recipes: new Set([recipe.title]),
+            checked: false
+          });
+        }
+      });
+      saveShoppingListToStorage();
+      renderShoppingList();
+      switchScreen("shoppingScreen");
+    }
+
+    function renderShoppingList() {
+      shoppingListEl.innerHTML = "";
+      const items = Array.from(shoppingList.entries());
+
+      if (items.length === 0) {
+        shoppingEmptyEl.style.display = "block";
+        shoppingSummaryEl.textContent = "0 items";
+        return;
+      }
+
+      shoppingEmptyEl.style.display = "none";
+
+      let uncheckedCount = 0;
+
+      items.forEach(([ingredientId, item]) => {
+        const li = document.createElement("li");
+        li.className = "shopping-item";
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = item.checked;
+        checkbox.addEventListener("change", () => {
+          item.checked = checkbox.checked;
+          saveShoppingListToStorage();
+          renderShoppingList();
+        });
+
+        const main = document.createElement("div");
+        main.className = "shopping-item-main";
+
+        const titleRow = document.createElement("div");
+        titleRow.className = "shopping-item-title";
+
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = item.name;
+        if (item.checked) {
+          nameSpan.style.textDecoration = "line-through";
+          nameSpan.style.color = "#6a7088";
+        }
+
+        const qtySpan = document.createElement("span");
+        qtySpan.className = "badge-soft";
+        const amountText =
+          item.unit === "snuf"
+            ? "snufje(s)"
+            : `${Math.round(item.quantity * 10) / 10} ${item.unit}`;
+        qtySpan.textContent = amountText;
+
+        titleRow.appendChild(nameSpan);
+        titleRow.appendChild(qtySpan);
+
+        const meta = document.createElement("div");
+        meta.className = "shopping-item-meta";
+        meta.textContent = `Ingrediënt #${ingredientId}`;
+
+        const recipesInfo = document.createElement("div");
+        recipesInfo.className = "shopping-item-recipes";
+        const recipeNames = Array.from(item.recipes);
+        recipesInfo.textContent = "Voor: " + recipeNames.join(", ");
+
+        main.appendChild(titleRow);
+        main.appendChild(meta);
+        main.appendChild(recipesInfo);
+
+        li.appendChild(checkbox);
+        li.appendChild(main);
+
+        shoppingListEl.appendChild(li);
+
+        if (!item.checked) uncheckedCount++;
+      });
+
+      shoppingSummaryEl.textContent = `${items.length} item(s) • ${uncheckedCount} open`;
+    }
+
+    function clearShoppingList() {
+      if (shoppingList.size === 0) {
+        alert("Je boodschappenlijst is al leeg 🙂");
+        return;
+      }
+      const ok = window.confirm(
+        "Weet je zeker dat je de hele boodschappenlijst wilt leegmaken?"
+      );
+      if (!ok) return;
+
+      shoppingList.clear();
+      saveShoppingListToStorage();
+      renderShoppingList();
+      shoppingSummaryEl.textContent = "0 items";
+    }
+
+    document.getElementById("clearShopping").addEventListener("click", clearShoppingList);
+
+    // ====== RECEPT KAART ======
+    function createRecipeCard(recipe, persons, missingInfo) {
+      const card = document.createElement("article");
+      card.className = "recipe-card";
+
+      const titleRow = document.createElement("div");
+      titleRow.className = "recipe-title-row";
+
+      const h3 = document.createElement("h3");
+      h3.textContent = recipe.title;
+
+      const tagWrap = document.createElement("div");
+      tagWrap.style.display = "flex";
+      tagWrap.style.gap = "4px";
+      tagWrap.style.alignItems = "center";
+
+      const tagPersons = document.createElement("span");
+      tagPersons.className = "tag";
+      tagPersons.textContent = persons + " pers";
+
+      const tagCat = document.createElement("span");
+      tagCat.className = "tag";
+      tagCat.textContent =
+        recipe.category === "meat" ? "Vlees" :
+        recipe.category === "fish" ? "Vis" :
+        "Vega";
+
+      const tagTime = document.createElement("span");
+      tagTime.className = "tag";
+      tagTime.textContent = (recipe.time || 0) + " min";
+
+      tagWrap.appendChild(tagPersons);
+      tagWrap.appendChild(tagCat);
+      tagWrap.appendChild(tagTime);
+
+      titleRow.appendChild(h3);
+      titleRow.appendChild(tagWrap);
+
+      const desc = document.createElement("p");
+      desc.className = "recipe-description";
+      desc.textContent = recipe.description;
+
+      const meta = document.createElement("div");
+      meta.className = "recipe-meta";
+      const totalKcal = Math.round(recipe.calories * persons);
+      const totalProtein = Math.round(recipe.protein * persons);
+      const totalCarbs = Math.round(recipe.carbs * persons);
+      const totalFat = Math.round(recipe.fat * persons);
+
+      const macroKcal = document.createElement("span");
+      macroKcal.className = "macro-pill";
+      macroKcal.textContent = `${totalKcal} kcal totaal`;
+
+      const macroProt = document.createElement("span");
+      macroProt.className = "macro-pill";
+      macroProt.textContent = `${totalProtein}g eiwit`;
+
+      const macroCarbs = document.createElement("span");
+      macroCarbs.className = "macro-pill";
+      macroCarbs.textContent = `${totalCarbs}g kh`;
+
+      const macroFat = document.createElement("span");
+      macroFat.className = "macro-pill";
+      macroFat.textContent = `${totalFat}g vet`;
+
+      meta.appendChild(macroKcal);
+      meta.appendChild(macroProt);
+      meta.appendChild(macroCarbs);
+      meta.appendChild(macroFat);
+
+      card.appendChild(titleRow);
+      card.appendChild(desc);
+      card.appendChild(meta);
+
+      if (missingInfo.missing.length > 0) {
+        const divMissing = document.createElement("div");
+        divMissing.className = "missing-list";
+
+        const label = document.createElement("div");
+        label.innerHTML = "<strong>Je mist nog:</strong>";
+        divMissing.appendChild(label);
+
+        const ul = document.createElement("ul");
+        missingInfo.missing.forEach((mi) => {
+          const li = document.createElement("li");
+          const amount =
+            mi.unit === "snuf"
+              ? "een snuf"
+              : `${Math.round(mi.missing * 10) / 10} ${mi.unit}`;
+          li.textContent = `${amount} ${mi.name}`;
+          ul.appendChild(li);
+        });
+        divMissing.appendChild(ul);
+        card.appendChild(divMissing);
+      } else {
+        const divOk = document.createElement("div");
+        divOk.className = "missing-list";
+        divOk.innerHTML = "<strong>Je hebt alles in huis 🎉</strong>";
+        card.appendChild(divOk);
+      }
+
+      const footer = document.createElement("div");
+      footer.className = "card-footer";
+
+      const btnDetail = document.createElement("button");
+      btnDetail.className = "btn-secondary";
+      btnDetail.innerHTML = "📄 Details";
+      btnDetail.addEventListener("click", () => {
+        openDetailScreen(recipe, missingInfo, persons);
+      });
+      footer.appendChild(btnDetail);
+
+      if (missingInfo.missing.length > 0) {
+        const btnAdd = document.createElement("button");
+        btnAdd.className = "btn-ghost";
+        btnAdd.innerHTML = "🧺 Zet ontbrekende op boodschappenlijst";
+        btnAdd.addEventListener("click", () => {
+          addMissingToShoppingList(recipe, missingInfo.missing);
+        });
+        footer.appendChild(btnAdd);
+      }
+
+      card.appendChild(footer);
+      return card;
+    }
+
+    // ====== DETAIL SCREEN ======
+    function openDetailScreen(recipe, missingInfo, persons) {
+      detailCurrentRecipe = recipe;
+      detailCurrentMissingInfo = missingInfo;
+
+      detailTitleEl.textContent = recipe.title;
+      detailPersonsTagEl.textContent = persons + " pers";
+      detailDescriptionEl.textContent = recipe.description;
+      detailStepsEl.textContent = (recipe.steps || []).join("\n");
+
+      detailMacrosEl.innerHTML = "";
+      const totalKcal = Math.round(recipe.calories * persons);
+      const totalProtein = Math.round(recipe.protein * persons);
+      const totalCarbs = Math.round(recipe.carbs * persons);
+      const totalFat = Math.round(recipe.fat * persons);
+
+      const mk = document.createElement("span");
+      mk.className = "macro-pill";
+      mk.textContent = `${totalKcal} kcal totaal`;
+
+      const mp = document.createElement("span");
+      mp.className = "macro-pill";
+      mp.textContent = `${totalProtein}g eiwit`;
+
+      const mc = document.createElement("span");
+      mc.className = "macro-pill";
+      mc.textContent = `${totalCarbs}g kh`;
+
+      const mf = document.createElement("span");
+      mf.className = "macro-pill";
+      mf.textContent = `${totalFat}g vet`;
+
+      detailMacrosEl.appendChild(mk);
+      detailMacrosEl.appendChild(mp);
+      detailMacrosEl.appendChild(mc);
+      detailMacrosEl.appendChild(mf);
+
+      detailIngredientsListEl.innerHTML = "";
+      const scale = persons / (recipe.baseServings || 1);
+      const rIngredients = getRecipeIngredients(recipe.id);
+
+      rIngredients.forEach((ri) => {
+        const ing = ingredients.find((i) => i.id === ri.ingredient_id);
+        const name = ing ? ing.name : `Ingrediënt #${ri.ingredient_id}`;
+        const needed = ri.amount * scale;
+        const pantryItem = pantry.get(ri.ingredient_id);
+        const have = pantryItem ? pantryItem.quantity : 0;
+        const diff = needed - have;
+
+        const li = document.createElement("li");
+
+        const left = document.createElement("span");
+        left.textContent = (ri.unit === "snuf"
+          ? "snufje(s)"
+          : `${Math.round(needed * 10) / 10} ${ri.unit}`) + " " + name;
+
+        const right = document.createElement("span");
+        if (diff <= 0.0001) {
+          right.textContent = "Alles in huis";
+        } else {
+          const missText = ri.unit === "snuf"
+            ? "ontbreekt"
+            : `mis je ~${Math.round(diff * 10) / 10} ${ri.unit}`;
+          right.textContent = pantryItem
+            ? `Heb: ${Math.round(have * 10) / 10} ${ri.unit} • ${missText}`
+            : `Niets in huis • ${missText}`;
+        }
+
+        li.appendChild(left);
+        li.appendChild(right);
+        detailIngredientsListEl.appendChild(li);
+      });
+
+      const totalIng = rIngredients.length;
+      const missingCount = missingInfo.missing.length;
+      if (missingCount === 0) {
+        detailFooterInfoEl.textContent = "Je hebt alle ingrediënten in huis voor dit gerecht 🎉";
+      } else {
+        detailFooterInfoEl.textContent =
+          `Je mist ${missingCount} van de ${totalIng} ingrediënten.`;
+      }
+
+      detailAddMissingBtnEl.onclick = () => {
+        if (!detailCurrentRecipe || !detailCurrentMissingInfo) return;
+        if (detailCurrentMissingInfo.missing.length === 0) {
+          alert("Je mist niets meer voor dit gerecht 🙂");
+          return;
+        }
+        addMissingToShoppingList(detailCurrentRecipe, detailCurrentMissingInfo.missing);
+      };
+
+      switchScreen("detailScreen");
+    }
+
+    // ====== VIND GERECHTEN ======
+    function findRecipesForPantry() {
+      const persons = Math.max(1, parseInt(personsEl.value, 10) || 1);
+      currentPersons = persons;
+      savePersonsToStorage();
+
+      const groups = { all: [], almost: [], missing: [] };
+
+      recipes.forEach((recipe) => {
+        const rIngredients = getRecipeIngredients(recipe.id);
+        if (rIngredients.length === 0) return;
+
+        const missingInfo = calculateMissingForRecipe(recipe, persons);
+        const category = classifyRecipe(missingInfo.missing, rIngredients.length);
+        groups[category].push({ recipe, missingInfo });
+      });
+
+      lastGroups = groups;
+      applyFilters();
+    }
+
+    function clearResults() {
+      recipesAllEl.innerHTML = "";
+      recipesAlmostEl.innerHTML = "";
+      recipesMissingEl.innerHTML = "";
+    }
+
+    function renderRecipeGroups(groups, persons) {
+      clearResults();
+
+      if (groups.all.length > 0) {
+        emptyAllEl.style.display = "none";
+        groups.all.forEach(({ recipe, missingInfo }) => {
+          const card = createRecipeCard(recipe, persons, missingInfo);
+          recipesAllEl.appendChild(card);
+        });
+      } else {
+        emptyAllEl.style.display = "block";
+      }
+
+      if (groups.almost.length > 0) {
+        emptyAlmostEl.style.display = "none";
+        groups.almost.forEach(({ recipe, missingInfo }) => {
+          const card = createRecipeCard(recipe, persons, missingInfo);
+          recipesAlmostEl.appendChild(card);
+        });
+      } else {
+        emptyAlmostEl.style.display = "block";
+      }
+
+      if (groups.missing.length > 0) {
+        emptyMissingEl.style.display = "none";
+        groups.missing.forEach(({ recipe, missingInfo }) => {
+          const card = createRecipeCard(recipe, persons, missingInfo);
+          recipesMissingEl.appendChild(card);
+        });
+      } else {
+        emptyMissingEl.style.display = "block";
+      }
+
+      countAllEl.textContent =
+        groups.all.length > 0 ? `${groups.all.length} gerecht(en)` : "0";
+      countAlmostEl.textContent =
+        groups.almost.length > 0 ? `${groups.almost.length} gerecht(en)` : "0";
+      countMissingEl.textContent =
+        groups.missing.length > 0 ? `${groups.missing.length} gerecht(en)` : "0";
+    }
+
+    // ====== FILTERS + SORTEREN + ZOEKEN ======
+    function applyFilters() {
+      const category = filterCategoryEl.value;
+      const maxMissing = parseInt(filterMaxMissingEl.value, 10);
+      const maxKcalVal = parseInt(filterMaxKcalEl.value, 10);
+      const hasMaxKcal = !isNaN(maxKcalVal) && maxKcalVal > 0;
+      const maxTimeVal = parseInt(filterMaxTimeEl.value, 10);
+      const hasMaxTime = !isNaN(maxTimeVal) && maxTimeVal > 0 && maxTimeVal < 999;
+      const sortBy = sortByEl.value;
+      const searchTerm = recipeSearchEl.value.trim();
+
+      saveFiltersToStorage();
+
+      const combined = [];
+      ["all", "almost", "missing"].forEach(groupName => {
+        lastGroups[groupName].forEach(entry => {
+          combined.push({ ...entry, group: groupName });
+        });
+      });
+
+      const filteredGroups = { all: [], almost: [], missing: [] };
+
+      combined.forEach(item => {
+        const { recipe, missingInfo, group } = item;
+
+        if (category !== "all" && recipe.category !== category) return;
+        if (missingInfo.missing.length > maxMissing) return;
+        if (hasMaxKcal && recipe.calories > maxKcalVal) return;
+        if (hasMaxTime && (recipe.time || 999) > maxTimeVal) return;
+        if (!recipeMatchesSearch(recipe, searchTerm)) return;
+
+        filteredGroups[group].push({ recipe, missingInfo });
+      });
+
+      function sortList(list) {
+        return list.sort((a, b) => {
+          const missA = a.missingInfo.missing.length;
+          const missB = b.missingInfo.missing.length;
+          const kcalA = a.recipe.calories;
+          const kcalB = b.recipe.calories;
+          const timeA = a.recipe.time || 999;
+          const timeB = b.recipe.time || 999;
+          const titleA = a.recipe.title.toLowerCase();
+          const titleB = b.recipe.title.toLowerCase();
+
+          switch (sortBy) {
+            case "missing-asc":
+              if (missA !== missB) return missA - missB;
+              return titleA.localeCompare(titleB, "nl");
+            case "kcal-asc":
+              if (kcalA !== kcalB) return kcalA - kcalB;
+              return titleA.localeCompare(titleB, "nl");
+            case "kcal-desc":
+              if (kcalA !== kcalB) return kcalB - kcalA;
+              return titleA.localeCompare(titleB, "nl");
+            case "time-asc":
+              if (timeA !== timeB) return timeA - timeB;
+              return titleA.localeCompare(titleB, "nl");
+            case "title-asc":
+              return titleA.localeCompare(titleB, "nl");
+            case "recommended":
+            default:
+              if (missA !== missB) return missA - missB;
+              if (timeA !== timeB) return timeA - timeB;
+              if (kcalA !== kcalB) return kcalA - kcalB;
+              return titleA.localeCompare(titleB, "nl");
+          }
+        });
+      }
+
+      Object.keys(filteredGroups).forEach(groupName => {
+        filteredGroups[groupName] = sortList(filteredGroups[groupName]);
+      });
+
+      renderRecipeGroups(filteredGroups, currentPersons);
+    }
+
+    resetFiltersBtnEl.addEventListener("click", () => {
+      filterCategoryEl.value = "all";
+      filterMaxMissingEl.value = "999";
+      filterMaxKcalEl.value = "";
+      filterMaxTimeEl.value = "999";
+      sortByEl.value = "recommended";
+      recipeSearchEl.value = "";
+      saveFiltersToStorage();
+      applyFilters();
+    });
+
+    filterCategoryEl.addEventListener("change", applyFilters);
+    filterMaxMissingEl.addEventListener("change", applyFilters);
+    filterMaxKcalEl.addEventListener("input", applyFilters);
+    filterMaxTimeEl.addEventListener("change", applyFilters);
+    sortByEl.addEventListener("change", applyFilters);
+    recipeSearchEl.addEventListener("input", applyFilters);
+
+    // ====== EVENTS ======
+    document.getElementById("addIngredientBtn").addEventListener("click", () => {
+      const ingId = parseInt(ingredientSelectEl.value, 10);
+      const amount = parseFloat(ingredientAmountEl.value);
+      const unit = ingredientUnitEl.value;
+
+      if (!ingId || isNaN(amount) || amount <= 0) {
+        alert("Kies een ingrediënt en vul een geldige hoeveelheid in.");
+        return;
+      }
+
+      pantry.set(ingId, { quantity: amount, unit });
+      savePantryToStorage();
+      renderPantryChips();
+      ingredientAmountEl.value = "";
+    });
+
+    document.getElementById("findRecipesBtn").addEventListener("click", findRecipesForPantry);
+
+    personsEl.addEventListener("change", () => {
+      currentPersons = Math.max(1, parseInt(personsEl.value, 10) || 1);
+      savePersonsToStorage();
+    });
+
+    // ====== START ======
+    loadDataAndInit();
   </script>
 </body>
 </html>
