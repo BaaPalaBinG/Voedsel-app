@@ -1,0 +1,476 @@
+[
+  {
+    "recipe_id": 1,
+    "ingredient_id": 1,
+    "amount": 200,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 1,
+    "ingredient_id": 4,
+    "amount": 100,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 1,
+    "ingredient_id": 8,
+    "amount": 0.5,
+    "unit": "st"
+  },
+  {
+    "recipe_id": 1,
+    "ingredient_id": 9,
+    "amount": 1,
+    "unit": "teen"
+  },
+  {
+    "recipe_id": 1,
+    "ingredient_id": 14,
+    "amount": 50,
+    "unit": "ml"
+  },
+  {
+    "recipe_id": 1,
+    "ingredient_id": 19,
+    "amount": 1,
+    "unit": "el"
+  },
+  {
+    "recipe_id": 1,
+    "ingredient_id": 30,
+    "amount": 1,
+    "unit": "snuf"
+  },
+  {
+    "recipe_id": 2,
+    "ingredient_id": 1,
+    "amount": 200,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 2,
+    "ingredient_id": 5,
+    "amount": 150,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 2,
+    "ingredient_id": 7,
+    "amount": 0.5,
+    "unit": "st"
+  },
+  {
+    "recipe_id": 2,
+    "ingredient_id": 8,
+    "amount": 0.5,
+    "unit": "st"
+  },
+  {
+    "recipe_id": 2,
+    "ingredient_id": 9,
+    "amount": 1,
+    "unit": "teen"
+  },
+  {
+    "recipe_id": 2,
+    "ingredient_id": 18,
+    "amount": 3,
+    "unit": "el"
+  },
+  {
+    "recipe_id": 2,
+    "ingredient_id": 19,
+    "amount": 1,
+    "unit": "el"
+  },
+  {
+    "recipe_id": 2,
+    "ingredient_id": 30,
+    "amount": 1,
+    "unit": "snuf"
+  },
+  {
+    "recipe_id": 3,
+    "ingredient_id": 2,
+    "amount": 200,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 3,
+    "ingredient_id": 7,
+    "amount": 0.5,
+    "unit": "st"
+  },
+  {
+    "recipe_id": 3,
+    "ingredient_id": 8,
+    "amount": 0.5,
+    "unit": "st"
+  },
+  {
+    "recipe_id": 3,
+    "ingredient_id": 9,
+    "amount": 1,
+    "unit": "teen"
+  },
+  {
+    "recipe_id": 3,
+    "ingredient_id": 22,
+    "amount": 100,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 3,
+    "ingredient_id": 23,
+    "amount": 80,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 3,
+    "ingredient_id": 24,
+    "amount": 200,
+    "unit": "ml"
+  },
+  {
+    "recipe_id": 3,
+    "ingredient_id": 19,
+    "amount": 1,
+    "unit": "el"
+  },
+  {
+    "recipe_id": 3,
+    "ingredient_id": 30,
+    "amount": 1,
+    "unit": "snuf"
+  },
+  {
+    "recipe_id": 4,
+    "ingredient_id": 3,
+    "amount": 150,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 4,
+    "ingredient_id": 17,
+    "amount": 150,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 4,
+    "ingredient_id": 25,
+    "amount": 0.25,
+    "unit": "st"
+  },
+  {
+    "recipe_id": 4,
+    "ingredient_id": 19,
+    "amount": 1,
+    "unit": "el"
+  },
+  {
+    "recipe_id": 4,
+    "ingredient_id": 30,
+    "amount": 1,
+    "unit": "snuf"
+  },
+  {
+    "recipe_id": 5,
+    "ingredient_id": 15,
+    "amount": 3,
+    "unit": "st"
+  },
+  {
+    "recipe_id": 5,
+    "ingredient_id": 12,
+    "amount": 50,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 5,
+    "ingredient_id": 13,
+    "amount": 30,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 5,
+    "ingredient_id": 16,
+    "amount": 30,
+    "unit": "ml"
+  },
+  {
+    "recipe_id": 5,
+    "ingredient_id": 19,
+    "amount": 1,
+    "unit": "el"
+  },
+  {
+    "recipe_id": 5,
+    "ingredient_id": 30,
+    "amount": 1,
+    "unit": "snuf"
+  },
+  {
+    "recipe_id": 6,
+    "ingredient_id": 1,
+    "amount": 150,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 6,
+    "ingredient_id": 4,
+    "amount": 100,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 6,
+    "ingredient_id": 11,
+    "amount": 0.5,
+    "unit": "st"
+  },
+  {
+    "recipe_id": 6,
+    "ingredient_id": 43,
+    "amount": 30,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 6,
+    "ingredient_id": 46,
+    "amount": 20,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 6,
+    "ingredient_id": 47,
+    "amount": 5,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 6,
+    "ingredient_id": 19,
+    "amount": 1,
+    "unit": "el"
+  },
+  {
+    "recipe_id": 6,
+    "ingredient_id": 30,
+    "amount": 1,
+    "unit": "snuf"
+  },
+  {
+    "recipe_id": 7,
+    "ingredient_id": 4,
+    "amount": 100,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 7,
+    "ingredient_id": 38,
+    "amount": 80,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 7,
+    "ingredient_id": 24,
+    "amount": 150,
+    "unit": "ml"
+  },
+  {
+    "recipe_id": 7,
+    "ingredient_id": 44,
+    "amount": 20,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 7,
+    "ingredient_id": 8,
+    "amount": 0.5,
+    "unit": "st"
+  },
+  {
+    "recipe_id": 7,
+    "ingredient_id": 9,
+    "amount": 1,
+    "unit": "teen"
+  },
+  {
+    "recipe_id": 7,
+    "ingredient_id": 19,
+    "amount": 1,
+    "unit": "el"
+  },
+  {
+    "recipe_id": 7,
+    "ingredient_id": 47,
+    "amount": 5,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 7,
+    "ingredient_id": 30,
+    "amount": 1,
+    "unit": "snuf"
+  },
+  {
+    "recipe_id": 8,
+    "ingredient_id": 45,
+    "amount": 120,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 8,
+    "ingredient_id": 8,
+    "amount": 0.5,
+    "unit": "st"
+  },
+  {
+    "recipe_id": 8,
+    "ingredient_id": 39,
+    "amount": 0.5,
+    "unit": "st"
+  },
+  {
+    "recipe_id": 8,
+    "ingredient_id": 28,
+    "amount": 0.3,
+    "unit": "st"
+  },
+  {
+    "recipe_id": 8,
+    "ingredient_id": 24,
+    "amount": 150,
+    "unit": "ml"
+  },
+  {
+    "recipe_id": 8,
+    "ingredient_id": 29,
+    "amount": 1,
+    "unit": "el"
+  },
+  {
+    "recipe_id": 8,
+    "ingredient_id": 19,
+    "amount": 1,
+    "unit": "el"
+  },
+  {
+    "recipe_id": 8,
+    "ingredient_id": 48,
+    "amount": 5,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 8,
+    "ingredient_id": 30,
+    "amount": 1,
+    "unit": "snuf"
+  },
+  {
+    "recipe_id": 9,
+    "ingredient_id": 6,
+    "amount": 250,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 9,
+    "ingredient_id": 17,
+    "amount": 120,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 9,
+    "ingredient_id": 16,
+    "amount": 60,
+    "unit": "ml"
+  },
+  {
+    "recipe_id": 9,
+    "ingredient_id": 14,
+    "amount": 40,
+    "unit": "ml"
+  },
+  {
+    "recipe_id": 9,
+    "ingredient_id": 13,
+    "amount": 40,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 9,
+    "ingredient_id": 26,
+    "amount": 10,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 9,
+    "ingredient_id": 9,
+    "amount": 1,
+    "unit": "teen"
+  },
+  {
+    "recipe_id": 9,
+    "ingredient_id": 30,
+    "amount": 1,
+    "unit": "snuf"
+  },
+  {
+    "recipe_id": 10,
+    "ingredient_id": 21,
+    "amount": 2,
+    "unit": "st"
+  },
+  {
+    "recipe_id": 10,
+    "ingredient_id": 2,
+    "amount": 150,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 10,
+    "ingredient_id": 7,
+    "amount": 0.5,
+    "unit": "st"
+  },
+  {
+    "recipe_id": 10,
+    "ingredient_id": 8,
+    "amount": 0.5,
+    "unit": "st"
+  },
+  {
+    "recipe_id": 10,
+    "ingredient_id": 9,
+    "amount": 1,
+    "unit": "teen"
+  },
+  {
+    "recipe_id": 10,
+    "ingredient_id": 23,
+    "amount": 60,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 10,
+    "ingredient_id": 24,
+    "amount": 100,
+    "unit": "ml"
+  },
+  {
+    "recipe_id": 10,
+    "ingredient_id": 46,
+    "amount": 20,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 10,
+    "ingredient_id": 19,
+    "amount": 1,
+    "unit": "el"
+  },
+  {
+    "recipe_id": 10,
+    "ingredient_id": 30,
+    "amount": 1,
+    "unit": "snuf"
+  }
+]
