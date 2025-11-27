@@ -944,5 +944,184 @@
       "Breng op smaak met peper en zout.",
       "Meng met de pasta en serveer."
     ]
-  }
+  },{
+  "id": 1001,
+  "title": "Gnocchi met spinazie en feta",
+  "description": "Snelle romige gnocchi met veel spinazie en zoutige feta.",
+  "category": "vega",
+  "baseServings": 2,
+  "calories": 650,
+  "protein": 25,
+  "carbs": 80,
+  "fat": 22,
+  "time": 20,
+  "steps": [
+    "Kook de gnocchi volgens de aanwijzingen op de verpakking.",
+    "Bak ondertussen de spinazie in een grote pan tot deze is geslonken.",
+    "Voeg de gnocchi toe aan de pan, kruid naar smaak en verkruimel de feta erover.",
+    "Laat kort doorwarmen en serveer direct."
+  ]
+},
+{
+  "id": 1002,
+  "title": "Kikkererwten curry met kokos",
+  "description": "Romige vegetarische curry met kikkererwten en kokosmelk.",
+  "category": "vega",
+  "baseServings": 2,
+  "calories": 600,
+  "protein": 22,
+  "carbs": 65,
+  "fat": 24,
+  "time": 25,
+  "steps": [
+    "Verhit wat olie in een pan en bak de currypasta kort aan.",
+    "Voeg de kikkererwten en kokosmelk toe en laat zachtjes pruttelen.",
+    "Breng op smaak met zout, peper en eventueel citroen of limoen.",
+    "Serveer met naanbrood, wraps of rijst naar keuze."
+  ]
+},
+{
+  "id": 1003,
+  "title": "Linzenschotel in wraps",
+  "description": "Snelle goedgevulde wraps met een warme linzenschotel.",
+  "category": "vega",
+  "baseServings": 2,
+  "calories": 580,
+  "protein": 24,
+  "carbs": 70,
+  "fat": 16,
+  "time": 20,
+  "steps": [
+    "Verwarm de linzen in een pan met wat kruiden naar keuze.",
+    "Warm de wraps kort op in een droge koekenpan of in de oven.",
+    "Vul de wraps met de linzen en rol ze stevig op.",
+    "Serveer direct, eventueel met een frisse salade."
+  ]
+},
+{
+  "id": 1004,
+  "title": "Naanpizza met kikkererwten en feta",
+  "description": "Supersnelle pizza op naanbrood met kikkererwten en feta.",
+  "category": "vega",
+  "baseServings": 2,
+  "calories": 700,
+  "protein": 27,
+  "carbs": 80,
+  "fat": 26,
+  "time": 20,
+  "steps": [
+    "Verwarm de oven volgens de aanwijzingen voor het naanbrood.",
+    "Beleg het naanbrood met tomatensaus, kikkererwten en verkruimelde feta.",
+    "Bak in de oven tot het naan knapperig is en de feta licht kleurt.",
+    "Snijd in punten en serveer warm."
+  ]
+},
+{
+  "id": 1005,
+  "title": "Noedelsoep met kokos en curry",
+  "description": "Comfort-food: snelle noedelsoep met kokosmelk en currypasta.",
+  "category": "vega",
+  "baseServings": 2,
+  "calories": 550,
+  "protein": 18,
+  "carbs": 70,
+  "fat": 18,
+  "time": 20,
+  "steps": [
+    "Breng water met kokosmelk aan de kook en roer de currypasta erdoor.",
+    "Voeg de noedels toe en kook volgens de aanwijzingen op de verpakking.",
+    "Proef en breng op smaak met zout, peper en eventueel limoen.",
+    "Schep in kommen en serveer direct."
+  ]
+},
+{
+  "id": 1006,
+  "title": "Mexicaanse bonenbowl",
+  "description": "Kleurrijke bowl met bonen, salsa, avocado en krokante tortilla chips.",
+  "category": "vega",
+  "baseServings": 2,
+  "calories": 650,
+  "protein": 23,
+  "carbs": 75,
+  "fat": 22,
+  "time": 25,
+  "steps": [
+    "Spoel de bonen af en laat goed uitlekken.",
+    "Verdeel sla over kommen en schep de bonen, salsa en avocado erop.",
+    "Verkruimel tortilla chips over de bowls.",
+    "Maak af met limoenpartjes en eventueel extra kaas of yoghurt."
+  ]
+},
+{
+  "id": 1007,
+  "title": "Vegaburger bowl",
+  "description": "Alles van een burger, maar dan in een kom met salade en bonen.",
+  "category": "vega",
+  "baseServings": 2,
+  "calories": 620,
+  "protein": 28,
+  "carbs": 50,
+  "fat": 24,
+  "time": 25,
+  "steps": [
+    "Bak de vega burgers volgens de aanwijzingen op de verpakking.",
+    "Verdeel sla over kommen en schep de bonen erop.",
+    "Snijd de burgers in repen en leg ze bovenop.",
+    "Serveer met avocado en je favoriete saus."
+  ]
+},
+{
+  "id": 1008,
+  "title": "Bulgur salade met kikkererwten en feta",
+  "description": "Frisse lauwwarme salade met bulgur, kikkererwten en feta.",
+  "category": "vega",
+  "baseServings": 2,
+  "calories": 560,
+  "protein": 21,
+  "carbs": 72,
+  "fat": 15,
+  "time": 25,
+  "steps": [
+    "Kook de bulgur volgens de aanwijzingen op de verpakking en laat iets afkoelen.",
+    "Meng de bulgur met kikkererwten en sla.",
+    "Verkruimel de feta erover en breng op smaak met olie, citroen of limoen.",
+    "Serveer lauwwarm of koud."
+  ]
+},
+{
+  "id": 1009,
+  "title": "Loaded nacho ovenschotel",
+  "description": "Ovenschotel met tortilla chips, bonen, kaas en salsa.",
+  "category": "vega",
+  "baseServings": 2,
+  "calories": 780,
+  "protein": 26,
+  "carbs": 72,
+  "fat": 38,
+  "time": 20,
+  "steps": [
+    "Verwarm de oven voor.",
+    "Verdeel tortilla chips in een ovenschaal en strooi de bonen erover.",
+    "Bestrooi royaal met kaas en schep wat salsa eroverheen.",
+    "Bak tot de kaas gesmolten is en serveer met avocado en limoen."
+  ]
+},
+{
+  "id": 1010,
+  "title": "Romige linzensoep met kokos",
+  "description": "Zachte, romige linzensoep op basis van kokosmelk.",
+  "category": "vega",
+  "baseServings": 2,
+  "calories": 520,
+  "protein": 22,
+  "carbs": 55,
+  "fat": 18,
+  "time": 30,
+  "steps": [
+    "Breng de linzen met water aan de kook en laat zachtjes garen.",
+    "Voeg kokosmelk toe en laat nog even pruttelen.",
+    "Pureer de soep deels voor een romige structuur.",
+    "Breng op smaak met kruiden naar keuze en serveer."
+  ]
+}
 ]
