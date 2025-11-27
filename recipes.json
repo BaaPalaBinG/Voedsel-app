@@ -1123,5 +1123,857 @@
     "Pureer de soep deels voor een romige structuur.",
     "Breng op smaak met kruiden naar keuze en serveer."
   ]
-}
+},
+[
+  {
+    "id": 1101,
+    "title": "Gnocchi met spinazie en feta",
+    "description": "Romige gnocchi uit één pan met veel spinazie en zoute feta.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 650,
+    "protein": 24,
+    "carbs": 75,
+    "fat": 22,
+    "time": 20,
+    "steps": [
+      "Kook de gnocchi kort voor of volgens de verpakking.",
+      "Bak de spinazie in een grote pan tot deze slinkt en voeg de gnocchi toe.",
+      "Breng op smaak met peper, zout en eventueel knoflook en verkruimel de feta erover."
+    ]
+  },
+  {
+    "id": 1102,
+    "title": "Kikkererwtencurry met kokos",
+    "description": "Zachte vega curry met kikkererwten en romige kokosmelk.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 600,
+    "protein": 20,
+    "carbs": 65,
+    "fat": 24,
+    "time": 25,
+    "steps": [
+      "Verhit wat olie in een pan en bak de rode currypasta kort aan.",
+      "Voeg de kikkererwten en kokosmelk toe en laat 10–15 minuten zachtjes pruttelen.",
+      "Breng op smaak met zout, peper en eventueel limoen en serveer met brood, naan of rijst."
+    ]
+  },
+  {
+    "id": 1103,
+    "title": "Linzenwraps met groenten",
+    "description": "Snelle wraps gevuld met kruidige linzen en roergebakken groenten.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 580,
+    "protein": 23,
+    "carbs": 70,
+    "fat": 16,
+    "time": 20,
+    "steps": [
+      "Verwarm de linzen in een pan met kruiden naar keuze.",
+      "Roerbak de groenten kort beetgaar.",
+      "Vul warme wraps met linzen en groenten en rol ze stevig op."
+    ]
+  },
+  {
+    "id": 1104,
+    "title": "Naanpizza met kikkererwten en feta",
+    "description": "Supersnelle ovenpizza op naanbrood met kikkererwten en feta.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 700,
+    "protein": 26,
+    "carbs": 80,
+    "fat": 26,
+    "time": 20,
+    "steps": [
+      "Verwarm de oven voor volgens de aanwijzingen op het naanbrood.",
+      "Beleg naanbrood met tomatensaus, kikkererwten en verkruimelde feta.",
+      "Bak in 8–10 minuten goudbruin en serveer direct."
+    ]
+  },
+  {
+    "id": 1105,
+    "title": "Noedelsoep met kokos en curry",
+    "description": "Comfort-food noedelsoep in een kruidige kokosbouillon.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 550,
+    "protein": 17,
+    "carbs": 70,
+    "fat": 18,
+    "time": 20,
+    "steps": [
+      "Breng water met kokosmelk aan de kook en roer currypasta erdoor.",
+      "Voeg noedels en groenten toe en kook volgens de verpakking.",
+      "Breng op smaak met zout, peper en eventueel limoen."
+    ]
+  },
+  {
+    "id": 1106,
+    "title": "Mexicaanse bonenbowl",
+    "description": "Kleurrijke bowl met bonen, avocado, sla en krokante tortilla chips.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 650,
+    "protein": 23,
+    "carbs": 75,
+    "fat": 22,
+    "time": 25,
+    "steps": [
+      "Spoel de bonen af en laat uitlekken.",
+      "Verdeel sla over kommen en schep bonen, salsa en avocado erop.",
+      "Maak af met verkruimelde tortilla chips en limoenpartjes."
+    ]
+  },
+  {
+    "id": 1107,
+    "title": "Vegaburger bowl",
+    "description": "Alles van een burger maar dan in een kom met sla en bonen.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 620,
+    "protein": 27,
+    "carbs": 50,
+    "fat": 24,
+    "time": 25,
+    "steps": [
+      "Bak de vega burgers volgens de verpakking.",
+      "Verdeel sla en bonen over kommen.",
+      "Snijd de burgers in repen, leg erop en serveer met yoghurt of saus naar keuze."
+    ]
+  },
+  {
+    "id": 1108,
+    "title": "Bulgursalade met kikkererwten en feta",
+    "description": "Frisse lauwwarme salade met bulgur, kikkererwten en feta.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 560,
+    "protein": 21,
+    "carbs": 72,
+    "fat": 15,
+    "time": 25,
+    "steps": [
+      "Kook de bulgur volgens de verpakking en laat iets afkoelen.",
+      "Meng met kikkererwten, sla en groenten.",
+      "Verkruimel feta erover en maak af met olie en limoen."
+    ]
+  },
+  {
+    "id": 1109,
+    "title": "Loaded nachos uit de oven",
+    "description": "Tortillachips met bonen, kaas, salsa en avocado als warme snack.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 780,
+    "protein": 25,
+    "carbs": 70,
+    "fat": 38,
+    "time": 20,
+    "steps": [
+      "Verwarm de oven voor op 180–200°C.",
+      "Verdeel tortilla chips in een ovenschaal met bonen, kaas en salsa.",
+      "Bak tot de kaas gesmolten is en serveer met avocado en limoen."
+    ]
+  },
+  {
+    "id": 1110,
+    "title": "Romige linzensoep met kokos",
+    "description": "Zachte, romige linzensoep met kokos en groenten.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 520,
+    "protein": 22,
+    "carbs": 55,
+    "fat": 18,
+    "time": 30,
+    "steps": [
+      "Kook linzen met water of bouillon tot ze gaar zijn.",
+      "Voeg kokosmelk en groenten toe en laat nog even pruttelen.",
+      "Pureer deels voor een romige structuur en breng op smaak."
+    ]
+  },
+  {
+    "id": 1111,
+    "title": "Traybake kipdij met zoete aardappel en broccoli",
+    "description": "Alles op één plaat: kip, zoete aardappel en broccoli uit de oven.",
+    "category": "meat",
+    "baseServings": 2,
+    "calories": 700,
+    "protein": 40,
+    "carbs": 55,
+    "fat": 30,
+    "time": 35,
+    "steps": [
+      "Verwarm de oven voor op 200°C.",
+      "Snijd zoete aardappel in blokjes en meng met broccoli en kipdijfilet.",
+      "Besprenkel met olie en kruiden en bak 25–30 minuten gaar."
+    ]
+  },
+  {
+    "id": 1112,
+    "title": "Kipgehaktschotel met sperziebonen",
+    "description": "Snelle ovenschotel met kipgehakt, sperziebonen en kaas.",
+    "category": "meat",
+    "baseServings": 2,
+    "calories": 640,
+    "protein": 38,
+    "carbs": 40,
+    "fat": 32,
+    "time": 30,
+    "steps": [
+      "Kook de sperziebonen kort voor.",
+      "Bak kipgehakt rul met kruiden en meng met de sperziebonen.",
+      "Doe in een ovenschaal, strooi er kaas over en gratineer kort."
+    ]
+  },
+  {
+    "id": 1113,
+    "title": "Stoofvlees met pompoen",
+    "description": "Malse runderstoof met stukken pompoen, lekker met brood of bulgur.",
+    "category": "meat",
+    "baseServings": 2,
+    "calories": 720,
+    "protein": 42,
+    "carbs": 35,
+    "fat": 32,
+    "time": 90,
+    "steps": [
+      "Bak runderstoofvlees rondom bruin in een braadpan.",
+      "Voeg pompoenblokjes en groenten toe en blus af met water of bouillon.",
+      "Laat 60–90 minuten zacht stoven tot het vlees mals is."
+    ]
+  },
+  {
+    "id": 1114,
+    "title": "Chorizo-bonenbowl",
+    "description": "Stevige bowl met zwarte en kidneybonen, chorizo en groenten.",
+    "category": "meat",
+    "baseServings": 2,
+    "calories": 690,
+    "protein": 30,
+    "carbs": 55,
+    "fat": 32,
+    "time": 25,
+    "steps": [
+      "Bak blokjes chorizo uit in een pan.",
+      "Voeg bonen en groenten toe en verwarm alles mee.",
+      "Serveer in kommen, eventueel met sla of tortillachips."
+    ]
+  },
+  {
+    "id": 1115,
+    "title": "Kip-paprika wraps",
+    "description": "Gevulde wraps met kip, paprika en frisse sla.",
+    "category": "meat",
+    "baseServings": 2,
+    "calories": 620,
+    "protein": 34,
+    "carbs": 60,
+    "fat": 22,
+    "time": 20,
+    "steps": [
+      "Bak reepjes kipdijfilet met paprika tot ze gaar zijn.",
+      "Verwarm de wraps kort in een droge pan.",
+      "Vul de wraps met kipmengsel en sla en rol stevig op."
+    ]
+  },
+  {
+    "id": 1116,
+    "title": "Naan met chorizo en mozzarella",
+    "description": "Snelle naanpizza met chorizo, mozzarella en tomaat.",
+    "category": "meat",
+    "baseServings": 2,
+    "calories": 720,
+    "protein": 32,
+    "carbs": 70,
+    "fat": 34,
+    "time": 20,
+    "steps": [
+      "Verwarm de oven voor volgens de naanverpakking.",
+      "Beleg naanbrood met tomaat, chorizo en mozzarella.",
+      "Bak tot de kaas gesmolten is en de randen krokant zijn."
+    ]
+  },
+  {
+    "id": 1117,
+    "title": "Kokoscurry met kip en sperziebonen",
+    "description": "Romige curry met kipdijfilet, sperziebonen en kokosmelk.",
+    "category": "meat",
+    "baseServings": 2,
+    "calories": 640,
+    "protein": 36,
+    "carbs": 35,
+    "fat": 34,
+    "time": 30,
+    "steps": [
+      "Bak blokjes kipdijfilet in een pan.",
+      "Voeg currypasta, kokosmelk en sperziebonen toe.",
+      "Laat 10–15 minuten zachtjes pruttelen tot de bonen gaar zijn."
+    ]
+  },
+  {
+    "id": 1118,
+    "title": "Bulgur bowl met hamblokjes",
+    "description": "Lauwwarme bulgurbowl met hamblokjes, zoete aardappel en sla.",
+    "category": "meat",
+    "baseServings": 2,
+    "calories": 610,
+    "protein": 28,
+    "carbs": 70,
+    "fat": 18,
+    "time": 25,
+    "steps": [
+      "Kook de bulgur gaar en laat even staan.",
+      "Rooster blokjes zoete aardappel in de oven of pan.",
+      "Meng bulgur met hamblokjes, sla en zoete aardappel en breng op smaak."
+    ]
+  },
+  {
+    "id": 1119,
+    "title": "Gnocchi met champignons en ham",
+    "description": "Romige gnocchi met gebakken champignons en hamblokjes.",
+    "category": "meat",
+    "baseServings": 2,
+    "calories": 680,
+    "protein": 30,
+    "carbs": 70,
+    "fat": 26,
+    "time": 20,
+    "steps": [
+      "Kook gnocchi kort voor.",
+      "Bak champignons en hamblokjes in een pan met wat olie.",
+      "Voeg gnocchi en wat room of creme fraiche toe en warm goed door."
+    ]
+  },
+  {
+    "id": 1120,
+    "title": "Bonenschotel met gehakt en cheddar",
+    "description": "Ovenschotel met gemengde bonen, gekruid gehakt en gesmolten cheddar.",
+    "category": "meat",
+    "baseServings": 2,
+    "calories": 720,
+    "protein": 35,
+    "carbs": 50,
+    "fat": 35,
+    "time": 30,
+    "steps": [
+      "Bak kipgehakt rul met kruiden.",
+      "Meng met bonen en doe in een ovenschaal.",
+      "Bestrooi met cheddar en gratineer tot de kaas gesmolten is."
+    ]
+  },
+  {
+    "id": 1121,
+    "title": "Zalm uit de oven met broccoli en limoen",
+    "description": "Malse zalmfilet met geroosterde broccoli en frisse limoen.",
+    "category": "fish",
+    "baseServings": 2,
+    "calories": 650,
+    "protein": 38,
+    "carbs": 15,
+    "fat": 42,
+    "time": 25,
+    "steps": [
+      "Verwarm de oven voor op 190°C.",
+      "Leg zalmmoten en broccoli op een bakplaat en besprenkel met olie, zout en limoen.",
+      "Bak 15–20 minuten tot de zalm net gaar is."
+    ]
+  },
+  {
+    "id": 1122,
+    "title": "Witvis curry met kokos en groenten",
+    "description": "Lichte curry met witvisfilet, kokosmelk en roerbakgroenten.",
+    "category": "fish",
+    "baseServings": 2,
+    "calories": 580,
+    "protein": 32,
+    "carbs": 25,
+    "fat": 32,
+    "time": 25,
+    "steps": [
+      "Verhit currypasta kort in een pan met olie.",
+      "Voeg kokosmelk, julienne groenten en stukken witvis toe.",
+      "Laat 10–15 minuten zachtjes pruttelen tot de vis gaar is."
+    ]
+  },
+  {
+    "id": 1123,
+    "title": "Garnalen-noedels met wokgroenten",
+    "description": "Snelle wokschotel met noedels, garnalen en groenten.",
+    "category": "fish",
+    "baseServings": 2,
+    "calories": 600,
+    "protein": 30,
+    "carbs": 70,
+    "fat": 16,
+    "time": 20,
+    "steps": [
+      "Kook de noedels volgens de verpakking.",
+      "Roerbak garnalen met wokgroenten in een hete pan.",
+      "Voeg de noedels toe en breng op smaak met sojasaus en sriracha."
+    ]
+  },
+  {
+    "id": 1124,
+    "title": "Zalmwraps met sla en avocado",
+    "description": "Koude wraps gevuld met zalm, sla en avocado, ideaal als lunch.",
+    "category": "fish",
+    "baseServings": 2,
+    "calories": 620,
+    "protein": 32,
+    "carbs": 45,
+    "fat": 30,
+    "time": 15,
+    "steps": [
+      "Bak of pocheer de zalm kort en laat iets afkoelen.",
+      "Prak de zalm grof en meng met sla en avocado.",
+      "Vul wraps met het mengsel, rol op en snijd doormidden."
+    ]
+  },
+  {
+    "id": 1125,
+    "title": "Nachos met pulled kip en cheddar",
+    "description": "Snackschotel met tortillachips, pulled kip en gesmolten cheddar.",
+    "category": "meat",
+    "baseServings": 2,
+    "calories": 780,
+    "protein": 32,
+    "carbs": 65,
+    "fat": 40,
+    "time": 25,
+    "steps": [
+      "Kook of bak kipdijfilet en trek uit elkaar met twee vorken.",
+      "Verdeel tortillachips in een ovenschaal met kip, bonen en cheddar.",
+      "Bak tot de kaas gesmolten is en serveer met salsa."
+    ]
+  },
+  {
+    "id": 1126,
+    "title": "Bulgursalade met zalm",
+    "description": "Frisse salade met bulgur, zalm en knapperige groenten.",
+    "category": "fish",
+    "baseServings": 2,
+    "calories": 620,
+    "protein": 34,
+    "carbs": 55,
+    "fat": 24,
+    "time": 25,
+    "steps": [
+      "Kook de bulgur en laat wat afkoelen.",
+      "Bak of pocheer de zalm en trek in grove stukken.",
+      "Meng bulgur, zalm en groenten en breng op smaak met olie en limoen."
+    ]
+  },
+  {
+    "id": 1127,
+    "title": "Witvis traybake met broccoli en zoete aardappel",
+    "description": "Alles op één bakplaat: witvis, broccoli en zoete aardappel.",
+    "category": "fish",
+    "baseServings": 2,
+    "calories": 610,
+    "protein": 35,
+    "carbs": 45,
+    "fat": 24,
+    "time": 30,
+    "steps": [
+      "Verwarm de oven voor op 200°C.",
+      "Snijd zoete aardappel in blokjes en leg met broccoli en witvis op een bakplaat.",
+      "Besprenkel met olie en kruiden en bak 20–25 minuten gaar."
+    ]
+  },
+  {
+    "id": 1128,
+    "title": "Garnalen curry met sperziebonen",
+    "description": "Snelle garnalencurry met sperziebonen in een kokos-currysaus.",
+    "category": "fish",
+    "baseServings": 2,
+    "calories": 580,
+    "protein": 28,
+    "carbs": 25,
+    "fat": 30,
+    "time": 20,
+    "steps": [
+      "Bak currypasta kort in een pan.",
+      "Voeg kokosmelk, sperziebonen en garnalen toe.",
+      "Laat 8–10 minuten zacht koken tot alles gaar is."
+    ]
+  },
+  {
+    "id": 1129,
+    "title": "Noedelsoep met witvis",
+    "description": "Lichte soep met noedels, witvis en groenten.",
+    "category": "fish",
+    "baseServings": 2,
+    "calories": 520,
+    "protein": 30,
+    "carbs": 60,
+    "fat": 12,
+    "time": 20,
+    "steps": [
+      "Breng bouillon aan de kook en voeg noedels toe.",
+      "Leg stukken witvis en groenten in de soep.",
+      "Kook tot de vis uit elkaar valt en de noedels gaar zijn."
+    ]
+  },
+  {
+    "id": 1130,
+    "title": "Viscurry bowl met zalm en spinazie",
+    "description": "Romige viscurry met zalm en spinazie, geserveerd als bowl.",
+    "category": "fish",
+    "baseServings": 2,
+    "calories": 640,
+    "protein": 36,
+    "carbs": 25,
+    "fat": 36,
+    "time": 25,
+    "steps": [
+      "Bak currypasta kort in een pan met olie.",
+      "Voeg kokosmelk, zalm en spinazie toe.",
+      "Laat zachtjes pruttelen tot de zalm gaar is en serveer in kommen."
+    ]
+  },
+  {
+    "id": 1131,
+    "title": "Zoete aardappel met kikkererwten en feta",
+    "description": "Geroosterde zoete aardappel uit de oven met kikkererwten en feta.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 580,
+    "protein": 18,
+    "carbs": 70,
+    "fat": 20,
+    "time": 30,
+    "steps": [
+      "Verwarm de oven voor op 200°C.",
+      "Snijd zoete aardappel in blokjes en rooster met olie en kruiden.",
+      "Voeg kikkererwten toe en verkruimel feta erover voor het serveren."
+    ]
+  },
+  {
+    "id": 1132,
+    "title": "Gnocchi ovenschotel met broccoli en cheddar",
+    "description": "Ovenschotel met gnocchi, broccoli en een laagje cheddar.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 690,
+    "protein": 25,
+    "carbs": 75,
+    "fat": 28,
+    "time": 30,
+    "steps": [
+      "Kook gnocchi en broccoli kort voor.",
+      "Meng met een beetje creme fraiche en doe in een ovenschaal.",
+      "Bestrooi met cheddar en gratineer tot goudbruin."
+    ]
+  },
+  {
+    "id": 1133,
+    "title": "Tempeh-bowl met bulgur en groenten",
+    "description": "Vullende bowl met bulgur, gebakken tempeh en groenten.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 610,
+    "protein": 26,
+    "carbs": 65,
+    "fat": 20,
+    "time": 25,
+    "steps": [
+      "Kook bulgur volgens de verpakking.",
+      "Bak blokjes tempeh krokant in wat olie.",
+      "Serveer bulgur met tempeh en groenten en maak af met saus naar keuze."
+    ]
+  },
+  {
+    "id": 1134,
+    "title": "Falafelwraps met tahinsaus",
+    "description": "Wraps gevuld met falafel, sla en een simpele tahin-yoghurtsaus.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 620,
+    "protein": 22,
+    "carbs": 55,
+    "fat": 26,
+    "time": 20,
+    "steps": [
+      "Bak falafel in wat olie krokant.",
+      "Meng yoghurt met tahin en citroen of limoen tot een saus.",
+      "Vul wraps met sla, falafel en saus en rol op."
+    ]
+  },
+  {
+    "id": 1135,
+    "title": "Linzenbowl met gegrilde groenten en geitenkaas",
+    "description": "Warme linzenbowl met gegrilde groenten en verkruimelde geitenkaas.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 600,
+    "protein": 24,
+    "carbs": 55,
+    "fat": 24,
+    "time": 30,
+    "steps": [
+      "Kook linzen tot ze gaar zijn.",
+      "Rooster groenten in de oven met olie en kruiden.",
+      "Serveer linzen met groenten en bestrooi met geitenkaas."
+    ]
+  },
+  {
+    "id": 1136,
+    "title": "Courgette-noedels met tempeh",
+    "description": "Lichte roerbak met noedels, courgette en gebakken tempeh.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 540,
+    "protein": 22,
+    "carbs": 60,
+    "fat": 16,
+    "time": 20,
+    "steps": [
+      "Kook de noedels volgens de verpakking.",
+      "Bak tempeh en courgette kort in een wok.",
+      "Voeg noedels toe en breng op smaak met sojasaus en sweet chilisaus."
+    ]
+  },
+  {
+    "id": 1137,
+    "title": "Spinazie-feta wraps",
+    "description": "Lauwwarme wraps gevuld met spinazie en feta, ideaal als lunch of lichte maaltijd.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 520,
+    "protein": 20,
+    "carbs": 50,
+    "fat": 20,
+    "time": 15,
+    "steps": [
+      "Bak spinazie kort tot deze slinkt.",
+      "Verkruimel feta door de spinazie.",
+      "Vul wraps met het mengsel, rol op en snijd doormidden."
+    ]
+  },
+  {
+    "id": 1138,
+    "title": "Yoghurtbowl met pindakaas en kokos",
+    "description": "Snelle snack of ontbijt met yoghurt, pindakaas en kokosyoghurt.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 480,
+    "protein": 18,
+    "carbs": 30,
+    "fat": 28,
+    "time": 10,
+    "steps": [
+      "Schep yoghurt in kommen.",
+      "Roer er wat pindakaas en kokosyoghurt doorheen.",
+      "Garneer met extra pindakaas of noten als je die in huis hebt."
+    ]
+  },
+  {
+    "id": 1139,
+    "title": "Groente-nachos met sweet chili",
+    "description": "Nachoschotel met veel groenten en een zoet-pittige saus.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 640,
+    "protein": 16,
+    "carbs": 70,
+    "fat": 28,
+    "time": 20,
+    "steps": [
+      "Verwarm de oven voor.",
+      "Verdeel tortillachips met julienne groenten en kaas in een ovenschaal.",
+      "Bak tot de kaas gesmolten is en serveer met sweet chilisaus."
+    ]
+  },
+  {
+    "id": 1140,
+    "title": "Koolsalade met yoghurt-dressing",
+    "description": "Knapperige rode en witte kool met frisse yoghurt-limoendressing.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 320,
+    "protein": 12,
+    "carbs": 30,
+    "fat": 14,
+    "time": 15,
+    "steps": [
+      "Snijd of rasp witte en rode kool fijn.",
+      "Meng yoghurt met limoen, zout en peper tot een dressing.",
+      "Meng de dressing door de kool en laat even intrekken."
+    ]
+  },
+  {
+    "id": 1141,
+    "title": "Gnocchi met courgette en champignons",
+    "description": "Pannetje gnocchi met gebakken courgette en champignons.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 620,
+    "protein": 20,
+    "carbs": 70,
+    "fat": 20,
+    "time": 20,
+    "steps": [
+      "Kook gnocchi kort voor.",
+      "Bak courgette en champignons in een ruime pan.",
+      "Voeg gnocchi toe, breng op smaak en eventueel wat kaas erover."
+    ]
+  },
+  {
+    "id": 1142,
+    "title": "Broccolisoep met kokos",
+    "description": "Romige broccolisoep op basis van kokosmelk.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 460,
+    "protein": 14,
+    "carbs": 30,
+    "fat": 28,
+    "time": 25,
+    "steps": [
+      "Kook broccoli met bleekselderij in water of bouillon.",
+      "Voeg kokosmelk toe en pureer tot een gladde soep.",
+      "Breng op smaak met zout, peper en eventueel limoen."
+    ]
+  },
+  {
+    "id": 1143,
+    "title": "Tempeh saté bowl met pindasaus",
+    "description": "Bowl met tempeh, bulgur en een simpele pindasaus.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 620,
+    "protein": 26,
+    "carbs": 60,
+    "fat": 24,
+    "time": 25,
+    "steps": [
+      "Kook bulgur volgens de verpakking.",
+      "Bak tempeh goudbruin in wat olie.",
+      "Maak een saus van pindakaas met water en sojasaus en serveer over de bowl."
+    ]
+  },
+  {
+    "id": 1144,
+    "title": "Falafel salade met rucola en tomaat",
+    "description": "Frisse salade met falafel, rucola en cherrytomaatjes.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 520,
+    "protein": 20,
+    "carbs": 40,
+    "fat": 24,
+    "time": 15,
+    "steps": [
+      "Bak falafel krokant in een pan.",
+      "Verdeel rucola en tomaatjes over borden.",
+      "Leg de falafel erop en serveer met een yoghurt- of tahindressing."
+    ]
+  },
+  {
+    "id": 1145,
+    "title": "Wraprolletjes met avocado en sla",
+    "description": "Koude snack-wrapjes met avocado en sla, ideaal voor tussendoor.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 480,
+    "protein": 10,
+    "carbs": 45,
+    "fat": 26,
+    "time": 15,
+    "steps": [
+      "Prak avocado met wat zout, peper en limoen.",
+      "Besmeer wraps met het avocadomengsel en beleg met sla.",
+      "Rol strak op en snijd in kleine rolletjes."
+    ]
+  },
+  {
+    "id": 1146,
+    "title": "Ovenschotel met spinazie, feta en zoete aardappel",
+    "description": "Gegratineerde schotel met laagjes zoete aardappel, spinazie en feta.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 610,
+    "protein": 20,
+    "carbs": 60,
+    "fat": 24,
+    "time": 35,
+    "steps": [
+      "Verwarm de oven voor op 190°C.",
+      "Snijd zoete aardappel in dunne plakjes en bak spinazie kort aan.",
+      "Laag alles met feta in een ovenschaal en bak 20–25 minuten."
+    ]
+  },
+  {
+    "id": 1147,
+    "title": "Pompoen met kikkererwten en tahin",
+    "description": "Geroosterde pompoen en kikkererwten met romige tahindressing.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 580,
+    "protein": 18,
+    "carbs": 55,
+    "fat": 24,
+    "time": 30,
+    "steps": [
+      "Rooster pompoenblokjes en kikkererwten in de oven met olie en kruiden.",
+      "Meng tahin met water en citroen of limoen tot een saus.",
+      "Serveer pompoen en kikkererwten met de tahindressing erover."
+    ]
+  },
+  {
+    "id": 1148,
+    "title": "Groene buddha bowl",
+    "description": "Bowl vol groene groenten, kikkererwten en avocado.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 590,
+    "protein": 20,
+    "carbs": 50,
+    "fat": 28,
+    "time": 25,
+    "steps": [
+      "Kook of rooster broccoli kort.",
+      "Verdeel spinazie, broccoli, kikkererwten en avocado over kommen.",
+      "Besprenkel met olie, citroen of limoen en kruiden naar smaak."
+    ]
+  },
+  {
+    "id": 1149,
+    "title": "Koude bulgursalade met rucola en tomaat",
+    "description": "Frisse bulgursalade met rucola en cherrytomaatjes, lekker op warme dagen.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 520,
+    "protein": 16,
+    "carbs": 65,
+    "fat": 16,
+    "time": 20,
+    "steps": [
+      "Kook bulgur en spoel kort koud.",
+      "Meng met rucola en cherrytomaatjes.",
+      "Maak af met olie, citroen of limoen en eventueel wat kaas."
+    ]
+  },
+  {
+    "id": 1150,
+    "title": "Yoghurt snack met pindakaas en limoen",
+    "description": "Snelle zoet-hartige snack van yoghurt met pindakaas en limoen.",
+    "category": "vega",
+    "baseServings": 2,
+    "calories": 430,
+    "protein": 16,
+    "carbs": 25,
+    "fat": 24,
+    "time": 5,
+    "steps": [
+      "Schep yoghurt in een kom.",
+      "Roer er een lepel pindakaas doorheen.",
+      "Rasp wat limoenschil erboven en knijp een beetje sap erover."
+    ]
+  }
+]
 ]
