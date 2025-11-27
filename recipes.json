@@ -944,7 +944,8 @@
       "Breng op smaak met peper en zout.",
       "Meng met de pasta en serveer."
     ]
-  },{
+  },
+  {
   "id": 1001,
   "title": "Gnocchi met spinazie en feta",
   "description": "Snelle romige gnocchi met veel spinazie en zoutige feta.",
@@ -1123,7 +1124,7 @@
     "Pureer de soep deels voor een romige structuur.",
     "Breng op smaak met kruiden naar keuze en serveer."
   ]
-},
+  },
   {
     "id": 1101,
     "title": "Gnocchi met spinazie en feta",
