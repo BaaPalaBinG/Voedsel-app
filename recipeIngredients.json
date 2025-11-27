@@ -2339,7 +2339,7 @@
     "amount": 1,
     "unit": "snuf"
   },
-  {
+{
   "recipe_id": 1001,
   "ingredient_id": 2001,
   "amount": 400,
