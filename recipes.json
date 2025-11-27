@@ -1974,6 +1974,2477 @@
       "Roer er een lepel pindakaas doorheen.",
       "Rasp wat limoenschil erboven en knijp een beetje sap erover."
     ]
+  },
+  {
+    "id": 1151,
+    "title": "Gnocchi met romige spinaziesaus",
+    "description": "Zachte gnocchi in een romige saus met verse spinazie en parmezaan.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 25,
+    "calories": 640,
+    "protein": 22,
+    "carbs": 72,
+    "fat": 24,
+    "ingredients": [
+      "gnocchi",
+      "spinazie vers",
+      "room",
+      "parmezaan",
+      "knoflook",
+      "olijfolie"
+    ],
+    "steps": [
+      "Kook de gnocchi volgens de verpakking.",
+      "Fruit knoflook in olijfolie.",
+      "Voeg spinazie toe en laat slinken.",
+      "Voeg room en parmezaan toe en laat indikken.",
+      "Meng de gnocchi door de saus en serveer warm."
+    ]
+  },
+  {
+    "id": 1152,
+    "title": "Kipdijfilet in honing-sojamarinade",
+    "description": "Malse kipdijfilet gemarineerd in honing, soja en gember.",
+    "category": "dinner", 
+    "baseServings": 2,
+    "time": 30,
+    "calories": 590,
+    "protein": 38,
+    "carbs": 28,
+    "fat": 34,
+    "ingredients": [
+      "kipdijfilet",
+      "honing",
+      "sojasaus",
+      "gember",
+      "knoflook",
+      "sesamolie"
+    ],
+    "steps": [
+      "Meng honing, sojasaus, gember en knoflook.",
+      "Marineer de kip 10 minuten.",
+      "Bak de kip goudbruin.",
+      "Voeg de marinade toe en laat inkoken.",
+      "Serveer met rijst of groenten."
+    ]
+  },
+  {
+    "id": 1153,
+    "title": "Runderreepjes met paprika en noedels",
+    "description": "Pittige roerbak met runderreepjes, paprika en noedels.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 20,
+    "calories": 690,
+    "protein": 42,
+    "carbs": 74,
+    "fat": 22,
+    "ingredients": [
+      "runderreepjes",
+      "noedels",
+      "paprika rood",
+      "paprika geel",
+      "sojasaus",
+      "sesamolie",
+      "bosui"
+    ],
+    "steps": [
+      "Kook de noedels.",
+      "Bak de runderreepjes op hoog vuur.",
+      "Voeg paprika toe en roerbak.",
+      "Voeg sojasaus en sesamolie toe.",
+      "Meng de noedels erdoor en serveer."
+    ]
+  },
+  {
+    "id": 1154,
+    "title": "Zalmfilet met citroen-dille saus",
+    "description": "Zachte zalm met een romige saus van citroen en dille.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 22,
+    "calories": 520,
+    "protein": 35,
+    "carbs": 6,
+    "fat": 40,
+    "ingredients": [
+      "zalmmoot",
+      "citroen",
+      "dille",
+      "room",
+      "boter",
+      "peper & zout"
+    ],
+    "steps": [
+      "Bestrooi de zalm met zout en peper.",
+      "Bak in boter tot gaar.",
+      "Maak een saus van room, citroen en dille.",
+      "Serveer de zalm met saus."
+    ]
+  },
+  {
+    "id": 1155,
+    "title": "Biefstuk met chimichurri",
+    "description": "Sappige biefstuk met frisse Argentijnse kruidenolie.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 18,
+    "calories": 480,
+    "protein": 44,
+    "carbs": 3,
+    "fat": 32,
+    "ingredients": [
+      "biefstuk",
+      "olijfolie",
+      "peterselie vers",
+      "knoflook",
+      "rode ui",
+      "rode wijnazijn"
+    ],
+    "steps": [
+      "Maak chimichurri door alle ingrediënten te mengen.",
+      "Grill de biefstuk naar wens.",
+      "Serveer met chimichurri."
+    ]
+  },
+  {
+    "id": 1156,
+    "title": "Tempeh pindasaus roerbak",
+    "description": "Knapperige tempeh in een romige pindasaus met groenten.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 25,
+    "calories": 610,
+    "protein": 28,
+    "carbs": 35,
+    "fat": 38,
+    "ingredients": [
+      "tempeh",
+      "pindakaas",
+      "sojasaus",
+      "knoflook",
+      "kokosmelk",
+      "paprika rood"
+    ],
+    "steps": [
+      "Bak de tempeh krokant.",
+      "Meng pindakaas, sojasaus en kokosmelk tot saus.",
+      "Voeg paprika toe en bak mee.",
+      "Meng de saus door de tempeh en serveer."
+    ]
+  },
+  {
+    "id": 1157,
+    "title": "Falafel bowl met hummus en rucola",
+    "description": "Een frisse bowl met falafel, hummus en knapperige groenten.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 18,
+    "calories": 540,
+    "protein": 19,
+    "carbs": 62,
+    "fat": 22,
+    "ingredients": [
+      "falafel",
+      "rucola",
+      "tomaat",
+      "komkommer",
+      "tahin",
+      "citroen"
+    ],
+    "steps": [
+      "Bak falafel kort aan.",
+      "Snijd groenten in stukken.",
+      "Meng tahin met citroen tot saus.",
+      "Serveer alles in een bowl."
+    ]
+  },
+  {
+    "id": 1158,
+    "title": "Tempeh teriyaki bowl",
+    "description": "Krokante tempeh met zoete teriyakisaus en rijst.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 22,
+    "calories": 590,
+    "protein": 27,
+    "carbs": 66,
+    "fat": 18,
+    "ingredients": [
+      "tempeh",
+      "teriyaki saus",
+      "rijst",
+      "sesamolie",
+      "bosui",
+      "wortel"
+    ],
+    "steps": [
+      "Kook de rijst.",
+      "Bak tempeh goudbruin.",
+      "Voeg teriyaki saus toe en laat karamelliseren.",
+      "Serveer met bosui en wortel."
+    ]
+  },
+  {
+    "id": 1159,
+    "title": "Bami met kipdijfilet en groenten",
+    "description": "Snelle bami schotel met kipdijfilet en een mix van groenten.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 20,
+    "calories": 680,
+    "protein": 36,
+    "carbs": 72,
+    "fat": 22,
+    "ingredients": [
+      "noedels",
+      "kipdijfilet",
+      "julienne groenten",
+      "sojasaus",
+      "knoflook",
+      "sesamolie"
+    ],
+    "steps": [
+      "Kook de noedels.",
+      "Bak de kip goudbruin.",
+      "Voeg groenten toe en roerbak.",
+      "Voeg sojasaus toe.",
+      "Meng met de noedels."
+    ]
+  },
+
+  {
+    "id": 1160,
+    "title": "Bulgur bowl met feta en munt",
+    "description": "Frisse bulgur bowl met feta, munt en groenten.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 18,
+    "calories": 520,
+    "protein": 17,
+    "carbs": 68,
+    "fat": 14,
+    "ingredients": [
+      "bulgur",
+      "feta",
+      "komkommer",
+      "tomaat",
+      "verse munt",
+      "olijfolie"
+    ],
+    "steps": [
+      "Kook de bulgur.",
+      "Snijd groenten in blokjes.",
+      "Meng alles met olijfolie en munt.",
+      "Verkruimel feta erover."
+    ]
+  },  
+  {
+    "id": 1161,
+    "title": "Harissa kip uit de oven",
+    "description": "Pittige harissa kip met groenten uit de oven, vol smaak en makkelijk te maken.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 35,
+    "calories": 610,
+    "protein": 41,
+    "carbs": 28,
+    "fat": 34,
+    "ingredients": [
+      "kipdijfilet",
+      "harissa",
+      "courgette",
+      "paprika rood",
+      "olijfolie",
+      "citroen"
+    ],
+    "steps": [
+      "Meng harissa met olijfolie en citroen.",
+      "Marineer de kip.",
+      "Snijd groenten grof.",
+      "Bak alles samen 30 minuten in de oven.",
+      "Serveer met citroenpartjes."
+    ]
+  },
+  {
+    "id": 1162,
+    "title": "Kip tandoori met naanbrood",
+    "description": "Kruidige kip tandoori met romige saus en warm naanbrood.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 30,
+    "calories": 720,
+    "protein": 42,
+    "carbs": 65,
+    "fat": 28,
+    "ingredients": [
+      "kipfilet",
+      "griekse yoghurt",
+      "kerriepoeder",
+      "citroen",
+      "naanbrood",
+      "knoflook"
+    ],
+    "steps": [
+      "Meng yoghurt met kruiden.",
+      "Marineer de kip minimaal 10 min.",
+      "Bak de kip gaar.",
+      "Warm het naanbrood op.",
+      "Serveer samen met saus."
+    ]
+  },
+  {
+    "id": 1163,
+    "title": "Tonijnsteak met sesamolie en limoen",
+    "description": "Snel gegrilde tonijnsteak met frisse limoen en sesamolie.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 15,
+    "calories": 430,
+    "protein": 42,
+    "carbs": 4,
+    "fat": 26,
+    "ingredients": [
+      "tonijnsteak",
+      "sesamolie",
+      "limoen",
+      "peper & zout",
+      "bosui"
+    ],
+    "steps": [
+      "Smeer de tonijn in met sesamolie.",
+      "Grill 1–2 minuten per kant.",
+      "Breng op smaak met limoen.",
+      "Garneer met bosui."
+    ]
+  },
+  {
+    "id": 1164,
+    "title": "Pittige garnalen met rijstnoedels",
+    "description": "Knapperige garnalen in pittige saus met zachte rijstnoedels.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 20,
+    "calories": 570,
+    "protein": 32,
+    "carbs": 62,
+    "fat": 18,
+    "ingredients": [
+      "garnalen groot",
+      "rijstnoedels",
+      "rode peper",
+      "sojasaus",
+      "limoen",
+      "sesamolie"
+    ],
+    "steps": [
+      "Kook de rijstnoedels.",
+      "Bak de garnalen kort.",
+      "Voeg peper en sojasaus toe.",
+      "Meng met de noedels.",
+      "Serveer met limoen."
+    ]
+  },
+  {
+    "id": 1165,
+    "title": "Groene curry met witvis",
+    "description": "Romige Thaise groene curry met zachte witvis en groenten.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 25,
+    "calories": 580,
+    "protein": 35,
+    "carbs": 38,
+    "fat": 30,
+    "ingredients": [
+      "witvisfilet",
+      "groene currypasta",
+      "kokosmelk",
+      "courgette",
+      "paprika groen",
+      "rijst"
+    ],
+    "steps": [
+      "Kook de rijst.",
+      "Fruit currypasta in olie.",
+      "Voeg kokosmelk en groenten toe.",
+      "Laat zacht koken en voeg vis toe.",
+      "Serveer met rijst."
+    ]
+  },
+  {
+    "id": 1166,
+    "title": "Pasta pesto kipdijfilet",
+    "description": "Romige pasta met huisgemaakte pesto en malse kipdijfilet.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 22,
+    "calories": 690,
+    "protein": 38,
+    "carbs": 72,
+    "fat": 26,
+    "ingredients": [
+      "pasta",
+      "kipdijfilet",
+      "pesto",
+      "room",
+      "parmezaan",
+      "spinazie vers"
+    ],
+    "steps": [
+      "Kook de pasta.",
+      "Bak de kip goudbruin.",
+      "Voeg pesto en room toe.",
+      "Roer spinazie erdoor.",
+      "Meng met pasta en serveer."
+    ]
+  },
+  {
+    "id": 1167,
+    "title": "Eendenborst honing-soja",
+    "description": "Perfect gebakken eendenborst in een zoet-zoute glaze van honing en soja.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 30,
+    "calories": 680,
+    "protein": 40,
+    "carbs": 22,
+    "fat": 46,
+    "ingredients": [
+      "eendenborst",
+      "honing",
+      "sojasaus",
+      "gember",
+      "knoflook",
+      "sesamolie"
+    ],
+    "steps": [
+      "Kerf het vet van de eendenborst.",
+      "Bak met de vetkant naar beneden tot krokant.",
+      "Voeg honing en soja toe.",
+      "Laat karamelliseren.",
+      "Serveer met groenten of rijst."
+    ]
+  },
+  {
+    "id": 1168,
+    "title": "Geitenkaas gnocchi bak",
+    "description": "Gnocchi uit de oven met romige geitenkaas en tomaat.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 28,
+    "calories": 610,
+    "protein": 20,
+    "carbs": 68,
+    "fat": 26,
+    "ingredients": [
+      "gnocchi",
+      "geitenkaas",
+      "cherrytomaatjes",
+      "basilicum vers",
+      "olijfolie"
+    ],
+    "steps": [
+      "Kook de gnocchi kort.",
+      "Meng met tomaten en olie.",
+      "Top met geitenkaas.",
+      "Bak 15 minuten in de oven."
+    ]
+  },
+  {
+    "id": 1169,
+    "title": "Kipfilet in paprikaroomsaus",
+    "description": "Zachte kipfilet in een romige saus van paprika en room.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 25,
+    "calories": 620,
+    "protein": 42,
+    "carbs": 28,
+    "fat": 28,
+    "ingredients": [
+      "kipfilet",
+      "paprika rood",
+      "room",
+      "knoflook",
+      "ui",
+      "olijfolie"
+    ],
+    "steps": [
+      "Bak de kip goudbruin.",
+      "Fruit ui en knoflook.",
+      "Voeg paprika en room toe.",
+      "Laat inkoken en serveer."
+    ]
+  },
+  {
+    "id": 1170,
+    "title": "Kip pesto rucola pasta",
+    "description": "Frisse pasta met rucola, kip en groene pesto.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 22,
+    "calories": 645,
+    "protein": 36,
+    "carbs": 70,
+    "fat": 22,
+    "ingredients": [
+      "pasta",
+      "kipfilet",
+      "pesto",
+      "rucola",
+      "parmezaan"
+    ],
+    "steps": [
+      "Kook de pasta.",
+      "Bak de kip.",
+      "Meng met pesto.",
+      "Serveer met rucola en parmezaan."
+    ]
+  },
+  {
+    "id": 1171,
+    "title": "Runderburger met gekarameliseerde ui",
+    "description": "Sappige runderburger met zoete langzaam gebakken uien.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 18,
+    "calories": 720,
+    "protein": 39,
+    "carbs": 41,
+    "fat": 42,
+    "ingredients": [
+      "runderburger",
+      "rode ui",
+      "boter",
+      "cheddar",
+      "ciabatta brood"
+    ],
+    "steps": [
+      "Bak de burger.",
+      "Karamelliseer ui in boter.",
+      "Leg cheddar op de burger.",
+      "Serveer op brood met ui."
+    ]
+  },
+  {
+    "id": 1172,
+    "title": "Rucola ei avocado bowl",
+    "description": "Lichte bowl met ei, avocado en verse rucola.",
+    "category": "lunch",
+    "baseServings": 2,
+    "time": 10,
+    "calories": 420,
+    "protein": 19,
+    "carbs": 12,
+    "fat": 32,
+    "ingredients": [
+      "rucola",
+      "eieren",
+      "avocado",
+      "olijfolie",
+      "citroen"
+    ],
+    "steps": [
+      "Kook de eieren.",
+      "Snijd avocado.",
+      "Meng alles in een bowl.",
+      "Maak aan met citroen en olie."
+    ]
+  },
+  {
+    "id": 1173,
+    "title": "Kip gehaktballetjes in tomatensaus",
+    "description": "Smeuïge kipgehaktballen in een rijke tomatensaus.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 28,
+    "calories": 540,
+    "protein": 36,
+    "carbs": 22,
+    "fat": 32,
+    "ingredients": [
+      "kipgehakt",
+      "tomatensaus",
+      "ui",
+      "knoflook",
+      "paneermeel",
+      "basilicum vers"
+    ],
+    "steps": [
+      "Meng kipgehakt met paneermeel.",
+      "Draai balletjes.",
+      "Bak ze kort aan.",
+      "Voeg tomatensaus toe.",
+      "Laat sudderen."
+    ]
+  },
+  {
+    "id": 1174,
+    "title": "Kipfilet met dragonroomsaus",
+    "description": "Romige dragon saus over malse kipfilet.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 25,
+    "calories": 580,
+    "protein": 40,
+    "carbs": 8,
+    "fat": 38,
+    "ingredients": [
+      "kipfilet",
+      "room",
+      "dragon",
+      "boter",
+      "ui"
+    ],
+    "steps": [
+      "Bak de kipfilet goudbruin.",
+      "Fruit ui.",
+      "Voeg room en dragon toe.",
+      "Laat inkoken en serveer."
+    ]
+  },
+  {
+    "id": 1175,
+    "title": "Pasta dragon-roomsaus kip",
+    "description": "Smeuïge pasta met kipfilet en lichte dragon-roomsaus.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 22,
+    "calories": 665,
+    "protein": 37,
+    "carbs": 72,
+    "fat": 24,
+    "ingredients": [
+      "pasta",
+      "kipfilet",
+      "room",
+      "dragon",
+      "knoflook",
+      "parmezaan"
+    ],
+    "steps": [
+      "Kook de pasta.",
+      "Bak de kipfilet.",
+      "Maak roomsaus met dragon.",
+      "Meng met pasta.",
+      "Top met parmezaan."
+    ]
+  },  
+  {
+    "id": 1176,
+    "title": "Lamskotelet met knoflook en tijm",
+    "description": "Heerlijk gekruide lamskoteletjes met knoflook en verse tijm.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 20,
+    "calories": 640,
+    "protein": 38,
+    "carbs": 4,
+    "fat": 52,
+    "ingredients": [
+      "lamskotelet",
+      "knoflook",
+      "verse tijm",
+      "olijfolie",
+      "peper & zout"
+    ],
+    "steps": [
+      "Wrijf de koteletten in met olie en kruiden.",
+      "Bak 3–4 minuten per kant.",
+      "Laat rusten en serveer."
+    ]
+  },
+  {
+    "id": 1177,
+    "title": "Quinoa groentesalade",
+    "description": "Frisse salade met quinoa en kleurrijke groenten.",
+    "category": "lunch",
+    "baseServings": 2,
+    "time": 18,
+    "calories": 420,
+    "protein": 16,
+    "carbs": 48,
+    "fat": 14,
+    "ingredients": [
+      "quinoa",
+      "komkommer",
+      "cherrytomaatjes",
+      "rucola",
+      "limoen",
+      "olijfolie"
+    ],
+    "steps": [
+      "Kook de quinoa.",
+      "Snijd groenten.",
+      "Meng alles.",
+      "Breng op smaak met olie en limoen."
+    ]
+  },
+  {
+    "id": 1178,
+    "title": "Couscous met falafel en munt",
+    "description": "Smaakvolle couscous met falafel, citroen en verse munt.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 20,
+    "calories": 560,
+    "protein": 18,
+    "carbs": 72,
+    "fat": 20,
+    "ingredients": [
+      "couscous",
+      "falafel",
+      "citroen",
+      "verse munt",
+      "rucola",
+      "olijfolie"
+    ],
+    "steps": [
+      "Bereid de couscous.",
+      "Bak falafel.",
+      "Meng met munt en citroen.",
+      "Serveer met rucola."
+    ]
+  },
+  {
+    "id": 1179,
+    "title": "Ribeye met kruidenboter",
+    "description": "Perfect gegaarde ribeye met zelfgemaakte kruidenboter.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 15,
+    "calories": 780,
+    "protein": 46,
+    "carbs": 2,
+    "fat": 66,
+    "ingredients": [
+      "ribeye",
+      "boter",
+      "knoflook",
+      "peterselie vers",
+      "peper & zout"
+    ],
+    "steps": [
+      "Wrijf het vlees in met zout.",
+      "Bak 2–3 minuten per kant.",
+      "Maak kruidenboter.",
+      "Serveer bovenop warm vlees."
+    ]
+  },
+  {
+    "id": 1180,
+    "title": "Biefstuk met zoete aardappel puree",
+    "description": "Mals gebakken biefstuk met romige zoete aardappelpuree.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 28,
+    "calories": 690,
+    "protein": 42,
+    "carbs": 48,
+    "fat": 32,
+    "ingredients": [
+      "biefstuk",
+      "zoete aardappel",
+      "boter",
+      "knoflook",
+      "room"
+    ],
+    "steps": [
+      "Kook de zoete aardappel.",
+      "Maak puree met room en boter.",
+      "Bak de biefstuk.",
+      "Serveer samen."
+    ]
+  },
+  {
+    "id": 1181,
+    "title": "Pittige tofu roerbak",
+    "description": "Vegetarische tofu roerbak met groenten en chilisaus.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 22,
+    "calories": 510,
+    "protein": 28,
+    "carbs": 30,
+    "fat": 30,
+    "ingredients": [
+      "tofu stevig",
+      "paprika geel",
+      "paprika groen",
+      "sojasaus",
+      "sweet chilisaus",
+      "sesamolie"
+    ],
+    "steps": [
+      "Snijd de tofu en bak krokant.",
+      "Voeg groenten toe.",
+      "Meng met sojasaus en chilisaus.",
+      "Serveeer warm."
+    ]
+  },
+  {
+    "id": 1182,
+    "title": "Eendenborst met sinaasappelglaze",
+    "description": "Zoet-frisse eendenborst met sinaasappel en honing.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 30,
+    "calories": 690,
+    "protein": 36,
+    "carbs": 24,
+    "fat": 48,
+    "ingredients": [
+      "eendenborst",
+      "sinaasappel",
+      "honey",
+      "gember",
+      "knoflook"
+    ],
+    "steps": [
+      "Kerf de vetlaag.",
+      "Bak op middelhoog vuur.",
+      "Voeg sinaasappel en honing toe.",
+      "Laat karamelliseren."
+    ]
+  },
+  {
+    "id": 1183,
+    "title": "Kabeljauw met prei-roomsaus",
+    "description": "Zachte kabeljauw met romige saus van prei en room.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 25,
+    "calories": 540,
+    "protein": 34,
+    "carbs": 16,
+    "fat": 34,
+    "ingredients": [
+      "kabeljauwfilet",
+      "prei",
+      "room",
+      "citroen",
+      "boter"
+    ],
+    "steps": [
+      "Bak prei zacht.",
+      "Voeg room toe.",
+      "Pocheer de vis in de saus.",
+      "Serveer met citroen."
+    ]
+  },
+  {
+    "id": 1184,
+    "title": "Tilapia met citroen-knoflook",
+    "description": "Lichte ovengebakken tilapia met citroen en knoflook.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 17,
+    "calories": 380,
+    "protein": 37,
+    "carbs": 2,
+    "fat": 18,
+    "ingredients": [
+      "tilapiafilet",
+      "citroen",
+      "knoflook",
+      "olijfolie",
+      "peper & zout"
+    ],
+    "steps": [
+      "Marineer de tilapia.",
+      "Bak 12 minuten in de oven.",
+      "Serveer met citroenpartjes."
+    ]
+  },
+  {
+    "id": 1185,
+    "title": "Kipburger met honing-mosterd saus",
+    "description": "Malse kipburger met frisse sla en honing-mosterd dressing.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 20,
+    "calories": 640,
+    "protein": 34,
+    "carbs": 48,
+    "fat": 32,
+    "ingredients": [
+      "kipburger",
+      "sla",
+      "honing",
+      "mosterd",
+      "mayonaise"
+    ],
+    "steps": [
+      "Bak de burger.",
+      "Meng honing en mosterd.",
+      "Serveer op broodje met sla."
+    ]
+  },
+  {
+    "id": 1186,
+    "title": "Kalkoenfilet met tijm-roomsaus",
+    "description": "Lichte kalkoen met romige tijmsaus.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 27,
+    "calories": 520,
+    "protein": 44,
+    "carbs": 10,
+    "fat": 30,
+    "ingredients": [
+      "kalkoenfilet",
+      "room",
+      "dragon",
+      "boter",
+      "citroen"
+    ],
+    "steps": [
+      "Bak de kalkoen goudbruin.",
+      "Voeg room en kruiden toe.",
+      "Laat inkoken."
+    ]
+  },
+  {
+    "id": 1187,
+    "title": "Calamari met aioli",
+    "description": "Krokante calamari met romige aioli dip.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 18,
+    "calories": 450,
+    "protein": 24,
+    "carbs": 26,
+    "fat": 28,
+    "ingredients": [
+      "calamari",
+      "bloem",
+      "aioli",
+      "citroen",
+      "olie"
+    ],
+    "steps": [
+      "Wentel calamari in bloem.",
+      "Frituur kort.",
+      "Serveer met aioli."
+    ]
+  },
+  {
+    "id": 1188,
+    "title": "Mosselen in witte wijn",
+    "description": "Klassieke mosselen in een aromatische saus van wijn en groenten.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 25,
+    "calories": 580,
+    "protein": 48,
+    "carbs": 16,
+    "fat": 28,
+    "ingredients": [
+      "mosselen",
+      "prei",
+      "ui",
+      "witte wijn",
+      "boter",
+      "peterselie vers"
+    ],
+    "steps": [
+      "Fruit ui en prei.",
+      "Voeg mosselen en wijn toe.",
+      "Kook 6 minuten.",
+      "Serveer met peterselie."
+    ]
+  },
+  {
+    "id": 1189,
+    "title": "Paksoi roerbak met oestersaus",
+    "description": "Knapperige paksoi in een hartige roerbaksaus.",
+    "category": "side",
+    "baseServings": 2,
+    "time": 10,
+    "calories": 150,
+    "protein": 6,
+    "carbs": 12,
+    "fat": 8,
+    "ingredients": [
+      "paksoi",
+      "oestersaus",
+      "knoflook",
+      "olie"
+    ],
+    "steps": [
+      "Bak knoflook in olie.",
+      "Voeg paksoi toe.",
+      "Roer oestersaus erdoor."
+    ]
+  },
+  {
+    "id": 1190,
+    "title": "Seitan wok met groente",
+    "description": "Veganistische seitanroerbak met frisse groenten en sojasaus.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 15,
+    "calories": 420,
+    "protein": 32,
+    "carbs": 24,
+    "fat": 18,
+    "ingredients": [
+      "seitan",
+      "paprika rood",
+      "prei",
+      "sojasaus",
+      "sesamolie"
+    ],
+    "steps": [
+      "Bak de seitan.",
+      "Voeg groenten toe.",
+      "Meng met saus."
+    ]
+  },
+  {
+    "id": 1191,
+    "title": "Haloumi salade met munt",
+    "description": "Zomerse salade met gegrilde haloumi en frisse munt.",
+    "category": "lunch",
+    "baseServings": 2,
+    "time": 12,
+    "calories": 480,
+    "protein": 22,
+    "carbs": 14,
+    "fat": 36,
+    "ingredients": [
+      "haloumi",
+      "rucola",
+      "verse munt",
+      "citroen",
+      "olijfolie"
+    ],
+    "steps": [
+      "Grill de haloumi.",
+      "Meng met rucola en munt.",
+      "Sprenkel citroen erover."
+    ]
+  },
+  {
+    "id": 1192,
+    "title": "Cottage cheese power bowl",
+    "description": "Eiwitrijke bowl met cottage cheese, groenten en zaden.",
+    "category": "breakfast",
+    "baseServings": 2,
+    "time": 8,
+    "calories": 320,
+    "protein": 30,
+    "carbs": 18,
+    "fat": 10,
+    "ingredients": [
+      "cottage cheese",
+      "komkommer",
+      "cherrytomaatjes",
+      "sesamzaad",
+      "verse peterselie"
+    ],
+    "steps": [
+      "Schep cottage cheese in een bowl.",
+      "Top met groenten.",
+      "Bestrooi met sesam."
+    ]
+  },
+  {
+    "id": 1193,
+    "title": "Kipdijfilet gemarineerd zoet-pittig",
+    "description": "Perfect gemarineerde kip met een sticky zoet-pittige glaze.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 25,
+    "calories": 660,
+    "protein": 40,
+    "carbs": 30,
+    "fat": 40,
+    "ingredients": [
+      "kipdijfilet gemarineerd",
+      "honing",
+      "sriracha",
+      "sojasaus",
+      "sesamolie"
+    ],
+    "steps": [
+      "Bak de kip krokant.",
+      "Voeg marinade toe.",
+      "Laat karamelliseren."
+    ]
+  },
+  {
+    "id": 1194,
+    "title": "Runderreepjes teriyaki",
+    "description": "Malse runderreepjes in een zoete teriyakisaus.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 18,
+    "calories": 540,
+    "protein": 38,
+    "carbs": 24,
+    "fat": 30,
+    "ingredients": [
+      "runderreepjes",
+      "teriyaki saus",
+      "sesamolie",
+      "bosui"
+    ],
+    "steps": [
+      "Bak de runderreepjes kort.",
+      "Voeg teriyaki toe.",
+      "Garneer met bosui."
+    ]
+  },
+  {
+    "id": 1195,
+    "title": "Varkenscotelet met kruidenkorst",
+    "description": "Heerlijke kotelet met knapperige kruidenkorst.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 22,
+    "calories": 620,
+    "protein": 42,
+    "carbs": 8,
+    "fat": 46,
+    "ingredients": [
+      "varkenscotelet",
+      "mosterd",
+      "paneermeel",
+      "peterselie vers",
+      "boter"
+    ],
+    "steps": [
+      "Smeer de kotelet in met mosterd.",
+      "Bedek met paneermeel.",
+      "Bak gaar in boter."
+    ]
+  },
+  {
+    "id": 1196,
+    "title": "Runderstoof met groenten",
+    "description": "Langzaam gegaarde runderstoof met smaakvolle groenten.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 120,
+    "calories": 680,
+    "protein": 48,
+    "carbs": 34,
+    "fat": 38,
+    "ingredients": [
+      "runderstoofvlees",
+      "wortel",
+      "prei",
+      "bouillonblokje runder",
+      "ui"
+    ],
+    "steps": [
+      "Bak vlees aan.",
+      "Voeg groenten toe.",
+      "Laat 90 minuten sudderen."
+    ]
+  },
+  {
+    "id": 1197,
+    "title": "Speklap sticky ketjap",
+    "description": "Krokante speklap met zoete ketjap glaze.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 20,
+    "calories": 720,
+    "protein": 28,
+    "carbs": 22,
+    "fat": 58,
+    "ingredients": [
+      "speklap",
+      "ketjap manis",
+      "knoflook",
+      "gember",
+      "honing"
+    ],
+    "steps": [
+      "Bak speklappen krokant.",
+      "Voeg ketjap en honing toe.",
+      "Laat karamelliseren."
+    ]
+  },
+  {
+    "id": 1198,
+    "title": "Rijstnoedels met groenten",
+    "description": "Snel gerecht met zachte rijstnoedels en knapperige groenten.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 14,
+    "calories": 430,
+    "protein": 10,
+    "carbs": 68,
+    "fat": 10,
+    "ingredients": [
+      "rijstnoedels",
+      "julienne groenten",
+      "sojasaus",
+      "sesamolie",
+      "rode ui"
+    ],
+    "steps": [
+      "Kook de noedels.",
+      "Roerbak groenten.",
+      "Meng met noedels en saus."
+    ]
+  },
+  {
+    "id": 1199,
+    "title": "Gegrilde garnalen met knoflookboter",
+    "description": "Perfect gegrilde garnalen met romige knoflookboter.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 10,
+    "calories": 380,
+    "protein": 32,
+    "carbs": 2,
+    "fat": 26,
+    "ingredients": [
+      "garnalen groot",
+      "boter",
+      "knoflook",
+      "citroen",
+      "peterselie vers"
+    ],
+    "steps": [
+      "Bak garnalen kort.",
+      "Voeg knoflookboter toe.",
+      "Serveer met citroen."
+    ]
+  },
+  {
+    "id": 1200,
+    "title": "Groentecurry met kokos",
+    "description": "Romige curry met diverse groenten en kokosmelk.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 25,
+    "calories": 520,
+    "protein": 14,
+    "carbs": 46,
+    "fat": 30,
+    "ingredients": [
+      "kokosmelk",
+      "courgette",
+      "wortel",
+      "snijbonen",
+      "currypasta rood"
+    ],
+    "steps": [
+      "Fruit de currypasta.",
+      "Voeg kokosmelk toe.",
+      "Kook groenten gaar.",
+      "Serveer warm."
+    ]
+  }, 
+  {
+    "id": 1201,
+    "title": "Gevulde paprika met quinoa",
+    "description": "Paprika’s gevuld met quinoa, groenten en kruiden.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 30,
+    "calories": 480,
+    "protein": 16,
+    "carbs": 62,
+    "fat": 14,
+    "ingredients": [
+      "paprika rood",
+      "quinoa",
+      "courgette",
+      "ui",
+      "tomatensaus",
+      "olijfolie"
+    ],
+    "steps": [
+      "Kook de quinoa.",
+      "Bak ui en courgette.",
+      "Vul paprika’s en bak 20 min."
+    ]
+  },
+  {
+    "id": 1202,
+    "title": "Zoete aardappel friet uit de oven",
+    "description": "Gezonde krokante zoete aardappel frietjes.",
+    "category": "side",
+    "baseServings": 2,
+    "time": 25,
+    "calories": 320,
+    "protein": 4,
+    "carbs": 52,
+    "fat": 10,
+    "ingredients": [
+      "zoete aardappel",
+      "olijfolie",
+      "paprikapoeder",
+      "peper & zout"
+    ],
+    "steps": [
+      "Snijd friet van zoete aardappel.",
+      "Meng met olie en kruiden.",
+      "Bak 22 min op 200°C."
+    ]
+  },
+  {
+    "id": 1203,
+    "title": "Harissa kip met couscous",
+    "description": "Pittige harissa kip gecombineerd met zachte couscous.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 22,
+    "calories": 610,
+    "protein": 36,
+    "carbs": 54,
+    "fat": 28,
+    "ingredients": [
+      "kipfilet",
+      "harissa",
+      "couscous",
+      "citroen",
+      "rucola"
+    ],
+    "steps": [
+      "Marineer kip in harissa.",
+      "Bak kip gaar.",
+      "Serveer met couscous en rucola."
+    ]
+  },
+  {
+    "id": 1204,
+    "title": "Kokosrijst met limoen",
+    "description": "Romige rijst gekookt in kokosmelk met frisse limoen.",
+    "category": "side",
+    "baseServings": 2,
+    "time": 18,
+    "calories": 390,
+    "protein": 6,
+    "carbs": 66,
+    "fat": 12,
+    "ingredients": [
+      "basmati rijst",
+      "kokosmelk",
+      "limoen",
+      "zout"
+    ],
+    "steps": [
+      "Kook rijst in kokosmelk.",
+      "Voeg limoen toe.",
+      "Serveer warm."
+    ]
+  },
+  {
+    "id": 1205,
+    "title": "Garnalen curry met spinazie",
+    "description": "Romige garnalencurry met verse spinazie.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 20,
+    "calories": 520,
+    "protein": 30,
+    "carbs": 18,
+    "fat": 34,
+    "ingredients": [
+      "garnalen groot",
+      "kokosmelk",
+      "spinazie vers",
+      "currypasta rood",
+      "knoflook"
+    ],
+    "steps": [
+      "Bak knoflook.",
+      "Voeg curry en kokos toe.",
+      "Voeg spinazie en garnalen toe."
+    ]
+  },
+  {
+    "id": 1206,
+    "title": "Tempeh ketjap roerbak",
+    "description": "Zoet-hartige tempeh met ketjap en groenten.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 17,
+    "calories": 460,
+    "protein": 28,
+    "carbs": 34,
+    "fat": 18,
+    "ingredients": [
+      "tempeh",
+      "ketjap manis",
+      "paprika geel",
+      "bosui",
+      "sesamolie"
+    ],
+    "steps": [
+      "Bak tempeh krokant.",
+      "Voeg ketjap toe.",
+      "Roerbak met groenten."
+    ]
+  },
+  {
+    "id": 1207,
+    "title": "Bulgur salade met munt en komkommer",
+    "description": "Frisse bulgursalade met citroen en munt.",
+    "category": "lunch",
+    "baseServings": 2,
+    "time": 15,
+    "calories": 380,
+    "protein": 10,
+    "carbs": 58,
+    "fat": 10,
+    "ingredients": [
+      "bulgur",
+      "komkommer",
+      "cherrytomaatjes",
+      "verse munt",
+      "citroen",
+      "olijfolie"
+    ],
+    "steps": [
+      "Kook bulgur.",
+      "Snijd groenten.",
+      "Meng en breng op smaak."
+    ]
+  },
+  {
+    "id": 1208,
+    "title": "Courgette pannenkoekjes",
+    "description": "Lichte hartige pannenkoekjes met geraspte courgette.",
+    "category": "lunch",
+    "baseServings": 2,
+    "time": 15,
+    "calories": 340,
+    "protein": 14,
+    "carbs": 24,
+    "fat": 18,
+    "ingredients": [
+      "courgette",
+      "eieren",
+      "bloem",
+      "peper & zout",
+      "olijfolie"
+    ],
+    "steps": [
+      "Rasp courgette.",
+      "Meng met ei en bloem.",
+      "Bak in kleine cakejes."
+    ]
+  },
+  {
+    "id": 1209,
+    "title": "Pompoensoep met kokos",
+    "description": "Romige soep van pompoen en kokosmelk.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 25,
+    "calories": 410,
+    "protein": 8,
+    "carbs": 56,
+    "fat": 16,
+    "ingredients": [
+      "pompoenblokjes",
+      "kokosmelk",
+      "ui",
+      "knoflook",
+      "bouillonblokje groente"
+    ],
+    "steps": [
+      "Bak ui en knoflook.",
+      "Voeg pompoen en bouillon toe.",
+      "Pureer en voeg kokos toe."
+    ]
+  },
+  {
+    "id": 1210,
+    "title": "Broccoli-kaas oven schotel",
+    "description": "Ovenschotel met broccoli en romige kaassaus.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 30,
+    "calories": 590,
+    "protein": 28,
+    "carbs": 22,
+    "fat": 42,
+    "ingredients": [
+      "broccoli",
+      "cheddar",
+      "room",
+      "paneermeel",
+      "boter"
+    ],
+    "steps": [
+      "Kook broccoli kort.",
+      "Maak kaassaus.",
+      "Bak 15 min in oven."
+    ]
+  },
+  {
+    "id": 1211,
+    "title": "Gnocchi met basilicumroom",
+    "description": "Romige gnocchi met verse basilicum en room.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 18,
+    "calories": 620,
+    "protein": 16,
+    "carbs": 72,
+    "fat": 26,
+    "ingredients": [
+      "gnocchi",
+      "room",
+      "basilicum vers",
+      "knoflook",
+      "parmezaan"
+    ],
+    "steps": [
+      "Kook gnocchi.",
+      "Maak basilicumsaus.",
+      "Meng en serveer."
+    ]
+  },
+  {
+    "id": 1212,
+    "title": "Chorizo pasta",
+    "description": "Smaakvolle romige pasta met pittige chorizo.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 20,
+    "calories": 720,
+    "protein": 28,
+    "carbs": 68,
+    "fat": 40,
+    "ingredients": [
+      "pasta",
+      "chorizo",
+      "room",
+      "ui",
+      "tomatenpuree"
+    ],
+    "steps": [
+      "Bak chorizo en ui.",
+      "Voeg room en puree toe.",
+      "Meng met pasta."
+    ]
+  },
+  {
+    "id": 1213,
+    "title": "Vegaburger bowl",
+    "description": "Gezonde bowl met vegaburger, rijst en frisse groenten.",
+    "category": "lunch",
+    "baseServings": 2,
+    "time": 15,
+    "calories": 520,
+    "protein": 22,
+    "carbs": 60,
+    "fat": 20,
+    "ingredients": [
+      "vega burger",
+      "rijst",
+      "komkommer",
+      "rucola",
+      "mayonaise",
+      "sriracha"
+    ],
+    "steps": [
+      "Bak vegaburger.",
+      "Maak rijst.",
+      "Stel bowl samen."
+    ]
+  },
+  {
+    "id": 1214,
+    "title": "Linzenstoof met groenten",
+    "description": "Warm stoofgerecht met linzen en groentemix.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 28,
+    "calories": 420,
+    "protein": 20,
+    "carbs": 60,
+    "fat": 8,
+    "ingredients": [
+      "linzen",
+      "wortel",
+      "selderij",
+      "tomatensaus",
+      "ui"
+    ],
+    "steps": [
+      "Fruit ui en groenten.",
+      "Voeg linzen en saus toe.",
+      "Laat sudderen."
+    ]
+  },
+  {
+    "id": 1215,
+    "title": "Wraps met kipgehakt",
+    "description": "Snelle wraps gevuld met gekruid kipgehakt en groenten.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 14,
+    "calories": 560,
+    "protein": 34,
+    "carbs": 54,
+    "fat": 22,
+    "ingredients": [
+      "wraps",
+      "kipgehakt",
+      "paprika rood",
+      "maïs",
+      "tomatensalsa"
+    ],
+    "steps": [
+      "Bak kipgehakt.",
+      "Voeg groenten toe.",
+      "Vul wraps."
+    ]
+  },
+  {
+    "id": 1216,
+    "title": "Aziatische sesamkomkommer",
+    "description": "Frisse, knapperige komkommersalade met sesamolie.",
+    "category": "side",
+    "baseServings": 2,
+    "time": 6,
+    "calories": 90,
+    "protein": 2,
+    "carbs": 8,
+    "fat": 6,
+    "ingredients": [
+      "komkommer",
+      "sesamolie",
+      "sojasaus",
+      "sesamzaad",
+      "limoen"
+    ],
+    "steps": [
+      "Snijd komkommer.",
+      "Meng met dressing.",
+      "Bestrooi met sesam."
+    ]
+  },
+  {
+    "id": 1217,
+    "title": "Broodje zalm met dille",
+    "description": "Snelle lunch met zachte zalm, roomkaas en dille.",
+    "category": "lunch",
+    "baseServings": 2,
+    "time": 8,
+    "calories": 420,
+    "protein": 22,
+    "carbs": 36,
+    "fat": 22,
+    "ingredients": [
+      "zalmmoot",
+      "roomkaas",
+      "dille",
+      "citroen",
+      "brood"
+    ],
+    "steps": [
+      "Bak of stoom zalm.",
+      "Besmeer brood.",
+      "Serveer met dille."
+    ]
+  },
+  {
+    "id": 1218,
+    "title": "Naanbrood pizza",
+    "description": "Supersnelle pizza met naanbrood als bodem.",
+    "category": "snack",
+    "baseServings": 2,
+    "time": 12,
+    "calories": 560,
+    "protein": 20,
+    "carbs": 70,
+    "fat": 22,
+    "ingredients": [
+      "naanbrood",
+      "tomatensaus",
+      "mozzarella",
+      "basilicum vers"
+    ],
+    "steps": [
+      "Beleg naanbrood.",
+      "Bak 8 min.",
+      "Garneer met basilicum."
+    ]
+  },
+  {
+    "id": 1219,
+    "title": "Snelle kikkererwten curry",
+    "description": "Vegetarische curry met kikkererwten en tomaat.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 18,
+    "calories": 420,
+    "protein": 16,
+    "carbs": 54,
+    "fat": 10,
+    "ingredients": [
+      "kikkererwten",
+      "tomatensaus",
+      "kokosmelk",
+      "ui",
+      "knoflook",
+      "gember"
+    ],
+    "steps": [
+      "Fruit ui en knoflook.",
+      "Voeg kruiden en kokos toe.",
+      "Laat pruttelen."
+    ]
+  },
+  {
+    "id": 1220,
+    "title": "Kabeljauw taco’s",
+    "description": "Lichte taco’s met kruidige kabeljauw en frisse salsa.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 20,
+    "calories": 480,
+    "protein": 32,
+    "carbs": 54,
+    "fat": 14,
+    "ingredients": [
+      "kabeljauwfilet",
+      "wraps",
+      "tomatensalsa",
+      "limoen",
+      "rucola"
+    ],
+    "steps": [
+      "Bak kabeljauw.",
+      "Vul wraps.",
+      "Serveer met salsa."
+    ]
+  },
+  {
+    "id": 1221,
+    "title": "Tofu pindastoof",
+    "description": "Romige stoof met tofu en pindasaus.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 16,
+    "calories": 520,
+    "protein": 26,
+    "carbs": 22,
+    "fat": 34,
+    "ingredients": [
+      "tofu stevig",
+      "pindakaas",
+      "kokosmelk",
+      "sojasaus",
+      "rode peper"
+    ],
+    "steps": [
+      "Bak tofu.",
+      "Maak pindasaus.",
+      "Laat zachtjes koken."
+    ]
+  },
+  {
+    "id": 1222,
+    "title": "Geitenkaas salade",
+    "description": "Smeuïge salade met geitenkaas en honing.",
+    "category": "lunch",
+    "baseServings": 2,
+    "time": 10,
+    "calories": 390,
+    "protein": 14,
+    "carbs": 20,
+    "fat": 28,
+    "ingredients": [
+      "geitenkaas",
+      "rucola",
+      "honing",
+      "walnoten",
+      "balsamico"
+    ],
+    "steps": [
+      "Leg rucola op bord.",
+      "Voeg geitenkaas toe.",
+      "Druppel honing en balsamico."
+    ]
+  },
+  {
+    "id": 1223,
+    "title": "Sperziebonen met knoflook",
+    "description": "Knapperige sperziebonen gewokt met knoflook.",
+    "category": "side",
+    "baseServings": 2,
+    "time": 9,
+    "calories": 120,
+    "protein": 4,
+    "carbs": 10,
+    "fat": 6,
+    "ingredients": [
+      "sperziebonen",
+      "knoflook",
+      "olijfolie",
+      "peper & zout"
+    ],
+    "steps": [
+      "Kook sperziebonen.",
+      "Wok met knoflook.",
+      "Serveer warm."
+    ]
+  },
+  {
+    "id": 1224,
+    "title": "Erwten-pesto pasta",
+    "description": "Snelle pasta met pesto en zoete erwtjes.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 14,
+    "calories": 520,
+    "protein": 18,
+    "carbs": 72,
+    "fat": 18,
+    "ingredients": [
+      "pasta",
+      "erwten diepvries",
+      "pesto",
+      "parmezaan"
+    ],
+    "steps": [
+      "Kook pasta.",
+      "Voeg erwten toe.",
+      "Meng met pesto."
+    ]
+  },
+  {
+    "id": 1225,
+    "title": "Biefstukreepjes met roerbakgroenten",
+    "description": "Snel roerbakgerecht met malse biefstukreepjes.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 12,
+    "calories": 580,
+    "protein": 38,
+    "carbs": 18,
+    "fat": 38,
+    "ingredients": [
+      "biefstuk",
+      "julienne groenten",
+      "sojasaus",
+      "gember",
+      "sesamolie"
+    ],
+    "steps": [
+      "Bak biefstukreepjes.",
+      "Voeg groenten toe.",
+      "Breng op smaak."
+    ]
+  }, 
+  {
+    "id": 1226,
+    "title": "Kip citroen knoflook uit de oven",
+    "description": "Frisse kip met citroen en knoflook, langzaam gegaard in de oven.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 32,
+    "calories": 610,
+    "protein": 42,
+    "carbs": 12,
+    "fat": 38,
+    "ingredients": [
+      "kipdijfilet",
+      "citroen",
+      "knoflook",
+      "olijfolie",
+      "rozemarijn"
+    ],
+    "steps": [
+      "Marineer kip in citroen, olie en knoflook.",
+      "Bak 25 minuten in de oven.",
+      "Serveer met verse kruiden."
+    ]
+  },
+  {
+    "id": 1227,
+    "title": "Ribeye met kruidenboter",
+    "description": "Perfect gebakken ribeye met romige kruidenboter.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 18,
+    "calories": 780,
+    "protein": 48,
+    "carbs": 4,
+    "fat": 60,
+    "ingredients": [
+      "ribeye",
+      "boter",
+      "knoflook",
+      "peterselie vers",
+      "peper & zout"
+    ],
+    "steps": [
+      "Kruid ribeye.",
+      "Bak 3–4 minuten per kant.",
+      "Serveer met kruidenboter."
+    ]
+  },
+  {
+    "id": 1228,
+    "title": "Couscous met gegrilde groenten",
+    "description": "Lichte maaltijd met couscous en gegrilde groenten.",
+    "category": "lunch",
+    "baseServings": 2,
+    "time": 20,
+    "calories": 480,
+    "protein": 12,
+    "carbs": 68,
+    "fat": 16,
+    "ingredients": [
+      "couscous",
+      "courgette",
+      "paprika geel",
+      "paprika rood",
+      "olijfolie"
+    ],
+    "steps": [
+      "Bereid couscous.",
+      "Gril de groenten.",
+      "Meng en serveer."
+    ]
+  },
+  {
+    "id": 1229,
+    "title": "Falafel bowl met tahin",
+    "description": "Midden-Oosterse bowl met falafel en romige tahin dressing.",
+    "category": "lunch",
+    "baseServings": 2,
+    "time": 15,
+    "calories": 540,
+    "protein": 20,
+    "carbs": 56,
+    "fat": 24,
+    "ingredients": [
+      "falafel",
+      "rucola",
+      "komkommer",
+      "tahin",
+      "citroen"
+    ],
+    "steps": [
+      "Bak falafel.",
+      "Snijd groenten.",
+      "Meng met tahindressing."
+    ]
+  },
+  {
+    "id": 1230,
+    "title": "Zalm teriyaki bowl",
+    "description": "Gebakken zalm met teriyakisaus over rijst en groenten.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 22,
+    "calories": 620,
+    "protein": 36,
+    "carbs": 64,
+    "fat": 20,
+    "ingredients": [
+      "zalmmoot",
+      "teriyaki saus",
+      "rijst",
+      "bosui",
+      "sesamzaad"
+    ],
+    "steps": [
+      "Bak zalm.",
+      "Voeg teriyaki toe.",
+      "Serveer met rijst."
+    ]
+  },
+  {
+    "id": 1231,
+    "title": "Sambal kip met sperziebonen",
+    "description": "Kruidige sambal kip met knapperige sperziebonen.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 18,
+    "calories": 570,
+    "protein": 40,
+    "carbs": 16,
+    "fat": 32,
+    "ingredients": [
+      "kipfilet",
+      "sambal oelek",
+      "sperziebonen",
+      "sojasaus",
+      "knoflook"
+    ],
+    "steps": [
+      "Bak kip.",
+      "Voeg sambal en soja toe.",
+      "Roerbak sperziebonen mee."
+    ]
+  },
+  {
+    "id": 1232,
+    "title": "Chili sin carne",
+    "description": "Vegetarische chili met bonen en groenten.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 25,
+    "calories": 520,
+    "protein": 20,
+    "carbs": 66,
+    "fat": 12,
+    "ingredients": [
+      "zwarte bonen",
+      "kidneybonen",
+      "paprika groen",
+      "tomatensaus",
+      "maïs"
+    ],
+    "steps": [
+      "Fruit ui en paprika.",
+      "Voeg bonen en saus toe.",
+      "Laat pruttelen."
+    ]
+  },
+  {
+    "id": 1233,
+    "title": "Mosselen in room-knoflooksaus",
+    "description": "Zachte mosselen in romige knoflooksaus.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 24,
+    "calories": 580,
+    "protein": 42,
+    "carbs": 10,
+    "fat": 34,
+    "ingredients": [
+      "mosselen",
+      "room",
+      "knoflook",
+      "peterselie vers",
+      "boter"
+    ],
+    "steps": [
+      "Was mosselen.",
+      "Bak knoflook in boter.",
+      "Voeg mosselen toe en room.",
+      "Laat openen en serveer."
+    ]
+  },
+  {
+    "id": 1234,
+    "title": "Tilapia tomatenroom",
+    "description": "Tilapia in een zachte tomatenroomsaus.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 18,
+    "calories": 510,
+    "protein": 32,
+    "carbs": 18,
+    "fat": 34,
+    "ingredients": [
+      "tilapiafilet",
+      "tomatenpuree",
+      "room",
+      "ui",
+      "basilicum vers"
+    ],
+    "steps": [
+      "Bak tilapia.",
+      "Fruit ui.",
+      "Voeg tomaat en room toe.",
+      "Laat zacht koken."
+    ]
+  },
+  {
+    "id": 1235,
+    "title": "Calamari met citroen en knoflook",
+    "description": "Mals gebakken calamari met frisse citroen.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 15,
+    "calories": 430,
+    "protein": 34,
+    "carbs": 6,
+    "fat": 28,
+    "ingredients": [
+      "calamari",
+      "citroen",
+      "knoflook",
+      "olijfolie",
+      "peterselie vers"
+    ],
+    "steps": [
+      "Bak calamari kort heet.",
+      "Voeg knoflook en citroen toe.",
+      "Garneer met peterselie."
+    ]
+  },
+  {
+    "id": 1236,
+    "title": "Pasta met rode pesto en kip",
+    "description": "Romige pasta met kipfilet en rode pesto.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 20,
+    "calories": 670,
+    "protein": 38,
+    "carbs": 72,
+    "fat": 22,
+    "ingredients": [
+      "pasta",
+      "kipfilet",
+      "pesto",
+      "room",
+      "cherrytomaatjes"
+    ],
+    "steps": [
+      "Kook pasta.",
+      "Bak kip.",
+      "Voeg pesto en room toe.",
+      "Meng en serveer."
+    ]
+  },
+  {
+    "id": 1237,
+    "title": "Stoofvlees met rode wijn",
+    "description": "Rijk stoofgerecht met runderstoofvlees en rode wijn.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 120,
+    "calories": 780,
+    "protein": 52,
+    "carbs": 14,
+    "fat": 48,
+    "ingredients": [
+      "runderstoofvlees",
+      "rode wijn",
+      "ui",
+      "wortel",
+      "bouillonblokje runder"
+    ],
+    "steps": [
+      "Bak vlees.",
+      "Voeg wijn en bouillon toe.",
+      "Laat 2 uur sudderen."
+    ]
+  },
+  {
+    "id": 1238,
+    "title": "Pasta mozzarella tomaat",
+    "description": "Frisse pasta met mozzarella en cherrytomaat.",
+    "category": "lunch",
+    "baseServings": 2,
+    "time": 15,
+    "calories": 540,
+    "protein": 22,
+    "carbs": 70,
+    "fat": 18,
+    "ingredients": [
+      "pasta",
+      "mozzarella",
+      "cherrytomaatjes",
+      "basilicum vers",
+      "olijfolie"
+    ],
+    "steps": [
+      "Kook pasta.",
+      "Meng met olie.",
+      "Voeg mozzarella en tomaat toe."
+    ]
+  },
+  {
+    "id": 1239,
+    "title": "Quinoa bowl met zalm",
+    "description": "Gezonde bowl met quinoa, zalm en frisse groenten.",
+    "category": "lunch",
+    "baseServings": 2,
+    "time": 18,
+    "calories": 560,
+    "protein": 32,
+    "carbs": 54,
+    "fat": 22,
+    "ingredients": [
+      "zalmmoot",
+      "quinoa",
+      "komkommer",
+      "avocado",
+      "limoen"
+    ],
+    "steps": [
+      "Kook quinoa.",
+      "Bak zalm.",
+      "Meng alles in een bowl."
+    ]
+  },
+  {
+    "id": 1240,
+    "title": "Runderreepjes teriyaki",
+    "description": "Zoet-hartige teriyaki runderreepjes met rijst.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 14,
+    "calories": 590,
+    "protein": 40,
+    "carbs": 48,
+    "fat": 18,
+    "ingredients": [
+      "runderreepjes",
+      "teriyaki saus",
+      "rijst",
+      "bosui"
+    ],
+    "steps": [
+      "Bak runderreepjes.",
+      "Voeg teriyaki toe.",
+      "Serveer met rijst."
+    ]
+  },
+  {
+    "id": 1241,
+    "title": "Eendenborst sinaasappel",
+    "description": "Eendenborst met frisse sinaasappelglaze.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 28,
+    "calories": 640,
+    "protein": 44,
+    "carbs": 22,
+    "fat": 40,
+    "ingredients": [
+      "eendenborst",
+      "sinaasappel",
+      "honing",
+      "sojasaus",
+      "gember"
+    ],
+    "steps": [
+      "Bak eendenborst.",
+      "Maak sinaasappelglaze.",
+      "Laat karamelliseren."
+    ]
+  },
+  {
+    "id": 1242,
+    "title": "Burrito bowl rund",
+    "description": "Vullende bowl met rundvlees, rijst en bonen.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 20,
+    "calories": 720,
+    "protein": 42,
+    "carbs": 78,
+    "fat": 22,
+    "ingredients": [
+      "rundergehakt",
+      "rijst",
+      "zwarte bonen",
+      "maïs",
+      "tomatensalsa"
+    ],
+    "steps": [
+      "Bak gehakt.",
+      "Bereid rijst.",
+      "Stel bowl samen."
+    ]
+  },
+  {
+    "id": 1243,
+    "title": "Witte kool roerbak",
+    "description": "Knapperige roerbak van witte kool met soja en sesam.",
+    "category": "side",
+    "baseServings": 2,
+    "time": 10,
+    "calories": 110,
+    "protein": 4,
+    "carbs": 14,
+    "fat": 4,
+    "ingredients": [
+      "witte kool",
+      "sojasaus",
+      "sesamolie",
+      "knoflook"
+    ],
+    "steps": [
+      "Snijd kool fijn.",
+      "Wok met knoflook.",
+      "Breng op smaak met soja."
+    ]
+  },
+    {
+    "id": 1244,
+    "title": "Pittige tomatensoep met gember",
+    "description": "Kruidige, verwarmende tomatensoep met een frisse hint van gember.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 18,
+    "calories": 260,
+    "protein": 8,
+    "carbs": 38,
+    "fat": 6,
+    "ingredients": [
+      "tomatensaus",
+      "gember",
+      "ui",
+      "knoflook",
+      "bouillonblokje groente"
+    ],
+    "steps": [
+      "Fruit ui en knoflook.",
+      "Voeg tomatensaus en gember toe.",
+      "Voeg bouillon toe en laat koken.",
+      "Pureer en serveer."
+    ]
+  },
+  {
+    "id": 1245,
+    "title": "Kalkoenfilet met knoflookroom",
+    "description": "Malse kalkoenfilet in een romige saus van knoflook en room.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 22,
+    "calories": 560,
+    "protein": 46,
+    "carbs": 10,
+    "fat": 34,
+    "ingredients": [
+      "kalkoenfilet",
+      "room",
+      "knoflook",
+      "boter",
+      "peterselie vers"
+    ],
+    "steps": [
+      "Bak kalkoenfilet.",
+      "Voeg room en knoflook toe.",
+      "Laat indikken.",
+      "Garneer met peterselie."
+    ]
+  },
+  {
+    "id": 1246,
+    "title": "Eenvoudige couscoussalade met feta",
+    "description": "Frisse couscoussalade met feta, munt en citroen.",
+    "category": "lunch",
+    "baseServings": 2,
+    "time": 12,
+    "calories": 390,
+    "protein": 10,
+    "carbs": 50,
+    "fat": 14,
+    "ingredients": [
+      "couscous",
+      "feta",
+      "cherrytomaatjes",
+      "verse munt",
+      "citroen"
+    ],
+    "steps": [
+      "Bereid couscous.",
+      "Snijd groenten.",
+      "Meng en breng op smaak."
+    ]
+  },
+  {
+    "id": 1247,
+    "title": "Snelle ramen noedels met kip",
+    "description": "Comfort bowl met aromatische bouillon en kip.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 14,
+    "calories": 520,
+    "protein": 34,
+    "carbs": 58,
+    "fat": 16,
+    "ingredients": [
+      "noedels",
+      "kipfilet",
+      "bosui",
+      "sojasaus",
+      "ei"
+    ],
+    "steps": [
+      "Kook noedels.",
+      "Bak kip.",
+      "Maak bouillon met soja.",
+      "Serveer met ei en bosui."
+    ]
+  },
+  {
+    "id": 1248,
+    "title": "Gegrilde groenten met halloumi",
+    "description": "Krokant gegrilde halloumi met gemengde groenten.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 18,
+    "calories": 480,
+    "protein": 26,
+    "carbs": 22,
+    "fat": 30,
+    "ingredients": [
+      "haloumi",
+      "courgette",
+      "paprika rood",
+      "paprika geel",
+      "olijfolie"
+    ],
+    "steps": [
+      "Snijd halloumi en groenten.",
+      "Gril kort.",
+      "Serveer met olijfolie."
+    ]
+  },
+  {
+    "id": 1249,
+    "title": "Tempeh bowl met pindasaus",
+    "description": "Bowl met tempeh, rijst en huisgemaakte pindasaus.",
+    "category": "lunch",
+    "baseServings": 2,
+    "time": 16,
+    "calories": 580,
+    "protein": 28,
+    "carbs": 54,
+    "fat": 28,
+    "ingredients": [
+      "tempeh",
+      "rijst",
+      "pindakaas",
+      "sojasaus",
+      "limoen"
+    ],
+    "steps": [
+      "Bak tempeh.",
+      "Kook rijst.",
+      "Maak saus van pindakaas en soja.",
+      "Serveer samen."
+    ]
+  },
+  {
+    "id": 1250,
+    "title": "Snelle tonijn pasta",
+    "description": "Makkelijk gerecht met tonijn, roomkaas en tomaat.",
+    "category": "dinner",
+    "baseServings": 2,
+    "time": 14,
+    "calories": 520,
+    "protein": 32,
+    "carbs": 62,
+    "fat": 16,
+    "ingredients": [
+      "pasta",
+      "tonijn (blik)",
+      "roomkaas",
+      "cherrytomaatjes",
+      "basilicum vers"
+    ],
+    "steps": [
+      "Kook pasta.",
+      "Meng met roomkaas en tonijn.",
+      "Voeg tomaat toe."
+    ]
   }
 ]
-
