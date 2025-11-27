@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
-  <title>Slimme keuken - Recepten & Boodschappen</title>
+  <title>Slimme keuken - Recepten & Boodschappen & Planning</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
@@ -23,7 +23,6 @@
         "Segoe UI", sans-serif;
     }
 
-    /* LIGHT MODE VARIANT */
     :root.light {
       --bg: #ffffff;
       --bg-elevated: #f5f5f8;
@@ -184,7 +183,8 @@
 
     input[type="number"],
     select,
-    input[type="text"] {
+    input[type="text"],
+    input[type="date"] {
       background: #090c14;
       border-radius: 999px;
       border: 1px solid var(--border);
@@ -196,14 +196,16 @@
 
     :root.light input[type="number"],
     :root.light select,
-    :root.light input[type="text"] {
+    :root.light input[type="text"],
+    :root.light input[type="date"] {
       background: #ffffff;
       color: var(--text);
     }
 
     input[type="number"]:focus,
     select:focus,
-    input[type="text"]:focus {
+    input[type="text"]:focus,
+    input[type="date"]:focus {
       outline: none;
       border-color: var(--accent);
       box-shadow: 0 0 0 1px rgba(62, 207, 142, 0.25);
@@ -495,7 +497,6 @@
     .screen { display: none; }
     .screen.active { display: block; }
 
-    /* Shopping */
     .shopping-card {
       background: rgba(5, 7, 14, 0.92);
       border-radius: var(--radius-lg);
@@ -600,7 +601,13 @@
       flex-wrap: wrap;
     }
 
-    /* Detail */
+    .shopping-empty {
+      font-size: 0.84rem;
+      color: var(--muted);
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+
     .detail-card {
       background: rgba(5, 7, 14, 0.95);
       border-radius: var(--radius-lg);
@@ -695,7 +702,7 @@
       color: var(--muted);
     }
 
-    /* Altijd in huis popup */
+    /* Modals (Altijd in huis + Planning) */
     .modal {
       position: fixed;
       inset: 0;
@@ -789,6 +796,59 @@
       align-items: center;
       gap: 4px;
     }
+
+    /* Planning list */
+    .planning-date-block {
+      margin-bottom: 10px;
+      padding: 6px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    :root.light .planning-date-block {
+      border-top-color: #ddddeb;
+    }
+
+    .planning-date-header {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .planning-entry {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 4px 0;
+      font-size: 0.84rem;
+      border-bottom: 1px dashed rgba(255,255,255,0.05);
+    }
+
+    :root.light .planning-entry {
+      border-bottom-color: #dcdcec;
+    }
+
+    .planning-entry:last-child {
+      border-bottom: none;
+    }
+
+    .planning-entry-main {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .planning-entry-title {
+      font-weight: 500;
+    }
+
+    .planning-entry-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
   </style>
 </head>
 <body>
@@ -798,7 +858,7 @@
         <div class="title-block">
           <h1>🍽️ Slimme keuken</h1>
           <p class="subtitle">
-            Vul je voorraad in, kies aantal personen, zie passende gerechten en bouw automatisch je boodschappenlijst.
+            Vul je voorraad in, kies aantal personen, zie passende gerechten, bouw een boodschappenlijst en plan je week.
           </p>
         </div>
         <div style="display:flex; align-items:center; gap:8px;">
@@ -808,6 +868,9 @@
             </button>
             <button class="tab-btn" data-screen="shoppingScreen">
               <span>🧺</span> Boodschappenlijst
+            </button>
+            <button class="tab-btn" data-screen="planningScreen">
+              <span>🗓️</span> Planning
             </button>
           </div>
           <button id="themeToggle" class="theme-btn" title="Wissel thema">🌙</button>
@@ -819,17 +882,14 @@
     <div id="recipesScreen" class="screen active">
       <section class="controls-card">
         <div class="controls-grid">
-          <!-- Personen -->
           <div class="field">
             <label for="persons">Met hoeveel personen eet je?</label>
             <input type="number" id="persons" min="1" value="2" />
           </div>
 
-          <!-- Ingrediënten toevoegen -->
           <div class="field">
             <label>Wat heb je in huis?</label>
 
-            <!-- Zoekveld + favoriet-knop -->
             <div class="field-row" style="margin-bottom:6px;">
               <input
                 type="text"
@@ -841,7 +901,6 @@
               </button>
             </div>
 
-            <!-- Select + hoeveelheid -->
             <div class="field-row">
               <select id="ingredientSelect"></select>
               <input
@@ -889,7 +948,6 @@
         </div>
       </section>
 
-      <!-- Recept-zoekbalk + filters -->
       <section class="controls-card">
         <div class="controls-grid" style="grid-template-columns: repeat(4, minmax(0,1fr));">
           <div class="field">
@@ -948,7 +1006,6 @@
         </div>
       </section>
 
-      <!-- Resultaten -->
       <section class="results-section">
         <div class="results-group">
           <div class="results-header">
@@ -1015,7 +1072,35 @@
       </section>
     </div>
 
-    <!-- SCHERM 3: RECEPTDETAILS -->
+    <!-- SCHERM 3: PLANNING -->
+    <div id="planningScreen" class="screen">
+      <section class="shopping-card">
+        <div class="shopping-header">
+          <div>
+            <h2>🗓️ Planning</h2>
+            <p class="shopping-subtitle">
+              Plan hier welke gerechten je wanneer wilt eten. Handig voor weekplanning.
+            </p>
+          </div>
+        </div>
+
+        <div id="planningEmpty" class="shopping-empty">
+          Nog geen geplande gerechten. Plan vanuit de recepten met “🗓 Inplannen”.
+        </div>
+        <div id="planningList"></div>
+
+        <div class="shopping-footer">
+          <button class="btn-secondary" id="planningBackToRecipes">
+            ⬅️ Terug naar recepten
+          </button>
+          <button class="btn-danger" id="planningClearBtn">
+            🗑️ Planning leegmaken
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <!-- SCHERM 4: RECEPTDETAILS -->
     <div id="detailScreen" class="screen">
       <section class="detail-card">
         <div class="detail-title-row">
@@ -1042,6 +1127,9 @@
           <div style="display:flex; gap:8px; flex-wrap:wrap;">
             <button class="btn-secondary" id="detailBackBtn">
               ⬅️ Terug naar recepten
+            </button>
+            <button class="btn-ghost" id="detailPlanBtn">
+              🗓 Inplannen
             </button>
             <button class="btn-ghost" id="detailAddMissingBtn">
               🧺 Zet ontbrekende op boodschappenlijst
@@ -1309,25 +1397,59 @@
     </div>
   </div>
 
+  <!-- PLANNING-POPUP -->
+  <div id="planningModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <header class="modal-header">
+        <h2>Gerecht inplannen</h2>
+        <p>Kies een datum en maaltijdmoment.</p>
+        <button id="planningCloseBtn" class="modal-close">×</button>
+      </header>
+      <main class="modal-body">
+        <div class="field">
+          <label for="planningDate">Datum</label>
+          <input type="date" id="planningDate" />
+        </div>
+        <div class="field" style="margin-top:8px;">
+          <label for="planningMeal">Maaltijd</label>
+          <select id="planningMeal">
+            <option value="diner">Diner</option>
+            <option value="lunch">Lunch</option>
+            <option value="ontbijt">Ontbijt</option>
+            <option value="overig">Overig</option>
+          </select>
+        </div>
+        <div class="field" style="margin-top:8px;">
+          <label for="planningPersons">Aantal personen</label>
+          <input type="number" id="planningPersons" min="1" />
+        </div>
+      </main>
+      <footer class="modal-footer">
+        <button class="btn-secondary" id="planningSaveBtn">
+          ✔ Toevoegen aan planning
+        </button>
+      </footer>
+    </div>
+  </div>
+
   <script>
-    // ====== DATA CONTAINERS (worden gevuld via JSON) ======
     let ingredients = [];
     let recipes = [];
     let recipeIngredients = [];
 
-    // ====== STATE ======
     const pantry = new Map();
     const shoppingList = new Map();
+    let planning = [];
 
     let lastGroups = { all: [], almost: [], missing: [] };
     let currentPersons = 2;
     let detailCurrentRecipe = null;
     let detailCurrentMissingInfo = null;
+    let planningCurrentRecipe = null;
 
-    // Altijd in huis ingredients (ids)
     let alwaysInHouseIds = new Set();
 
-    // DOM refs
     const ingredientSelectEl = document.getElementById("ingredientSelect");
     const ingredientAmountEl = document.getElementById("ingredientAmount");
     const ingredientUnitEl = document.getElementById("ingredientUnit");
@@ -1362,6 +1484,7 @@
 
     const recipesScreenEl = document.getElementById("recipesScreen");
     const shoppingScreenEl = document.getElementById("shoppingScreen");
+    const planningScreenEl = document.getElementById("planningScreen");
     const detailScreenEl = document.getElementById("detailScreen");
     const tabButtons = document.querySelectorAll(".tab-btn");
 
@@ -1374,9 +1497,10 @@
     const detailFooterInfoEl = document.getElementById("detailFooterInfo");
     const detailAddMissingBtnEl = document.getElementById("detailAddMissingBtn");
     const detailBackBtnEl = document.getElementById("detailBackBtn");
+    const detailPlanBtnEl = document.getElementById("detailPlanBtn");
+
     const themeToggleEl = document.getElementById("themeToggle");
 
-    // Altijd in huis popup DOM
     const alwaysInHouseModalEl = document.getElementById("alwaysInHouseModal");
     const alwaysInHouseOpenBtnEl = document.getElementById("alwaysInHouseOpenBtn");
     const alwaysInHouseCloseBtnEl = document.getElementById("alwaysInHouseCloseBtn");
@@ -1385,7 +1509,19 @@
     const alwaysInHouseApplyBtnEl = document.getElementById("alwaysInHouseApplyBtn");
     const alwaysInHouseBackdropEl = alwaysInHouseModalEl.querySelector(".modal-backdrop");
 
-    // ====== THEMA ======
+    const planningListEl = document.getElementById("planningList");
+    const planningEmptyEl = document.getElementById("planningEmpty");
+    const planningBackToRecipesEl = document.getElementById("planningBackToRecipes");
+    const planningClearBtnEl = document.getElementById("planningClearBtn");
+
+    const planningModalEl = document.getElementById("planningModal");
+    const planningBackdropEl = planningModalEl.querySelector(".modal-backdrop");
+    const planningCloseBtnEl = document.getElementById("planningCloseBtn");
+    const planningDateEl = document.getElementById("planningDate");
+    const planningMealEl = document.getElementById("planningMeal");
+    const planningPersonsEl = document.getElementById("planningPersons");
+    const planningSaveBtnEl = document.getElementById("planningSaveBtn");
+
     function applySavedTheme() {
       const saved = localStorage.getItem("theme") || "dark";
       const isLight = saved === "light";
@@ -1401,18 +1537,18 @@
 
     applySavedTheme();
 
-    // ====== SCHERMEN ======
     function switchScreen(screenId) {
       recipesScreenEl.classList.toggle("active", screenId === "recipesScreen");
       shoppingScreenEl.classList.toggle("active", screenId === "shoppingScreen");
+      planningScreenEl.classList.toggle("active", screenId === "planningScreen");
       detailScreenEl.classList.toggle("active", screenId === "detailScreen");
 
       tabButtons.forEach((btn) => {
-        if (screenId === "shoppingScreen") {
-          btn.classList.toggle("active", btn.dataset.screen === "shoppingScreen");
-        } else {
-          btn.classList.toggle("active", btn.dataset.screen === "recipesScreen");
-        }
+        const btnScreen = btn.dataset.screen;
+        const active =
+          (screenId === "detailScreen" && btnScreen === "recipesScreen") ||
+          (screenId !== "detailScreen" && btnScreen === screenId);
+        btn.classList.toggle("active", active);
       });
     }
 
@@ -1428,9 +1564,12 @@
       switchScreen("shoppingScreen");
     });
 
+    planningBackToRecipesEl.addEventListener("click", () => {
+      switchScreen("recipesScreen");
+    });
+
     detailBackBtnEl.addEventListener("click", () => switchScreen("recipesScreen"));
 
-    // ====== FAVORIETEN (INGREDIËNTEN) ======
     function ingFavorite(id) {
       const favIds = JSON.parse(localStorage.getItem("favorites") || "[]");
       return favIds.includes(id);
@@ -1531,7 +1670,6 @@
       renderIngredientSelect(true);
     });
 
-    // ====== LOCALSTORAGE: VOORRAAD, PERSONEN, FILTERS, LIJST ======
     function loadPantryFromStorage() {
       const saved = localStorage.getItem("pantry");
       if (!saved) return;
@@ -1611,7 +1749,6 @@
       localStorage.setItem("shoppingList", JSON.stringify(plain));
     }
 
-    // ====== ALTIJD IN HUIS ======
     function loadAlwaysInHouseFromStorage() {
       try {
         const raw = localStorage.getItem("alwaysInHouse") || "[]";
@@ -1655,7 +1792,28 @@
       alwaysInHouseModalEl.setAttribute("aria-hidden", "true");
     }
 
-    // ====== VOORRAAD CHIPS ======
+    function loadPlanningFromStorage() {
+      const saved = localStorage.getItem("planning");
+      if (!saved) {
+        planning = [];
+        return;
+      }
+      try {
+        const arr = JSON.parse(saved);
+        if (Array.isArray(arr)) {
+          planning = arr;
+        } else {
+          planning = [];
+        }
+      } catch {
+        planning = [];
+      }
+    }
+
+    function savePlanningToStorage() {
+      localStorage.setItem("planning", JSON.stringify(planning));
+    }
+
     function renderPantryChips() {
       pantryChipsEl.innerHTML = "";
       if (pantry.size === 0) return;
@@ -1684,7 +1842,6 @@
       });
     }
 
-    // ====== RECEPT LOGICA ======
     function getRecipeIngredients(recipeId) {
       return recipeIngredients.filter((ri) => ri.recipe_id === recipeId);
     }
@@ -1702,7 +1859,6 @@
 
         let have = pantryItem ? pantryItem.quantity : 0;
 
-        // Altijd in huis: als niet in pantry maar wel in alwaysInHouseIds → doen alsof we genoeg hebben
         if (!pantryItem && alwaysInHouseIds.has(ri.ingredient_id)) {
           have = needed;
         }
@@ -1758,7 +1914,6 @@
       return false;
     }
 
-    // ====== BOODSCHAPPENLIJST ======
     function addMissingToShoppingList(recipe, missingList) {
       missingList.forEach((mi) => {
         const existing = shoppingList.get(mi.ingredient_id);
@@ -1873,7 +2028,166 @@
 
     document.getElementById("clearShopping").addEventListener("click", clearShoppingList);
 
-    // ====== RECEPT KAART ======
+    function openPlanningModal(recipe, persons) {
+      planningCurrentRecipe = { recipe, persons };
+      const today = new Date().toISOString().slice(0, 10);
+      planningDateEl.value = today;
+      planningMealEl.value = "diner";
+      planningPersonsEl.value = persons || currentPersons || 2;
+      planningModalEl.setAttribute("aria-hidden", "false");
+    }
+
+    function closePlanningModal() {
+      planningModalEl.setAttribute("aria-hidden", "true");
+    }
+
+    planningBackdropEl.addEventListener("click", closePlanningModal);
+    planningCloseBtnEl.addEventListener("click", closePlanningModal);
+
+    planningSaveBtnEl.addEventListener("click", () => {
+      if (!planningCurrentRecipe) {
+        closePlanningModal();
+        return;
+      }
+      const date = planningDateEl.value;
+      const meal = planningMealEl.value;
+      const personsVal = parseInt(planningPersonsEl.value, 10) || planningCurrentRecipe.persons || 2;
+
+      if (!date) {
+        alert("Kies een datum om in te plannen.");
+        return;
+      }
+
+      const entry = {
+        id: Date.now(),
+        recipeId: planningCurrentRecipe.recipe.id,
+        title: planningCurrentRecipe.recipe.title,
+        date,
+        meal,
+        persons: personsVal
+      };
+
+      planning.push(entry);
+      savePlanningToStorage();
+      renderPlanning();
+      closePlanningModal();
+      switchScreen("planningScreen");
+    });
+
+    function renderPlanning() {
+      planningListEl.innerHTML = "";
+      if (!planning || planning.length === 0) {
+        planningEmptyEl.style.display = "block";
+        return;
+      }
+      planningEmptyEl.style.display = "none";
+
+      const sorted = [...planning].sort((a, b) => {
+        if (a.date !== b.date) return a.date.localeCompare(b.date);
+        const order = { ontbijt: 0, lunch: 1, diner: 2, overig: 3 };
+        const oa = order[a.meal] ?? 99;
+        const ob = order[b.meal] ?? 99;
+        return oa - ob;
+      });
+
+      const byDate = {};
+      sorted.forEach(entry => {
+        if (!byDate[entry.date]) byDate[entry.date] = [];
+        byDate[entry.date].push(entry);
+      });
+
+      Object.keys(byDate).forEach(dateStr => {
+        const block = document.createElement("div");
+        block.className = "planning-date-block";
+
+        const header = document.createElement("div");
+        header.className = "planning-date-header";
+
+        const d = new Date(dateStr + "T00:00:00");
+        const nice = d.toLocaleDateString("nl-NL", { weekday: "long", day: "numeric", month: "short" });
+        const headerLeft = document.createElement("span");
+        headerLeft.textContent = nice;
+
+        const headerRight = document.createElement("span");
+        headerRight.className = "badge-soft";
+        headerRight.textContent = `${byDate[dateStr].length} gerecht(en)`;
+
+        header.appendChild(headerLeft);
+        header.appendChild(headerRight);
+        block.appendChild(header);
+
+        byDate[dateStr].forEach(entry => {
+          const row = document.createElement("div");
+          row.className = "planning-entry";
+
+          const left = document.createElement("div");
+          left.className = "planning-entry-main";
+
+          const title = document.createElement("div");
+          title.className = "planning-entry-title";
+          title.textContent = entry.title;
+
+          const meta = document.createElement("div");
+          meta.className = "planning-entry-meta";
+          const mealLabel =
+            entry.meal === "ontbijt" ? "Ontbijt" :
+            entry.meal === "lunch" ? "Lunch" :
+            entry.meal === "diner" ? "Diner" :
+            "Overig";
+          meta.textContent = `${mealLabel} • ${entry.persons} pers`;
+
+          left.appendChild(title);
+          left.appendChild(meta);
+
+          const right = document.createElement("div");
+          right.style.display = "flex";
+          right.style.gap = "4px";
+
+          const btnDetail = document.createElement("button");
+          btnDetail.className = "btn-ghost";
+          btnDetail.textContent = "Details";
+          btnDetail.addEventListener("click", () => {
+            const recipe = recipes.find(r => r.id === entry.recipeId);
+            if (!recipe) return;
+            const miss = calculateMissingForRecipe(recipe, entry.persons);
+            openDetailScreen(recipe, miss, entry.persons);
+          });
+
+          const btnRemove = document.createElement("button");
+          btnRemove.className = "btn-ghost";
+          btnRemove.textContent = "×";
+          btnRemove.title = "Verwijderen";
+          btnRemove.addEventListener("click", () => {
+            planning = planning.filter(p => p.id !== entry.id);
+            savePlanningToStorage();
+            renderPlanning();
+          });
+
+          right.appendChild(btnDetail);
+          right.appendChild(btnRemove);
+
+          row.appendChild(left);
+          row.appendChild(right);
+
+          block.appendChild(row);
+        });
+
+        planningListEl.appendChild(block);
+      });
+    }
+
+    planningClearBtnEl.addEventListener("click", () => {
+      if (!planning || planning.length === 0) {
+        alert("Je planning is al leeg 🙂");
+        return;
+      }
+      const ok = window.confirm("Weet je zeker dat je de hele planning wilt verwijderen?");
+      if (!ok) return;
+      planning = [];
+      savePlanningToStorage();
+      renderPlanning();
+    });
+
     function createRecipeCard(recipe, persons, missingInfo) {
       const card = document.createElement("article");
       card.className = "recipe-card";
@@ -1985,6 +2299,14 @@
       });
       footer.appendChild(btnDetail);
 
+      const btnPlan = document.createElement("button");
+      btnPlan.className = "btn-ghost";
+      btnPlan.textContent = "🗓 Inplannen";
+      btnPlan.addEventListener("click", () => {
+        openPlanningModal(recipe, persons);
+      });
+      footer.appendChild(btnPlan);
+
       if (missingInfo.missing.length > 0) {
         const btnAdd = document.createElement("button");
         btnAdd.className = "btn-ghost";
@@ -1999,7 +2321,6 @@
       return card;
     }
 
-    // ====== DETAIL SCREEN ======
     function openDetailScreen(recipe, missingInfo, persons) {
       detailCurrentRecipe = recipe;
       detailCurrentMissingInfo = missingInfo;
@@ -2095,10 +2416,13 @@
         addMissingToShoppingList(detailCurrentRecipe, detailCurrentMissingInfo.missing);
       };
 
+      detailPlanBtnEl.onclick = () => {
+        openPlanningModal(recipe, persons);
+      };
+
       switchScreen("detailScreen");
     }
 
-    // ====== VIND GERECHTEN ======
     function findRecipesForPantry() {
       const persons = Math.max(1, parseInt(personsEl.value, 10) || 1);
       currentPersons = persons;
@@ -2166,7 +2490,6 @@
         groups.missing.length > 0 ? `${groups.missing.length} gerecht(en)` : "0";
     }
 
-    // ====== FILTERS + SORTEREN + ZOEKEN ======
     function applyFilters() {
       const category = filterCategoryEl.value;
       const maxMissing = parseInt(filterMaxMissingEl.value, 10);
@@ -2261,7 +2584,6 @@
     sortByEl.addEventListener("change", applyFilters);
     recipeSearchEl.addEventListener("input", applyFilters);
 
-    // ====== EVENTS ======
     document.getElementById("addIngredientBtn").addEventListener("click", () => {
       const ingId = parseInt(ingredientSelectEl.value, 10);
       const amount = parseFloat(ingredientAmountEl.value);
@@ -2285,7 +2607,6 @@
       savePersonsToStorage();
     });
 
-    // Altijd-in-huis popup events
     alwaysInHouseOpenBtnEl.addEventListener("click", openAlwaysInHouseModal);
     alwaysInHouseCloseBtnEl.addEventListener("click", closeAlwaysInHouseModal);
     alwaysInHouseBackdropEl.addEventListener("click", closeAlwaysInHouseModal);
@@ -2326,7 +2647,6 @@
       closeAlwaysInHouseModal();
     });
 
-    // ====== JSON LADEN & INIT ======
     async function loadDataAndInit() {
       try {
         const [ingRes, recRes, recIngRes] = await Promise.all([
@@ -2353,9 +2673,11 @@
         loadPersonsFromStorage();
         loadFiltersFromStorage();
         loadShoppingListFromStorage();
+        loadPlanningFromStorage();
 
         renderPantryChips();
         renderShoppingList();
+        renderPlanning();
         renderRecipeGroups({ all: [], almost: [], missing: [] }, currentPersons);
       } catch (err) {
         console.error(err);
@@ -2363,7 +2685,6 @@
       }
     }
 
-    // ====== START ======
     loadDataAndInit();
   </script>
 </body>
