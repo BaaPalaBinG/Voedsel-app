@@ -211,6 +211,21 @@
       box-shadow: 0 0 0 1px rgba(62, 207, 142, 0.25);
     }
 
+    textarea {
+      background: #090c14;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px;
+      font: inherit;
+      resize: vertical;
+    }
+
+    :root.light textarea {
+      background: #ffffff;
+      color: var(--text);
+    }
+
     .field-row {
       display: flex;
       gap: 8px;
@@ -702,7 +717,7 @@
       color: var(--muted);
     }
 
-    /* Modals (Altijd in huis + Planning) */
+    /* Modals (Altijd in huis + Planning + Export) */
     .modal {
       position: fixed;
       inset: 0;
@@ -936,7 +951,7 @@
           </div>
           <div style="display:flex; gap:8px; flex-wrap:wrap;">
             <button class="btn-secondary" id="alwaysInHouseOpenBtn">
-              ⭐ Altijd in huis instellen
+              🏠 Altijd in huis
             </button>
             <button class="btn-secondary" id="goToShoppingFromTop">
               🧺 Bekijk boodschappenlijst
@@ -1049,7 +1064,7 @@
           <div>
             <h2>🧺 Boodschappenlijst</h2>
             <p class="shopping-subtitle">
-              Items die je vanuit recepten hebt toegevoegd. Vink af wat je gekocht of geregeld hebt.
+              Items die je vanuit recepten en planning hebt toegevoegd. Vink af wat je gekocht of geregeld hebt.
             </p>
           </div>
           <span class="badge-soft" id="shoppingSummary">0 items</span>
@@ -1057,8 +1072,8 @@
 
         <ul class="shopping-list" id="shoppingList"></ul>
         <div class="shopping-empty" id="shoppingEmpty">
-          Je boodschappenlijst is nog leeg. Ga naar <strong>Recepten</strong> en klik
-          op “Zet ontbrekende op boodschappenlijst”.
+          Je boodschappenlijst is nog leeg. Plan gerechten of klik in een recept op
+          “Zet ontbrekende op boodschappenlijst”.
         </div>
 
         <div class="shopping-footer">
@@ -1079,7 +1094,7 @@
           <div>
             <h2>🗓️ Planning</h2>
             <p class="shopping-subtitle">
-              Plan hier welke gerechten je wanneer wilt eten. Handig voor weekplanning.
+              Plan hier welke gerechten je wanneer wilt eten. Ontbrekende ingrediënten worden direct aan je boodschappenlijst toegevoegd.
             </p>
           </div>
         </div>
@@ -1092,6 +1107,9 @@
         <div class="shopping-footer">
           <button class="btn-secondary" id="planningBackToRecipes">
             ⬅️ Terug naar recepten
+          </button>
+          <button class="btn-secondary" id="planningExportOpenBtn">
+            📤 Exporteer overzicht
           </button>
           <button class="btn-danger" id="planningClearBtn">
             🗑️ Planning leegmaken
@@ -1403,7 +1421,7 @@
     <div class="modal-content">
       <header class="modal-header">
         <h2>Gerecht inplannen</h2>
-        <p>Kies een datum en maaltijdmoment.</p>
+        <p>Kies een datum en maaltijdmoment. Ontbrekende ingrediënten gaan automatisch naar je boodschappenlijst.</p>
         <button id="planningCloseBtn" class="modal-close">×</button>
       </header>
       <main class="modal-body">
@@ -1428,6 +1446,26 @@
       <footer class="modal-footer">
         <button class="btn-secondary" id="planningSaveBtn">
           ✔ Toevoegen aan planning
+        </button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- PLANNING EXPORT POPUP -->
+  <div id="planningExportModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <header class="modal-header">
+        <h2>Planning overzicht</h2>
+        <p>Kopieer en deel dit overzicht met mensen die mee-eten.</p>
+        <button id="planningExportCloseBtn" class="modal-close">×</button>
+      </header>
+      <main class="modal-body">
+        <textarea id="planningExportText" rows="10" style="width:100%;"></textarea>
+      </main>
+      <footer class="modal-footer">
+        <button class="btn-secondary" id="planningExportCopyBtn">
+          📋 Kopieer naar klembord
         </button>
       </footer>
     </div>
@@ -1521,6 +1559,15 @@
     const planningMealEl = document.getElementById("planningMeal");
     const planningPersonsEl = document.getElementById("planningPersons");
     const planningSaveBtnEl = document.getElementById("planningSaveBtn");
+
+    const planningExportModalEl = document.getElementById("planningExportModal");
+    const planningExportBackdropEl = planningExportModalEl.querySelector(".modal-backdrop");
+    const planningExportCloseBtnEl = document.getElementById("planningExportCloseBtn");
+    const planningExportTextEl = document.getElementById("planningExportText");
+    const planningExportCopyBtnEl = document.getElementById("planningExportCopyBtn");
+    const planningExportOpenBtnEl = document.getElementById("planningExportOpenBtn");
+
+    const planningExportButton = document.getElementById("planningExportOpenBtn");
 
     function applySavedTheme() {
       const saved = localStorage.getItem("theme") || "dark";
@@ -1914,7 +1961,10 @@
       return false;
     }
 
-    function addMissingToShoppingList(recipe, missingList) {
+    // interne helper, zodat we bij planning geen schermwissel hoeven te doen
+    function addMissingToShoppingListInternal(recipe, missingList, options = {}) {
+      const { switchToShopping = true } = options;
+
       missingList.forEach((mi) => {
         const existing = shoppingList.get(mi.ingredient_id);
         if (existing) {
@@ -1932,7 +1982,13 @@
       });
       saveShoppingListToStorage();
       renderShoppingList();
-      switchScreen("shoppingScreen");
+      if (switchToShopping) {
+        switchScreen("shoppingScreen");
+      }
+    }
+
+    function addMissingToShoppingList(recipe, missingList) {
+      addMissingToShoppingListInternal(recipe, missingList, { switchToShopping: true });
     }
 
     function renderShoppingList() {
@@ -2070,6 +2126,15 @@
       planning.push(entry);
       savePlanningToStorage();
       renderPlanning();
+
+      // ⬇️ hier: automatisch ontbrekende ingrediënten voor deze planning naar boodschappenlijst
+      const miss = calculateMissingForRecipe(planningCurrentRecipe.recipe, personsVal);
+      if (miss.missing.length > 0) {
+        addMissingToShoppingListInternal(planningCurrentRecipe.recipe, miss.missing, {
+          switchToShopping: false
+        });
+      }
+
       closePlanningModal();
       switchScreen("planningScreen");
     });
@@ -2645,6 +2710,77 @@
       }
 
       closeAlwaysInHouseModal();
+    });
+
+    // EXPORT VAN PLANNING → TEKST
+    function generatePlanningExportText() {
+      if (!planning || planning.length === 0) {
+        return "Geen geplande gerechten.";
+      }
+
+      const sorted = [...planning].sort((a, b) => {
+        if (a.date !== b.date) return a.date.localeCompare(b.date);
+        const order = { ontbijt: 0, lunch: 1, diner: 2, overig: 3 };
+        const oa = order[a.meal] ?? 99;
+        const ob = order[b.meal] ?? 99;
+        return oa - ob;
+      });
+
+      const byDate = {};
+      sorted.forEach(entry => {
+        if (!byDate[entry.date]) byDate[entry.date] = [];
+        byDate[entry.date].push(entry);
+      });
+
+      let lines = [];
+      Object.keys(byDate).forEach(dateStr => {
+        const d = new Date(dateStr + "T00:00:00");
+        const nice = d.toLocaleDateString("nl-NL", { weekday: "long", day: "numeric", month: "long" });
+        lines.push(nice + " (" + dateStr + ")");
+        byDate[dateStr].forEach(entry => {
+          const mealLabel =
+            entry.meal === "ontbijt" ? "Ontbijt" :
+            entry.meal === "lunch" ? "Lunch" :
+            entry.meal === "diner" ? "Diner" :
+            "Overig";
+          lines.push(`- ${mealLabel} (${entry.persons} pers): ${entry.title}`);
+        });
+        lines.push("");
+      });
+
+      return lines.join("\n").trim();
+    }
+
+    function openPlanningExportModal() {
+      planningExportTextEl.value = generatePlanningExportText();
+      planningExportModalEl.setAttribute("aria-hidden", "false");
+    }
+
+    function closePlanningExportModal() {
+      planningExportModalEl.setAttribute("aria-hidden", "true");
+    }
+
+    planningExportBackdropEl.addEventListener("click", closePlanningExportModal);
+    planningExportCloseBtnEl.addEventListener("click", closePlanningExportModal);
+
+    planningExportOpenBtnEl.addEventListener("click", () => {
+      openPlanningExportModal();
+    });
+
+    planningExportCopyBtnEl.addEventListener("click", async () => {
+      const text = planningExportTextEl.value;
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(text);
+          alert("Planning gekopieerd naar je klembord ✅");
+        } else {
+          planningExportTextEl.select();
+          document.execCommand("copy");
+          alert("Planning gekopieerd naar je klembord ✅");
+        }
+      } catch (e) {
+        alert("Kopiëren is niet gelukt. Selecteer en kopieer de tekst handmatig.");
+      }
     });
 
     async function loadDataAndInit() {
