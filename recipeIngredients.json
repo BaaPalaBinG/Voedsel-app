@@ -2339,7 +2339,7 @@
     "amount": 1,
     "unit": "snuf"
   },
-{
+  {
   "recipe_id": 1001,
   "ingredient_id": 2001,
   "amount": 400,
@@ -2357,6 +2357,7 @@
   "amount": 80,
   "unit": "g"
 },
+
 {
   "recipe_id": 1002,
   "ingredient_id": 2004,
@@ -2375,6 +2376,7 @@
   "amount": 30,
   "unit": "g"
 },
+
 {
   "recipe_id": 1003,
   "ingredient_id": 2005,
@@ -2387,6 +2389,7 @@
   "amount": 4,
   "unit": "st"
 },
+
 {
   "recipe_id": 1004,
   "ingredient_id": 2007,
@@ -2405,6 +2408,7 @@
   "amount": 80,
   "unit": "g"
 },
+
 {
   "recipe_id": 1005,
   "ingredient_id": 2010,
@@ -2423,6 +2427,7 @@
   "amount": 25,
   "unit": "g"
 },
+
 {
   "recipe_id": 1006,
   "ingredient_id": 2015,
@@ -2465,6 +2470,7 @@
   "amount": 1,
   "unit": "st"
 },
+
 {
   "recipe_id": 1007,
   "ingredient_id": 2019,
@@ -2489,6 +2495,7 @@
   "amount": 1,
   "unit": "st"
 },
+
 {
   "recipe_id": 1008,
   "ingredient_id": 2020,
@@ -2513,6 +2520,7 @@
   "amount": 80,
   "unit": "g"
 },
+
 {
   "recipe_id": 1009,
   "ingredient_id": 2017,
@@ -2549,6 +2557,7 @@
   "amount": 1,
   "unit": "st"
 },
+
 {
   "recipe_id": 1010,
   "ingredient_id": 2005,
