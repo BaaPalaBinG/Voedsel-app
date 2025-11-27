@@ -156,6 +156,54 @@
       box-shadow: var(--shadow-soft);
       margin-bottom: 16px;
     }
+    
+    /* Inklapbare filterbalk */
+.filter-panel {
+  border-radius: var(--radius-lg);
+}
+
+.filter-panel summary {
+  list-style: none;
+}
+
+.filter-summary {
+  cursor: pointer;
+  padding: 4px 2px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.filter-summary::-webkit-details-marker {
+  display: none;
+}
+
+.filter-summary-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.filter-summary-hint {
+  font-size: 0.78rem;
+  opacity: 0.75;
+}
+
+.filter-content {
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+/* Iets compacter als hij ingeklapt is */
+details.filter-panel[open] .filter-summary {
+  padding-bottom: 4px;
+}
+
 
     :root.light .controls-card {
       background: #fafafa;
@@ -895,142 +943,174 @@
 
     <!-- SCHERM 1: RECEPTEN -->
     <div id="recipesScreen" class="screen active">
-      <section class="controls-card">
-        <div class="controls-grid">
-          <div class="field">
-            <label for="persons">Met hoeveel personen eet je?</label>
-            <input type="number" id="persons" min="1" value="2" />
-          </div>
+  
+   <!-- FILTERS & VOORRAAD (INKLAPBAAR) -->
+<details class="controls-card filter-panel" open>
+  <summary class="filter-summary">
+    🔍 Filters & voorraad
+  </summary>
 
-          <div class="field">
-            <label>Wat heb je in huis?</label>
+  <div class="filter-content">
+    <!-- Personen + wat heb je in huis -->
+    <div class="controls-grid">
+      <div class="field">
+        <label for="persons">Met hoeveel personen eet je?</label>
+        <input type="number" id="persons" min="1" value="2" />
+      </div>
 
-            <div class="field-row" style="margin-bottom:6px;">
-              <input
-                type="text"
-                id="ingredientSearch"
-                placeholder="Zoek ingrediënt (bijv. kip, rijst, ui, pasta)..."
-              />
-              <button class="btn-secondary" id="toggleFavoriteBtn">
-                ☆ Favoriet
-              </button>
-            </div>
+      <div class="field">
+        <label>Wat heb je in huis?</label>
 
-            <div class="field-row">
-              <select id="ingredientSelect"></select>
-              <input
-                type="number"
-                id="ingredientAmount"
-                min="0"
-                step="10"
-                placeholder="Hoeveel?"
-              />
-              <select id="ingredientUnit">
-                <option value="g">g</option>
-                <option value="ml">ml</option>
-                <option value="st">st</option>
-                <option value="teen">teen</option>
-                <option value="el">el</option>
-                <option value="snuf">snuf</option>
-              </select>
-              <button class="btn-secondary" id="addIngredientBtn">
-                + Voeg toe
-              </button>
-            </div>
-            <div class="pantry-chips" id="pantryChips"></div>
-          </div>
+        <div class="field-row" style="margin-bottom:6px;">
+          <input
+            type="text"
+            id="ingredientSearch"
+            placeholder="Zoek ingrediënt (bijv. kip, rijst, ui, pasta)..."
+          />
+          <button class="btn-secondary" id="toggleFavoriteBtn">
+            ☆ Favoriet
+          </button>
         </div>
 
-        <div class="controls-footer">
-          <div class="hint">
-            <span class="dot"></span>
-            <span>
-              De app vergelijkt jouw voorraad met de recepten-database
-              en schaalt alles op basis van het aantal personen.
-            </span>
-          </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap;">
-            <button class="btn-secondary" id="alwaysInHouseOpenBtn">
-              🏠 Altijd in huis
-            </button>
-            <button class="btn-secondary" id="goToShoppingFromTop">
-              🧺 Bekijk boodschappenlijst
-            </button>
-            <button class="btn-primary" id="findRecipesBtn">
-              🔍 Vind passende gerechten
-            </button>
-          </div>
+        <div class="field-row">
+          <select id="ingredientSelect"></select>
+          <input
+            type="number"
+            id="ingredientAmount"
+            min="0"
+            step="10"
+            placeholder="Hoeveel?"
+          />
+          <select id="ingredientUnit">
+            <option value="g">g</option>
+            <option value="ml">ml</option>
+            <option value="st">st</option>
+            <option value="teen">teen</option>
+            <option value="el">el</option>
+            <option value="snuf">snuf</option>
+          </select>
+          <button class="btn-secondary" id="addIngredientBtn">
+            + Voeg toe
+          </button>
         </div>
-      </section>
 
-      <section class="controls-card">
-        <div class="controls-grid" style="grid-template-columns: repeat(4, minmax(0,1fr));">
-          <div class="field">
-            <label for="recipeSearch">Zoek in recepten</label>
-            <input type="text" id="recipeSearch" placeholder="Zoek op naam, ingrediënt, etc." />
-          </div>
-          <div class="field">
-            <label for="filterCategory">Categorie</label>
-            <select id="filterCategory">
-              <option value="all">Alle</option>
-              <option value="meat">Vlees</option>
-              <option value="fish">Vis</option>
-              <option value="vega">Vega</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="filterMaxMissing">Max. ontbrekende ingrediënten</label>
-            <select id="filterMaxMissing">
-              <option value="999">Geen filter</option>
-              <option value="0">0 (alles in huis)</option>
-              <option value="2">2 of minder</option>
-              <option value="5">5 of minder</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="filterMaxKcal">Max. kcal per persoon</label>
-            <input type="number" id="filterMaxKcal" placeholder="bijv. 700" min="0" />
-          </div>
-        </div>
-        <div class="controls-grid" style="margin-top:12px; grid-template-columns: repeat(3, minmax(0,1fr));">
-          <div class="field">
-            <label for="filterMaxTime">Max. kooktijd (min)</label>
-            <select id="filterMaxTime">
-              <option value="999">Geen filter</option>
-              <option value="15">≤ 15 min</option>
-              <option value="30">≤ 30 min</option>
-              <option value="45">≤ 45 min</option>
-              <option value="60">≤ 60 min</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="sortBy">Sorteer op</label>
-            <select id="sortBy">
-              <option value="recommended">Aanbevolen</option>
-              <option value="missing-asc">Minder ontbrekend eerst</option>
-              <option value="kcal-asc">Laagste kcal eerst</option>
-              <option value="kcal-desc">Hoogste kcal eerst</option>
-              <option value="time-asc">Kortste kooktijd eerst</option>
-              <option value="title-asc">Naam (A–Z)</option>
-            </select>
-          </div>
-          <div class="field">
-            <label>&nbsp;</label>
-            <button class="btn-ghost" id="resetFiltersBtn">Filters resetten</button>
-          </div>
-        </div>
-        <!-- NIEUW: Allergieën & niet geliefd -->
-        <div class="controls-grid" style="margin-top:12px; grid-template-columns: repeat(2, minmax(0,1fr));">
-          <div class="field">
-            <label for="filterAllergy">Allergieën (vermijd)</label>
-            <input type="text" id="filterAllergy" placeholder="bijv. noten, lactose" />
-          </div>
-          <div class="field">
-            <label for="filterDisliked">Niet geliefd (vermijd)</label>
-            <input type="text" id="filterDisliked" placeholder="bijv. spruitjes, koriander" />
-          </div>
-        </div>
-      </section>
+        <div class="pantry-chips" id="pantryChips"></div>
+      </div>
+    </div>
+
+    <!-- Recept-zoekbalk + basisfilters -->
+    <div class="controls-grid" style="margin-top:16px; grid-template-columns: repeat(4, minmax(0,1fr));">
+      <div class="field">
+        <label for="recipeSearch">Zoek in recepten</label>
+        <input
+          type="text"
+          id="recipeSearch"
+          placeholder="Zoek op naam, ingrediënt, etc."
+        />
+      </div>
+      <div class="field">
+        <label for="filterCategory">Categorie</label>
+        <select id="filterCategory">
+          <option value="all">Alle</option>
+          <option value="meat">Vlees</option>
+          <option value="fish">Vis</option>
+          <option value="vega">Vega</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="filterMaxMissing">Max. ontbrekende ingrediënten</label>
+        <select id="filterMaxMissing">
+          <option value="999">Geen filter</option>
+          <option value="0">0 (alles in huis)</option>
+          <option value="2">2 of minder</option>
+          <option value="5">5 of minder</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="filterMaxKcal">Max. kcal per persoon</label>
+        <input
+          type="number"
+          id="filterMaxKcal"
+          placeholder="bijv. 700"
+          min="0"
+        />
+      </div>
+    </div>
+
+    <div class="controls-grid" style="margin-top:12px; grid-template-columns: repeat(3, minmax(0,1fr));">
+      <div class="field">
+        <label for="filterMaxTime">Max. kooktijd (min)</label>
+        <select id="filterMaxTime">
+          <option value="999">Geen filter</option>
+          <option value="15">≤ 15 min</option>
+          <option value="30">≤ 30 min</option>
+          <option value="45">≤ 45 min</option>
+          <option value="60">≤ 60 min</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="sortBy">Sorteer op</label>
+        <select id="sortBy">
+          <option value="recommended">Aanbevolen</option>
+          <option value="missing-asc">Minder ontbrekend eerst</option>
+          <option value="kcal-asc">Laagste kcal eerst</option>
+          <option value="kcal-desc">Hoogste kcal eerst</option>
+          <option value="time-asc">Kortste kooktijd eerst</option>
+          <option value="title-asc">Naam (A–Z)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>&nbsp;</label>
+        <button class="btn-ghost" id="resetFiltersBtn">
+          Filters resetten
+        </button>
+      </div>
+    </div>
+
+    <!-- Allergie & niet geliefd -->
+    <div class="controls-grid" style="margin-top:12px; grid-template-columns: repeat(2, minmax(0,1fr));">
+      <div class="field">
+        <label for="filterAllergy">Allergieën (vermijd)</label>
+        <input
+          type="text"
+          id="filterAllergy"
+          placeholder="bijv. noten, lactose"
+        />
+      </div>
+      <div class="field">
+        <label for="filterDisliked">Niet geliefd (vermijd)</label>
+        <input
+          type="text"
+          id="filterDisliked"
+          placeholder="bijv. spruitjes, koriander"
+        />
+      </div>
+    </div>
+
+    <!-- Hint + knoppen -->
+    <div class="controls-footer">
+      <div class="hint">
+        <span class="dot"></span>
+        <span>
+          De app vergelijkt jouw voorraad met de recepten-database
+          en schaalt alles op basis van het aantal personen.
+        </span>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <button class="btn-secondary" id="alwaysInHouseOpenBtn">
+          🏠 Altijd in huis
+        </button>
+        <button class="btn-secondary" id="goToShoppingFromTop">
+          🧺 Bekijk boodschappenlijst
+        </button>
+        <button class="btn-primary" id="findRecipesBtn">
+          🔍 Vind passende gerechten
+        </button>
+      </div>
+    </div>
+  </div>
+</details>
+
 
       <section class="results-section">
         <div class="results-group">
