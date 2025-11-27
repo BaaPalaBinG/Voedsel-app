@@ -694,6 +694,101 @@
       font-size: 0.8rem;
       color: var(--muted);
     }
+
+    /* Altijd in huis popup */
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+    }
+
+    .modal[aria-hidden="false"] {
+      display: flex;
+    }
+
+    .modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+    }
+
+    .modal-content {
+      position: relative;
+      max-width: 640px;
+      width: 100%;
+      max-height: 80vh;
+      overflow: auto;
+      background: var(--bg-elevated);
+      border-radius: var(--radius-lg);
+      padding: 16px 18px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .modal-header {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+
+    .modal-header h2 {
+      margin: 0;
+    }
+
+    .modal-header p {
+      margin: 0;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .modal-body {
+      margin-top: 4px;
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .aih-section {
+      margin-bottom: 10px;
+    }
+
+    .aih-section h3 {
+      margin: 6px 0;
+      font-size: 0.92rem;
+    }
+
+    .aih-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 12px;
+    }
+
+    .aih-item {
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
   </style>
 </head>
 <body>
@@ -739,7 +834,7 @@
               <input
                 type="text"
                 id="ingredientSearch"
-                placeholder="Zoek ingrediënt (bijv. kip, rijst, ui)..."
+                placeholder="Zoek ingrediënt (bijv. kip, rijst, ui, pasta)..."
               />
               <button class="btn-secondary" id="toggleFavoriteBtn">
                 ☆ Favoriet
@@ -781,6 +876,9 @@
             </span>
           </div>
           <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="btn-secondary" id="alwaysInHouseOpenBtn">
+              ⭐ Altijd in huis instellen
+            </button>
             <button class="btn-secondary" id="goToShoppingFromTop">
               🧺 Bekijk boodschappenlijst
             </button>
@@ -877,7 +975,7 @@
         <div class="results-group">
           <div class="results-header">
             <h2>⛔ Je mist nog veel</h2>
-            <span class="badge badge-red" id="countMissing"></span>
+            <span class="badge-red badge" id="countMissing"></span>
           </div>
           <div class="recipes-list" id="recipesMissing"></div>
           <div class="results-empty" id="emptyMissing">
@@ -954,6 +1052,263 @@
     </div>
   </div>
 
+  <!-- ALTijd in huis POPUP -->
+  <div id="alwaysInHouseModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+
+    <div class="modal-content">
+      <header class="modal-header">
+        <h2>Altijd in huis</h2>
+        <p>Selecteer wat je standaard in huis hebt. Dit telt mee alsof je voorraad is aangevuld.</p>
+        <button id="alwaysInHouseCloseBtn" class="modal-close">×</button>
+      </header>
+
+      <main class="modal-body">
+        <!-- BASIS & HOUDBAAR -->
+        <section class="aih-section">
+          <h3>🍞 Basis & houdbaar</h3>
+          <div class="aih-grid">
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="pasta" />
+              <span>Pasta</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="rijst" />
+              <span>Rijst</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="aardappel" />
+              <span>Aardappelen</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="olijfolie" />
+              <span>Olijfolie</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="zonnebloemolie" />
+              <span>Zonnebloemolie</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="zout" />
+              <span>Zout</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="peper" />
+              <span>Peper</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="suiker" />
+              <span>Suiker</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="bloem" />
+              <span>Bloem</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="bouillon" />
+              <span>Bouillonblokjes</span>
+            </label>
+          </div>
+        </section>
+
+        <!-- VERSE BASIS -->
+        <section class="aih-section">
+          <h3>🧅 Verse basis</h3>
+          <div class="aih-grid">
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="ui" />
+              <span>Ui</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="knoflook" />
+              <span>Knoflook</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="paprika" />
+              <span>Paprika</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="tomaat" />
+              <span>Tomaten</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="komkommer" />
+              <span>Komkommer</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="prei" />
+              <span>Prei</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="wortel" />
+              <span>Wortel</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="citroen" />
+              <span>Citroen</span>
+            </label>
+          </div>
+        </section>
+
+        <!-- KRUIDEN -->
+        <section class="aih-section">
+          <h3>🧂 Kruiden & specerijen</h3>
+          <div class="aih-grid">
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="paprikapoeder" />
+              <span>Paprikapoeder</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="kerrie" />
+              <span>Kerriepoeder</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="italiaanse kruiden" />
+              <span>Italiaanse kruiden</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="basilicum" />
+              <span>Basilicum (droog)</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="oregano" />
+              <span>Oregano</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="tijm" />
+              <span>Tijm</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="chili" />
+              <span>Chili flakes / chilipoeder</span>
+            </label>
+          </div>
+        </section>
+
+        <!-- SAUZEN & BLIK -->
+        <section class="aih-section">
+          <h3>🥫 Sauzen & blik</h3>
+          <div class="aih-grid">
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="tomatenpuree" />
+              <span>Tomatenpuree</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="tomatensaus" />
+              <span>Tomatensaus / passata</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="ketchup" />
+              <span>Ketchup</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="mayonaise" />
+              <span>Mayonaise</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="mosterd" />
+              <span>Mosterd</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="sojasaus" />
+              <span>Sojasaus / ketjap</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="bonen" />
+              <span>Bonen (blik)</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="mais" />
+              <span>Maïs (blik)</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="tonijn" />
+              <span>Tonijn (blik)</span>
+            </label>
+          </div>
+        </section>
+
+        <!-- ZUIVEL -->
+        <section class="aih-section">
+          <h3>🧀 Zuivel & koeling</h3>
+          <div class="aih-grid">
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="melk" />
+              <span>Melk</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="yoghurt" />
+              <span>Yoghurt</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="kaas" />
+              <span>Kaas (geraspt/blok)</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="roomkaas" />
+              <span>Roomkaas</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="room" />
+              <span>Room / kookroom</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="ei" />
+              <span>Eieren</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="boter" />
+              <span>Roomboter / margarine</span>
+            </label>
+          </div>
+        </section>
+
+        <!-- VLEES / VIS / VEGA -->
+        <section class="aih-section">
+          <h3>🥩 Vlees, vis & vega</h3>
+          <div class="aih-grid">
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="kip" />
+              <span>Kipfilet</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="gehakt" />
+              <span>Rundergehakt</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="spek" />
+              <span>Spekblokjes</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="zalm" />
+              <span>Zalm (vers/diepvries)</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="vega" />
+              <span>Vega balletjes</span>
+            </label>
+            <label class="aih-item">
+              <input type="checkbox" data-ingredient-name="tofu" />
+              <span>Tofu</span>
+            </label>
+          </div>
+        </section>
+      </main>
+
+      <footer class="modal-footer">
+        <button class="btn-ghost" id="alwaysInHouseSelectAllBtn">
+          Alles aanvinken
+        </button>
+        <button class="btn-ghost" id="alwaysInHouseClearBtn">
+          Alles uitvinken
+        </button>
+        <button class="btn-secondary" id="alwaysInHouseApplyBtn">
+          ✔ Opslaan en gebruiken
+        </button>
+      </footer>
+    </div>
+  </div>
+
   <script>
     // ====== DATA CONTAINERS (worden gevuld via JSON) ======
     let ingredients = [];
@@ -968,6 +1323,9 @@
     let currentPersons = 2;
     let detailCurrentRecipe = null;
     let detailCurrentMissingInfo = null;
+
+    // Altijd in huis ingredients (ids)
+    let alwaysInHouseIds = new Set();
 
     // DOM refs
     const ingredientSelectEl = document.getElementById("ingredientSelect");
@@ -1018,6 +1376,15 @@
     const detailBackBtnEl = document.getElementById("detailBackBtn");
     const themeToggleEl = document.getElementById("themeToggle");
 
+    // Altijd in huis popup DOM
+    const alwaysInHouseModalEl = document.getElementById("alwaysInHouseModal");
+    const alwaysInHouseOpenBtnEl = document.getElementById("alwaysInHouseOpenBtn");
+    const alwaysInHouseCloseBtnEl = document.getElementById("alwaysInHouseCloseBtn");
+    const alwaysInHouseSelectAllBtnEl = document.getElementById("alwaysInHouseSelectAllBtn");
+    const alwaysInHouseClearBtnEl = document.getElementById("alwaysInHouseClearBtn");
+    const alwaysInHouseApplyBtnEl = document.getElementById("alwaysInHouseApplyBtn");
+    const alwaysInHouseBackdropEl = alwaysInHouseModalEl.querySelector(".modal-backdrop");
+
     // ====== THEMA ======
     function applySavedTheme() {
       const saved = localStorage.getItem("theme") || "dark";
@@ -1063,58 +1430,7 @@
 
     detailBackBtnEl.addEventListener("click", () => switchScreen("recipesScreen"));
 
-    // ====== JSON LADEN & INIT ======
-    async function loadDataAndInit() {
-      try {
-        const [ingRes, recRes, recIngRes] = await Promise.all([
-          fetch("ingredients.json"),
-          fetch("recipes.json"),
-          fetch("recipeIngredients.json")
-        ]);
-
-        if (!ingRes.ok || !recRes.ok || !recIngRes.ok) {
-          throw new Error("Kon JSON-bestanden niet laden");
-        }
-
-        ingredients = await ingRes.json();
-        recipes = await recRes.json();
-        recipeIngredients = await recIngRes.json();
-
-        // Favorites laden vóór we select renderen
-        loadFavorites();
-        initIngredientSelect();
-
-        loadPantryFromStorage();
-        loadPersonsFromStorage();
-        loadFiltersFromStorage();
-        loadShoppingListFromStorage();
-
-        renderPantryChips();
-        renderShoppingList();
-        renderRecipeGroups({ all: [], almost: [], missing: [] }, currentPersons);
-      } catch (err) {
-        console.error(err);
-        alert("Er ging iets mis bij het laden van de data (JSON). Controleer of de bestanden in dezelfde map staan.");
-      }
-    }
-
     // ====== FAVORIETEN (INGREDIËNTEN) ======
-    function getFilteredSortedIngredients() {
-      const search = ingredientSearchEl.value.trim().toLowerCase();
-      return ingredients
-        .filter(ing =>
-          !search ||
-          ing.name.toLowerCase().includes(search)
-        )
-        .sort((a, b) => {
-          const favA = !!ingFavorite(a.id);
-          const favB = !!ingFavorite(b.id);
-          if (favA && !favB) return -1;
-          if (!favA && favB) return 1;
-          return a.name.localeCompare(b.name, "nl");
-        });
-    }
-
     function ingFavorite(id) {
       const favIds = JSON.parse(localStorage.getItem("favorites") || "[]");
       return favIds.includes(id);
@@ -1129,8 +1445,23 @@
 
     function loadFavorites() {
       const favIds = JSON.parse(localStorage.getItem("favorites") || "[]");
-      // niets speciaals nodig; we lezen ze via ingFavorite()
       return favIds;
+    }
+
+    function getFilteredSortedIngredients() {
+      const search = ingredientSearchEl.value.trim().toLowerCase();
+      return ingredients
+        .filter(ing =>
+          !search ||
+          ing.name.toLowerCase().includes(search)
+        )
+        .sort((a, b) => {
+          const favA = !!ingFavorite(a.id);
+          const favB = !!ingFavorite(b.id);
+          if (favA && !favB) return -1;
+          if (!favA && favB) return 1;
+          return a.name.localeCompare(b.name, "nl");
+        });
     }
 
     function renderIngredientSelect(preserveSelected = true) {
@@ -1280,6 +1611,50 @@
       localStorage.setItem("shoppingList", JSON.stringify(plain));
     }
 
+    // ====== ALTIJD IN HUIS ======
+    function loadAlwaysInHouseFromStorage() {
+      try {
+        const raw = localStorage.getItem("alwaysInHouse") || "[]";
+        const arr = JSON.parse(raw);
+        alwaysInHouseIds = new Set(arr.map(Number));
+      } catch {
+        alwaysInHouseIds = new Set();
+      }
+    }
+
+    function saveAlwaysInHouseToStorage() {
+      localStorage.setItem("alwaysInHouse", JSON.stringify(Array.from(alwaysInHouseIds)));
+    }
+
+    function syncAlwaysInHouseUIFromState() {
+      const boxes = document.querySelectorAll('#alwaysInHouseModal input[type="checkbox"]');
+      boxes.forEach((box) => {
+        const name = (box.dataset.ingredientName || "").toLowerCase();
+        if (!name) {
+          box.checked = false;
+          return;
+        }
+        const ing = ingredients.find((i) =>
+          i.name.toLowerCase().includes(name)
+        );
+        if (!ing) {
+          box.checked = false;
+          return;
+        }
+        box.dataset.ingredientId = ing.id;
+        box.checked = alwaysInHouseIds.has(ing.id);
+      });
+    }
+
+    function openAlwaysInHouseModal() {
+      syncAlwaysInHouseUIFromState();
+      alwaysInHouseModalEl.setAttribute("aria-hidden", "false");
+    }
+
+    function closeAlwaysInHouseModal() {
+      alwaysInHouseModalEl.setAttribute("aria-hidden", "true");
+    }
+
     // ====== VOORRAAD CHIPS ======
     function renderPantryChips() {
       pantryChipsEl.innerHTML = "";
@@ -1324,7 +1699,14 @@
       rIngredients.forEach((ri) => {
         const needed = ri.amount * scale;
         const pantryItem = pantry.get(ri.ingredient_id);
-        const have = pantryItem ? pantryItem.quantity : 0;
+
+        let have = pantryItem ? pantryItem.quantity : 0;
+
+        // Altijd in huis: als niet in pantry maar wel in alwaysInHouseIds → doen alsof we genoeg hebben
+        if (!pantryItem && alwaysInHouseIds.has(ri.ingredient_id)) {
+          have = needed;
+        }
+
         const diff = needed - have;
 
         const ing = ingredients.find((i) => i.id === ri.ingredient_id);
@@ -1365,14 +1747,12 @@
       if (recipe.description && recipe.description.toLowerCase().includes(t)) return true;
       if (recipe.category && recipe.category.toLowerCase().includes(t)) return true;
 
-      // zoek in ingrediënten
       const rIng = getRecipeIngredients(recipe.id);
       for (const ri of rIng) {
         const ing = ingredients.find(i => i.id === ri.ingredient_id);
         if (ing && ing.name.toLowerCase().includes(t)) return true;
       }
 
-      // zoek in tijd (bijv "30" → 30 min)
       if (String(recipe.time || "").includes(t)) return true;
 
       return false;
@@ -1665,7 +2045,12 @@
         const name = ing ? ing.name : `Ingrediënt #${ri.ingredient_id}`;
         const needed = ri.amount * scale;
         const pantryItem = pantry.get(ri.ingredient_id);
-        const have = pantryItem ? pantryItem.quantity : 0;
+
+        let have = pantryItem ? pantryItem.quantity : 0;
+        if (!pantryItem && alwaysInHouseIds.has(ri.ingredient_id)) {
+          have = needed;
+        }
+
         const diff = needed - have;
 
         const li = document.createElement("li");
@@ -1899,6 +2284,84 @@
       currentPersons = Math.max(1, parseInt(personsEl.value, 10) || 1);
       savePersonsToStorage();
     });
+
+    // Altijd-in-huis popup events
+    alwaysInHouseOpenBtnEl.addEventListener("click", openAlwaysInHouseModal);
+    alwaysInHouseCloseBtnEl.addEventListener("click", closeAlwaysInHouseModal);
+    alwaysInHouseBackdropEl.addEventListener("click", closeAlwaysInHouseModal);
+
+    alwaysInHouseSelectAllBtnEl.addEventListener("click", () => {
+      document
+        .querySelectorAll('#alwaysInHouseModal input[type="checkbox"]')
+        .forEach((cb) => (cb.checked = true));
+    });
+
+    alwaysInHouseClearBtnEl.addEventListener("click", () => {
+      document
+        .querySelectorAll('#alwaysInHouseModal input[type="checkbox"]')
+        .forEach((cb) => (cb.checked = false));
+    });
+
+    alwaysInHouseApplyBtnEl.addEventListener("click", () => {
+      const boxes = document.querySelectorAll('#alwaysInHouseModal input[type="checkbox"]');
+      alwaysInHouseIds.clear();
+
+      boxes.forEach((box) => {
+        if (!box.checked) return;
+        const idStr = box.dataset.ingredientId;
+        if (!idStr) return;
+        alwaysInHouseIds.add(Number(idStr));
+      });
+
+      saveAlwaysInHouseToStorage();
+
+      if (
+        lastGroups.all.length > 0 ||
+        lastGroups.almost.length > 0 ||
+        lastGroups.missing.length > 0
+      ) {
+        applyFilters();
+      }
+
+      closeAlwaysInHouseModal();
+    });
+
+    // ====== JSON LADEN & INIT ======
+    async function loadDataAndInit() {
+      try {
+        const [ingRes, recRes, recIngRes] = await Promise.all([
+          fetch("ingredients.json"),
+          fetch("recipes.json"),
+          fetch("recipeIngredients.json")
+        ]);
+
+        if (!ingRes.ok || !recRes.ok || !recIngRes.ok) {
+          throw new Error("Kon JSON-bestanden niet laden");
+        }
+
+        ingredients = await ingRes.json();
+        recipes = await recRes.json();
+        recipeIngredients = await recIngRes.json();
+
+        loadFavorites();
+        initIngredientSelect();
+
+        loadAlwaysInHouseFromStorage();
+        syncAlwaysInHouseUIFromState();
+
+        loadPantryFromStorage();
+        loadPersonsFromStorage();
+        loadFiltersFromStorage();
+        loadShoppingListFromStorage();
+
+        renderPantryChips();
+        renderShoppingList();
+        renderRecipeGroups({ all: [], almost: [], missing: [] }, currentPersons);
+      } catch (err) {
+        console.error(err);
+        alert("Er ging iets mis bij het laden van de data (JSON). Controleer of de bestanden in dezelfde map staan.");
+      }
+    }
 
     // ====== START ======
     loadDataAndInit();
