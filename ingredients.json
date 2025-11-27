@@ -500,7 +500,6 @@
   { "id": 2138, "name": "Gehaktbalmix" },
   { "id": 2139, "name": "Shoarmavlees kip" },
   { "id": 2140, "name": "Kipfiletreepjes" },
-
   { "id": 2141, "name": "Zwaardvisfilet" },
   { "id": 2142, "name": "Tonijnsteak" },
   { "id": 2143, "name": "Scampi" },
@@ -509,7 +508,6 @@
   { "id": 2146, "name": "Garnalen klein" },
   { "id": 2147, "name": "Gerookte makreel" },
   { "id": 2148, "name": "Gerookte zalm" },
-
   { "id": 2149, "name": "Asperges groen" },
   { "id": 2150, "name": "Spruitjes" },
   { "id": 2151, "name": "Knolselderij" },
@@ -520,13 +518,11 @@
   { "id": 2156, "name": "Sugar snaps" },
   { "id": 2157, "name": "Groene aspergetips" },
   { "id": 2158, "name": "Rode biet" },
-
   { "id": 2159, "name": "Ricotta" },
   { "id": 2160, "name": "Burrata" },
   { "id": 2161, "name": "Blauwe kaas" },
   { "id": 2162, "name": "Cheddar geraspt" },
   { "id": 2163, "name": "Roomboter" },
-
   { "id": 2164, "name": "Rozemarijn" },
   { "id": 2165, "name": "Oregano" },
   { "id": 2166, "name": "Kaneel" },
@@ -535,7 +531,6 @@
   { "id": 2169, "name": "Witte wijn" },
   { "id": 2170, "name": "Groene currypasta" },
   { "id": 2171, "name": "Balsamico crème" },
-
   { "id": 2172, "name": "Zilvervliesrijst" },
   { "id": 2173, "name": "Volkoren pasta" },
   { "id": 2174, "name": "Ciabatta brood" },
