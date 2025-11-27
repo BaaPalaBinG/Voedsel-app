@@ -2340,6 +2340,228 @@
     "unit": "snuf"
   },
   {
+  "recipe_id": 1001,
+  "ingredient_id": 2001,
+  "amount": 400,
+  "unit": "g"
+},
+{
+  "recipe_id": 1001,
+  "ingredient_id": 2002,
+  "amount": 200,
+  "unit": "g"
+},
+{
+  "recipe_id": 1001,
+  "ingredient_id": 2003,
+  "amount": 80,
+  "unit": "g"
+},
+{
+  "recipe_id": 1002,
+  "ingredient_id": 2004,
+  "amount": 300,
+  "unit": "g"
+},
+{
+  "recipe_id": 1002,
+  "ingredient_id": 2008,
+  "amount": 250,
+  "unit": "ml"
+},
+{
+  "recipe_id": 1002,
+  "ingredient_id": 2009,
+  "amount": 30,
+  "unit": "g"
+},
+{
+  "recipe_id": 1003,
+  "ingredient_id": 2005,
+  "amount": 300,
+  "unit": "g"
+},
+{
+  "recipe_id": 1003,
+  "ingredient_id": 2006,
+  "amount": 4,
+  "unit": "st"
+},
+{
+  "recipe_id": 1004,
+  "ingredient_id": 2007,
+  "amount": 2,
+  "unit": "st"
+},
+{
+  "recipe_id": 1004,
+  "ingredient_id": 2004,
+  "amount": 200,
+  "unit": "g"
+},
+{
+  "recipe_id": 1004,
+  "ingredient_id": 2003,
+  "amount": 80,
+  "unit": "g"
+},
+{
+  "recipe_id": 1005,
+  "ingredient_id": 2010,
+  "amount": 160,
+  "unit": "g"
+},
+{
+  "recipe_id": 1005,
+  "ingredient_id": 2008,
+  "amount": 250,
+  "unit": "ml"
+},
+{
+  "recipe_id": 1005,
+  "ingredient_id": 2009,
+  "amount": 25,
+  "unit": "g"
+},
+{
+  "recipe_id": 1006,
+  "ingredient_id": 2015,
+  "amount": 200,
+  "unit": "g"
+},
+{
+  "recipe_id": 1006,
+  "ingredient_id": 2016,
+  "amount": 200,
+  "unit": "g"
+},
+{
+  "recipe_id": 1006,
+  "ingredient_id": 2012,
+  "amount": 80,
+  "unit": "g"
+},
+{
+  "recipe_id": 1006,
+  "ingredient_id": 2017,
+  "amount": 80,
+  "unit": "g"
+},
+{
+  "recipe_id": 1006,
+  "ingredient_id": 2018,
+  "amount": 100,
+  "unit": "g"
+},
+{
+  "recipe_id": 1006,
+  "ingredient_id": 2013,
+  "amount": 1,
+  "unit": "st"
+},
+{
+  "recipe_id": 1006,
+  "ingredient_id": 2014,
+  "amount": 1,
+  "unit": "st"
+},
+{
+  "recipe_id": 1007,
+  "ingredient_id": 2019,
+  "amount": 2,
+  "unit": "st"
+},
+{
+  "recipe_id": 1007,
+  "ingredient_id": 2012,
+  "amount": 80,
+  "unit": "g"
+},
+{
+  "recipe_id": 1007,
+  "ingredient_id": 2016,
+  "amount": 150,
+  "unit": "g"
+},
+{
+  "recipe_id": 1007,
+  "ingredient_id": 2013,
+  "amount": 1,
+  "unit": "st"
+},
+{
+  "recipe_id": 1008,
+  "ingredient_id": 2020,
+  "amount": 160,
+  "unit": "g"
+},
+{
+  "recipe_id": 1008,
+  "ingredient_id": 2004,
+  "amount": 200,
+  "unit": "g"
+},
+{
+  "recipe_id": 1008,
+  "ingredient_id": 2003,
+  "amount": 80,
+  "unit": "g"
+},
+{
+  "recipe_id": 1008,
+  "ingredient_id": 2012,
+  "amount": 80,
+  "unit": "g"
+},
+{
+  "recipe_id": 1009,
+  "ingredient_id": 2017,
+  "amount": 120,
+  "unit": "g"
+},
+{
+  "recipe_id": 1009,
+  "ingredient_id": 2015,
+  "amount": 150,
+  "unit": "g"
+},
+{
+  "recipe_id": 1009,
+  "ingredient_id": 2011,
+  "amount": 100,
+  "unit": "g"
+},
+{
+  "recipe_id": 1009,
+  "ingredient_id": 2018,
+  "amount": 100,
+  "unit": "g"
+},
+{
+  "recipe_id": 1009,
+  "ingredient_id": 2013,
+  "amount": 1,
+  "unit": "st"
+},
+{
+  "recipe_id": 1009,
+  "ingredient_id": 2014,
+  "amount": 1,
+  "unit": "st"
+},
+{
+  "recipe_id": 1010,
+  "ingredient_id": 2005,
+  "amount": 250,
+  "unit": "g"
+},
+{
+  "recipe_id": 1010,
+  "ingredient_id": 2008,
+  "amount": 200,
+  "unit": "ml"
+},
+{
     "recipe_id": 1101,
     "ingredient_id": 2031,
     "amount": 274,
