@@ -1019,6 +1019,17 @@
             <button class="btn-ghost" id="resetFiltersBtn">Filters resetten</button>
           </div>
         </div>
+        <!-- NIEUW: Allergieën & niet geliefd -->
+        <div class="controls-grid" style="margin-top:12px; grid-template-columns: repeat(2, minmax(0,1fr));">
+          <div class="field">
+            <label for="filterAllergy">Allergieën (vermijd)</label>
+            <input type="text" id="filterAllergy" placeholder="bijv. noten, lactose" />
+          </div>
+          <div class="field">
+            <label for="filterDisliked">Niet geliefd (vermijd)</label>
+            <input type="text" id="filterDisliked" placeholder="bijv. spruitjes, koriander" />
+          </div>
+        </div>
       </section>
 
       <section class="results-section">
@@ -1079,6 +1090,9 @@
         <div class="shopping-footer">
           <button class="btn-secondary" id="backToRecipes">
             ⬅️ Terug naar recepten
+          </button>
+          <button class="btn-secondary" id="shoppingExportOpenBtn">
+            📤 Exporteer lijst
           </button>
           <button class="btn-danger" id="clearShopping">
             🗑️ Maak lijst leeg
@@ -1471,6 +1485,26 @@
     </div>
   </div>
 
+  <!-- SHOPPING EXPORT POPUP -->
+  <div id="shoppingExportModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <header class="modal-header">
+        <h2>Boodschappenlijst</h2>
+        <p>Overzicht van alles wat je nog moet halen.</p>
+        <button id="shoppingExportCloseBtn" class="modal-close">×</button>
+      </header>
+      <main class="modal-body">
+        <textarea id="shoppingExportText" rows="10" style="width:100%;"></textarea>
+      </main>
+      <footer class="modal-footer">
+        <button class="btn-secondary" id="shoppingExportCopyBtn">
+          📋 Kopieer naar klembord
+        </button>
+      </footer>
+    </div>
+  </div>
+
   <script>
     let ingredients = [];
     let recipes = [];
@@ -1502,6 +1536,8 @@
     const filterMaxTimeEl = document.getElementById("filterMaxTime");
     const sortByEl = document.getElementById("sortBy");
     const recipeSearchEl = document.getElementById("recipeSearch");
+    const filterAllergyEl = document.getElementById("filterAllergy");
+    const filterDislikedEl = document.getElementById("filterDisliked");
     const resetFiltersBtnEl = document.getElementById("resetFiltersBtn");
 
     const recipesAllEl = document.getElementById("recipesAll");
@@ -1567,7 +1603,12 @@
     const planningExportCopyBtnEl = document.getElementById("planningExportCopyBtn");
     const planningExportOpenBtnEl = document.getElementById("planningExportOpenBtn");
 
-    const planningExportButton = document.getElementById("planningExportOpenBtn");
+    const shoppingExportModalEl = document.getElementById("shoppingExportModal");
+    const shoppingExportBackdropEl = shoppingExportModalEl.querySelector(".modal-backdrop");
+    const shoppingExportCloseBtnEl = document.getElementById("shoppingExportCloseBtn");
+    const shoppingExportTextEl = document.getElementById("shoppingExportText");
+    const shoppingExportCopyBtnEl = document.getElementById("shoppingExportCopyBtn");
+    const shoppingExportOpenBtnEl = document.getElementById("shoppingExportOpenBtn");
 
     function applySavedTheme() {
       const saved = localStorage.getItem("theme") || "dark";
@@ -1752,6 +1793,8 @@
         if (f.maxTime) filterMaxTimeEl.value = f.maxTime;
         if (f.sortBy) sortByEl.value = f.sortBy;
         if (f.search) recipeSearchEl.value = f.search;
+        if (f.allergy) filterAllergyEl.value = f.allergy;
+        if (f.disliked) filterDislikedEl.value = f.disliked;
       } catch {}
     }
 
@@ -1762,7 +1805,9 @@
         maxKcal: filterMaxKcalEl.value,
         maxTime: filterMaxTimeEl.value,
         sortBy: sortByEl.value,
-        search: recipeSearchEl.value
+        search: recipeSearchEl.value,
+        allergy: filterAllergyEl.value,
+        disliked: filterDislikedEl.value
       };
       localStorage.setItem("filters", JSON.stringify(state));
     }
@@ -1961,6 +2006,20 @@
       return false;
     }
 
+    function recipeHasAnyIngredientName(recipe, nameList) {
+      if (!nameList || nameList.length === 0) return false;
+      const rIng = getRecipeIngredients(recipe.id);
+      for (const ri of rIng) {
+        const ing = ingredients.find(i => i.id === ri.ingredient_id);
+        if (!ing) continue;
+        const ingName = ing.name.toLowerCase();
+        if (nameList.some(term => term && ingName.includes(term))) {
+          return true;
+        }
+      }
+      return false;
+    }
+
     // interne helper, zodat we bij planning geen schermwissel hoeven te doen
     function addMissingToShoppingListInternal(recipe, missingList, options = {}) {
       const { switchToShopping = true } = options;
@@ -2127,7 +2186,6 @@
       savePlanningToStorage();
       renderPlanning();
 
-      // ⬇️ hier: automatisch ontbrekende ingrediënten voor deze planning naar boodschappenlijst
       const miss = calculateMissingForRecipe(planningCurrentRecipe.recipe, personsVal);
       if (miss.missing.length > 0) {
         addMissingToShoppingListInternal(planningCurrentRecipe.recipe, miss.missing, {
@@ -2565,6 +2623,16 @@
       const sortBy = sortByEl.value;
       const searchTerm = recipeSearchEl.value.trim();
 
+      const allergyTerm = filterAllergyEl.value.trim();
+      const dislikedTerm = filterDislikedEl.value.trim();
+
+      const allergyList = allergyTerm
+        ? allergyTerm.split(",").map(s => s.trim().toLowerCase()).filter(Boolean)
+        : [];
+      const dislikedList = dislikedTerm
+        ? dislikedTerm.split(",").map(s => s.trim().toLowerCase()).filter(Boolean)
+        : [];
+
       saveFiltersToStorage();
 
       const combined = [];
@@ -2584,6 +2652,8 @@
         if (hasMaxKcal && recipe.calories > maxKcalVal) return;
         if (hasMaxTime && (recipe.time || 999) > maxTimeVal) return;
         if (!recipeMatchesSearch(recipe, searchTerm)) return;
+        if (recipeHasAnyIngredientName(recipe, allergyList)) return;
+        if (recipeHasAnyIngredientName(recipe, dislikedList)) return;
 
         filteredGroups[group].push({ recipe, missingInfo });
       });
@@ -2638,6 +2708,8 @@
       filterMaxTimeEl.value = "999";
       sortByEl.value = "recommended";
       recipeSearchEl.value = "";
+      filterAllergyEl.value = "";
+      filterDislikedEl.value = "";
       saveFiltersToStorage();
       applyFilters();
     });
@@ -2648,6 +2720,8 @@
     filterMaxTimeEl.addEventListener("change", applyFilters);
     sortByEl.addEventListener("change", applyFilters);
     recipeSearchEl.addEventListener("input", applyFilters);
+    filterAllergyEl.addEventListener("input", applyFilters);
+    filterDislikedEl.addEventListener("input", applyFilters);
 
     document.getElementById("addIngredientBtn").addEventListener("click", () => {
       const ingId = parseInt(ingredientSelectEl.value, 10);
@@ -2777,6 +2851,70 @@
           planningExportTextEl.select();
           document.execCommand("copy");
           alert("Planning gekopieerd naar je klembord ✅");
+        }
+      } catch (e) {
+        alert("Kopiëren is niet gelukt. Selecteer en kopieer de tekst handmatig.");
+      }
+    });
+
+    // EXPORT VAN BOODSCHAPPENLIJST → TEKST
+    function generateShoppingExportText() {
+      const items = Array.from(shoppingList.entries());
+      if (items.length === 0) {
+        return "Boodschappenlijst is leeg.";
+      }
+
+      const lines = [];
+      lines.push("Boodschappenlijst (nog te halen)");
+      lines.push("");
+
+      let openCount = 0;
+
+      items.forEach(([id, item]) => {
+        if (item.checked) return;
+        openCount++;
+        const amountText =
+          item.unit === "snuf"
+            ? "snufje(s)"
+            : `${Math.round(item.quantity * 10) / 10} ${item.unit}`;
+        const recipeNames = Array.from(item.recipes);
+        const recipeText = recipeNames.length ? ` (voor: ${recipeNames.join(", ")})` : "";
+        lines.push(`- ${item.name}: ${amountText}${recipeText}`);
+      });
+
+      if (openCount === 0) {
+        return "Alle boodschappen zijn afgevinkt ✅";
+      }
+
+      return lines.join("\n");
+    }
+
+    function openShoppingExportModal() {
+      shoppingExportTextEl.value = generateShoppingExportText();
+      shoppingExportModalEl.setAttribute("aria-hidden", "false");
+    }
+
+    function closeShoppingExportModal() {
+      shoppingExportModalEl.setAttribute("aria-hidden", "true");
+    }
+
+    shoppingExportBackdropEl.addEventListener("click", closeShoppingExportModal);
+    shoppingExportCloseBtnEl.addEventListener("click", closeShoppingExportModal);
+
+    shoppingExportOpenBtnEl.addEventListener("click", () => {
+      openShoppingExportModal();
+    });
+
+    shoppingExportCopyBtnEl.addEventListener("click", async () => {
+      const text = shoppingExportTextEl.value;
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(text);
+          alert("Boodschappenlijst gekopieerd naar je klembord ✅");
+        } else {
+          shoppingExportTextEl.select();
+          document.execCommand("copy");
+          alert("Boodschappenlijst gekopieerd naar je klembord ✅");
         }
       } catch (e) {
         alert("Kopiëren is niet gelukt. Selecteer en kopieer de tekst handmatig.");
